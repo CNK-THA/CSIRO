@@ -1,80 +1,59 @@
-# import pandas as pd
 import json
-
-
 from pathlib import Path
 
-
-##df = pd.read_table('allCountries.txt', header=None, index_col=0) #THIS TAKES BOTH THE NUMBER AND NAME!!! FIXX
-
-##print(df)
-# df.sort_values(["10"])
-
-##print(df.groupby(7).head(100))
-
-
-##print(df.iloc[:,0])
+# from pykson import JsonObject, IntegerField, StringField, ObjectListField
 
 
 
-
-
-
-# print(df.iloc[20])
-
-
-# print(df.iloc[100])
-
-
-
-# class Jsonable(object):
-#     def __iter__(self):
-#         for attr, value in self.__dict__.iteritems():
-#             if isinstance(value, datetime.datetime):
-#                 iso = value.isoformat()
-#                 yield attr, iso
-#             elif isinstance(value, decimal.Decimal):
-#                 yield attr, str(value)
-#             elif(hasattr(value, '__iter__')):
-#                 if(hasattr(value, 'pop')):
-#                     a = []
-#                     for subval in value:
-#                         if(hasattr(subval, '__iter__')):
-#                             a.append(dict(subval))
-#                         else:
-#                             a.append(subval)
-#                     yield attr, a
-#                 else:
-#                     yield attr, dict(value)
-#             else:
-#                 yield attr, value
-
-
-class Location:
-    def __init__(self, countryCode):
-        self.countryCode = countryCode
-        self.regions = {}
+class Country:
+    def __init__(self, countryName):
+        self.countryName = countryName
+        self.states = {}
+        self.test = {"CountryName":self.countryName,"States":self.states}
         
     def add_region(self, region):
         key = region.regionCode
-        if self.regions.get(key) is None:
-            self.regions[key] = region
+        if self.states.get(key) is None:
+            self.states[key] = region
         
     def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, 
+
+        return json.dumps(self, default=lambda o: o.test, # was __dict__
             sort_keys=True, indent=4)
 
-class SmallestRegion:
+
+class Region:
     def __init__(self, regionName, regionCode, parent):
         self.regionName = regionName
         self.regionCode = regionCode
         self.parentCode = parent
         self.subRegions = {}
+        self.test = {"Region_Name":self.regionName, "Sub_Regions":self.subRegions}
+        # self.__dict__ = {"testing":123}
 
     def add_sub_region(self, region):
         key = region.regionName
         if self.subRegions.get(key) is None:
             self.subRegions[key] = region
+
+    def __eq__(self, other):
+        return self.regionName == other.regionName
+
+    def __hash__(self):
+        return hash(self.regionName)
+
+    def __str__(self):
+        return self.regionName + ", " + self.regionCode + ", "
+
+    # def __dict__(self):
+    #     return {"name": "Dell Alienware", "processor": "Intel Core i7", "hdd": 512, "ram": 8, "cost": 2500.0}
+
+
+class SmallestRegion:
+    def __init__(self, regionName, parent):
+        self.regionName = regionName
+        self.parentCode = parent
+        self.test = self.regionName
 
     def __eq__(self, other):
         return self.regionName == other.regionName
@@ -136,17 +115,17 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
         
         #if this is the first one or have moved on to next country
         if current == None:
-            current = Location(countriesList.get(d[8]))
-        elif current != None and current.countryCode != countriesList.get(d[8]):
+            current = Country(countriesList.get(d[8]))
+        elif current != None and current.countryName != countriesList.get(d[8]):
 
 
             for stuff in temporaryList: #delete from list so better efficiency?? Same with nested
 
                 try: #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
-                    top = current.regions.get(stuff.parentCode)
-                    if current.countryCode == "Australia" and top is None:
+                    top = current.states.get(stuff.parentCode)
+                    if current.countryName == "Australia" and top is None:
                         print(stuff)
-                        print(current.regions)
+                        print(current.states)
                         print(top)
                         input('stop')
 
@@ -154,9 +133,14 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
 
                     top.add_sub_region(stuff)
 
-                    for stuff2 in temporaryList3:
+                    tmp = []
+                    while temporaryList3: # while it is not empty
+                        stuff2 = temporaryList3.pop()
                         if stuff2.parentCode == stuff.regionCode:
                             stuff.add_sub_region(stuff2)
+                        else:
+                            tmp.append(stuff2)
+                    temporaryList3 = tmp
 
                     # if current.countryCode == "Australia":
                     #     print(stuff)
@@ -172,7 +156,8 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
                     pass
 
 
-
+            # print(temporaryList)
+            # input(temporaryList3)
 
 
 
@@ -182,7 +167,7 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             output.write(current.toJSON())
             output.close()
 
-            current = Location(countriesList.get(d[8])) #parse country, CHECK NULL VALUE??
+            current = Country(countriesList.get(d[8])) #parse country, CHECK NULL VALUE??
 
             # if d[10] != '':
             #     currentRegion = Region(d[10])  # parse region level 1
@@ -205,13 +190,13 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             # print(d[2])
             # print(current)
         if d[7] == "ADM1":
-            currentRegion = SmallestRegion(d[2], d[10], d[8]) #level 2, STATES
+            currentRegion = Region(d[2], d[10], d[8]) # level 2, STATES
             current.add_region(currentRegion)
         elif d[7] == "ADM2":
-            currentRegion = SmallestRegion(d[2], d[11], d[10])
+            currentRegion = Region(d[2], d[11], d[10])
             temporaryList.append(currentRegion)
         elif d[7] == "PPLX":
-            currentRegion = SmallestRegion(d[2], "XXX", d[11]) #DOUBLE CHECK THIS
+            currentRegion = SmallestRegion(d[2], d[11]) #DOUBLE CHECK THIS
             temporaryList3.append(currentRegion)
             # top = current.regions.get(d[10])
             # currentRegion = SmallestRegion(d[2], d[10])
