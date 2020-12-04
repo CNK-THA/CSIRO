@@ -1,25 +1,5 @@
 import json
-from pathlib import Path
 
-# from pykson import JsonObject, IntegerField, StringField, ObjectListField
-
-
-
-class Country:
-    def __init__(self, countryName):
-        self.countryName = countryName
-        self.states = {}
-        self.test = {"CountryName":self.countryName,"States":self.states}
-        
-    def add_region(self, region):
-        key = region.regionCode
-        if self.states.get(key) is None:
-            self.states[key] = region
-        
-    def toJSON(self):
-
-        return json.dumps(self, default=lambda o: o.test, # was __dict__
-            sort_keys=True, indent=4)
 
 
 class Region:
@@ -29,10 +9,9 @@ class Region:
         self.parentCode = parent
         self.subRegions = {}
         self.test = {"Region_Name":self.regionName, "Sub_Regions":self.subRegions}
-        # self.__dict__ = {"testing":123}
 
     def add_sub_region(self, region):
-        key = region.regionName
+        key = region.regionCode
         if self.subRegions.get(key) is None:
             self.subRegions[key] = region
 
@@ -45,33 +24,19 @@ class Region:
     def __str__(self):
         return self.regionName + ", " + self.regionCode + ", "
 
-    # def __dict__(self):
-    #     return {"name": "Dell Alienware", "processor": "Intel Core i7", "hdd": 512, "ram": 8, "cost": 2500.0}
-
-
-class SmallestRegion:
-    def __init__(self, regionName, parent):
-        self.regionName = regionName
-        self.parentCode = parent
-        self.test = self.regionName
-
-    def __eq__(self, other):
-        return self.regionName == other.regionName
-
-    def __hash__(self):
-        return hash(self.regionName)
-
-    def __str__(self):
-        return self.regionName + ", " + self.regionCode + ", "
-
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.test, # was __dict__
+            sort_keys=True, indent=4)
 
 
 current = None
-countriesList = {}
+countriesList = {} # stores a mapping between country code and the country name
 
 
 temporaryList = []
-temporaryList3 = [] #level 3
+temporaryList3 = [] #level 3 PPLX
+temporaryList3_2 = [] #level 3 ADM3
+temporaryList4 = [] #level 4 ADM4
 with open("countryInfo.txt", 'r', encoding="utf8") as countryFile:
     lineNumber = 0
     for line1 in countryFile:
@@ -85,7 +50,7 @@ with open("countryInfo.txt", 'r', encoding="utf8") as countryFile:
 
 
 with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile: #str(Path.home())+"/Downloads/
-
+    suburbCounter = 0
     for line in dataFile:
         d = line.split("\t")
 
@@ -99,145 +64,109 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
         if d[6] != 'P' and d[6] != 'A': #ONLY GET CLASS A INFORMATION
             continue
 
-        # try:
-        #     d.index("AU")
-        #     d.index("PPLX")
-        #     # d.index("ADM3")
-        #     # print(d[7])
-        #     # print(d[7] == "ADM")
-        #     # # d.index("US")
-        #     print(d)
-        # except:
-        #     pass
+        try:
+            d.index("IT")
+            d.index("PPLX")
+            # d.index("ADM4")
+            # print(d[7])
+            # print(d[7] == "ADM")
+            # # d.index("US")
+            print(d)
+        except:
+            pass
+        continue
 
-
-        # input(d)
         
         #if this is the first one or have moved on to next country
-        if current == None:
-            current = Country(countriesList.get(d[8]))
-        elif current != None and current.countryName != countriesList.get(d[8]):
+        if current is None:
+            # current = Country(countriesList.get(d[8]))
+            current = Region(countriesList.get(d[8]), d[8], None)
+        elif current is not None and current.regionName != countriesList.get(d[8]):
+            for stuff in temporaryList: #find states for each city, stuff is LEVEL 2
+                # #delete from list so better efficiency?? Same with nested
 
-
-            for stuff in temporaryList: #delete from list so better efficiency?? Same with nested
-
-                try: #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
-                    top = current.states.get(stuff.parentCode)
-                    if current.countryName == "Australia" and top is None:
+                #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
+                    top = current.subRegions.get(stuff.parentCode)
+                    if current.regionName == "Australia" and top is None:
                         print(stuff)
                         print(current.states)
                         print(top)
                         input('stop')
 
+                    if top is None:
+                        print("NONETYPE")
+                    else:
+                        top.add_sub_region(stuff)
 
 
-                    top.add_sub_region(stuff)
+                        tmp = []
+                        while temporaryList3_2:
+                            level3 = temporaryList3_2.pop()
+                            if stuff.regionCode == level3.parentCode:
+                                stuff.add_sub_region(level3)
 
-                    tmp = []
-                    while temporaryList3: # while it is not empty
-                        stuff2 = temporaryList3.pop()
-                        if stuff2.parentCode == stuff.regionCode:
-                            stuff.add_sub_region(stuff2)
-                        else:
-                            tmp.append(stuff2)
-                    temporaryList3 = tmp
+                                tmp2 = []
+                                while temporaryList4:
+                                    level4 = temporaryList4.pop()
+                                    if level4.parentCode == level3.regionCode:
+                                        level3.add_sub_region(level4)
+                                    else:
+                                        tmp2.append(level4)
+                                temporaryList4 = tmp2
 
-                    # if current.countryCode == "Australia":
-                    #     print(stuff)
-                    #     print(top)
-                    #     print(top.subRegions)
-                    #
-                    #     print("For each states we have")
-                    #     print(top.subRegions.get(3).subRegions)
-                    #     input('pause')
-
-
-                except:
-                    pass
+                            else:
+                                tmp.append(level3)
+                        temporaryList3_2 = tmp
 
 
-            # print(temporaryList)
-            # input(temporaryList3)
+
+                        tmp = []
+                        while temporaryList3: # while it is not empty
+                            stuff2 = temporaryList3.pop()
+                            if stuff2.parentCode == stuff.regionCode:
+                                stuff.add_sub_region(stuff2)
+                            else:
+                                tmp.append(stuff2)
+
+                        temporaryList3 = tmp
 
 
 
             temporaryList = []
+            temporaryList3 = []
+            temporaryList3_2 = []
+            temporaryList4 = []
 
             output = open("test.txt", "a")
             output.write(current.toJSON())
             output.close()
 
-            current = Country(countriesList.get(d[8])) #parse country, CHECK NULL VALUE??
-
-            # if d[10] != '':
-            #     currentRegion = Region(d[10])  # parse region level 1
-            #     current.add_region(currentRegion)
-
-            # if d[11] != '':
-            #     currentRegion2 = Region(d[11])  # parse region level 2
-            #     currentRegion.add_sub_region(currentRegion2)
-            #
-            # if d[12] != '':
-            #     currentRegion3 = Region(d[12])  # parse region level 3
-            #     currentRegion2.add_sub_region(currentRegion3)
-            #
-            # if d[13] != '':
-            #     currentRegion4 = SmallestRegion(d[13])  # parse region level 4
-            #     currentRegion3.add_sub_region(currentRegion4)
+            # current = Country(countriesList.get(d[8])) #parse country, CHECK NULL VALUE??
+            current = Region(countriesList.get(d[8]), d[8], None)
 
 
-        # else: #same country still
-            # print(d[2])
-            # print(current)
         if d[7] == "ADM1":
             currentRegion = Region(d[2], d[10], d[8]) # level 2, STATES
-            current.add_region(currentRegion)
+            current.add_sub_region(currentRegion)
         elif d[7] == "ADM2":
             currentRegion = Region(d[2], d[11], d[10])
             temporaryList.append(currentRegion)
-        elif d[7] == "PPLX":
-            currentRegion = SmallestRegion(d[2], d[11]) #DOUBLE CHECK THIS
+        elif d[7] == "ADM3":
+            currentRegion = Region(d[2], d[12], d[11])
+            temporaryList3_2.append(currentRegion)
+        elif d[7] == "ADM4":
+            currentRegion = Region(d[2], d[13], d[12])
+            temporaryList4.append(currentRegion)
+
+        elif d[7] == "PPLX": #Get the last level, check blank then add it there??
+            #ATM IT IS ADDING TO LEVEL 3
+            #use a counter here since the suburb doesn't have a code!
+            currentRegion = Region(d[2], d[11] + str(suburbCounter), d[11]) #DOUBLE CHECK THIS
             temporaryList3.append(currentRegion)
-            # top = current.regions.get(d[10])
-            # currentRegion = SmallestRegion(d[2], d[10])
-            # if top is None:
-            #     temporaryList.append(currentRegion)
-            # else:
-            #     top.add_sub_region(currentRegion)
+            suburbCounter += 1
 
 
 
-            # currentRegion = Region(d[10])  # parse region level 1
-            # currentRegion2 = Region(d[11])  # parse region level 2
-            # currentRegion3 = Region(d[12])  # parse region level 3
-            # currentRegion4 = SmallestRegion(d[13])  # parse region level 4
-            #
-            # # print(current.regions.keys())
-            # g = current.regions.get(d[10])
-            #
-            # # print(g)
-            # if g is None: #doesn't exist, add them
-            #     current.add_region(currentRegion)
-            # else: #already exist, use the existing
-            #     currentRegion = g
-
-            # g2 = currentRegion.subRegions.get(d[11])
-            # if g2 is None:  # doesn't exist, add them
-            #     currentRegion.add_sub_region(currentRegion2)
-            # else:  # already exist, use the new one
-            #     currentRegion2 = g2
-            #
-            # g3 = currentRegion2.subRegions.get(d[12])
-            # if g3 is None:  # doesn't exist, add them
-            #     currentRegion2.add_sub_region(currentRegion3)
-            # else:  # already exist, use the new one
-            #     currentRegion3 = g3
-            #
-            # g4 = currentRegion3.subRegions.get(d[13])
-            # if g4 is None:  # doesn't exist, add them
-            #     currentRegion3.add_sub_region(currentRegion4)
-            # else:  # already exist, use the new one
-            #     currentRegion4 = g4
 
 
 
