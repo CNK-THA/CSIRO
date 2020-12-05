@@ -1,13 +1,5 @@
 import json
 
-
-
-
-
-
-
-
-
 class Region:
     codeCounter = "0000000"
 
@@ -167,6 +159,9 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
             level4.append(child)
             regionLevel = 4
+        elif dataRow[7] == "PPLX":
+            child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
+            level4.append(child)
         else:
             continue #Change the Class filter above?
 
