@@ -53,7 +53,10 @@ allData = []
 
 level1 = None
 countriesList = {} # stores a mapping between country code and the country name
-FIPSToFHIR = {}
+FIPS_To_FHIR = {}
+FIPSToFHIRLevel1 = {}
+FIPSToFHIRLevel2 = {}
+FIPSToFHIRLevel3 = {}
 
 level2 = []
 level3 = []
@@ -85,9 +88,9 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             continue
 
         # try:
-        #     dataRow.index("DE")
+        #     dataRow.index("FM")
         #     # if d[8] == 'AN':
-        #     d.index("PPLX")
+        #     dataRow.index("MA")
         #     # dataRow.index("ADM3")
         #     # print(d[7])
         #     # print(d[7] == "ADM")
@@ -103,7 +106,7 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
         if level1 is None:
             # current = Country(countriesList.get(d[8]))
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
-            FIPSToFHIR[level1.regionCode] = level1.currentFHIRCode
+            FIPSToFHIRLevel1[level1.regionCode] = level1.currentFHIRCode
         elif level1 is not None and level1.regionCode != dataRow[8]:
 
             output = open("test.txt", "a")
@@ -112,39 +115,58 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
 
             for city in level3:
                 #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
-                city.parentFHIRCode = FIPSToFHIR.get(city.parent)
+                city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
                 allData.append(city) # write it already, need to save still?
                 output.write(city.toJSON())
             for suburb in level4:
-                suburb.parentFHIRCode = FIPSToFHIR.get(suburb.parent)
-                allData.append(suburb) # write it already, need to save still?
+                suburb.parentFHIRCode = FIPSToFHIRLevel3.get(suburb.parent)
+                allData.append(suburb)  # write it already, need to save still?
                 output.write(suburb.toJSON())
-
-
-
 
             level2 = []
             level3 = []
             level4 = []
+            FIPSToFHIRLevel2 = {}
+            FIPSToFHIRLevel3 = {}
 
             allData.append(level1)
             output.write(level1.toJSON())
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
+            FIPSToFHIRLevel1[level1.regionCode] = level1.currentFHIRCode
             output.close()
 
 
         child = None
+        regionLevel = 0
         if dataRow[7] == "ADM1": # LEVEL 2 STATES
-            print("ONE")
+            # print("ONE")
             child = Region(dataRow[2], dataRow[10], dataRow[8])
+            child.parentFHIRCode = FIPSToFHIRLevel1.get(child.parent)
+            regionLevel = 2
+            if FIPSToFHIRLevel2.get(child.regionCode) is not None:
+                print(dataRow)
+                print(child.regionCode)
+                input("SHIT2")
+            FIPSToFHIRLevel2[child.regionCode] = child.currentFHIRCode
+            output = open("test.txt", "a")
+            output.write(child.toJSON())
+            output.close()
+
         elif dataRow[7] == "ADM2": # LEVEL 3 CITY
-            print("TWO")
-            child = Region(dataRow[2], dataRow[11], dataRow[10])
+            # print("TWO")
+            child = Region(dataRow[2], dataRow[10] + dataRow[11], dataRow[10])
             level3.append(child)
+            regionLevel = 3
+            if FIPSToFHIRLevel3.get(child.regionCode) is not None:
+                print(dataRow)
+                print(child.regionCode)
+                input("SHIT3")
+            FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
         elif dataRow[7] == "ADM3": # LEVEL 4 Suburbs #CHECK THIS AGAIN
-            print("THREE")
-            child = Region(dataRow[2], dataRow[12], dataRow[11])
+            # print("THREE")
+            child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
             level4.append(child)
+            regionLevel = 4
         else:
             continue #Change the Class filter above?
 
@@ -160,13 +182,18 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
         #     suburbCounter += 1
 
         # print(FIPSToFHIR)
-        # print(dataRow)
-        if FIPSToFHIR.get(level1.regionCode + child.regionCode) is not None:
-            print(FIPSToFHIR)
-            print(level1.regionCode + child.regionCode)
-            print(FIPSToFHIR.get(level1.regionCode + child.regionCode))
-            input("SHIT")
-        FIPSToFHIR[level1.regionCode + child.regionCode] = child.currentFHIRCode
+        # print(dataRow, "assigned", level1.regionCode + child.regionCode)
+        # if level1.regionCode + child.regionCode == "BEBRU":
+        #     print(dataRow)
+        # if FIPSToFHIR.get(str(regionLevel) + level1.regionCode + child.regionCode) is not None and regionLevel != 4:
+        #     # print(FIPSToFHIR)
+        #     print(dataRow)
+        #     print(str(regionLevel) + level1.regionCode + child.regionCode)
+        #     # print(FIPSToFHIR.get(level1.regionCode + child.regionCode))
+        #     input("SHIT")
+
+        # if regionLevel != 4: #no need to add the 4th level, won't have child anyway #AT THE MOMENT IT IS REPLACING OLD, FIXX!!
+        #     FIPSToFHIR[str(regionLevel) + level1.regionCode + child.regionCode] = child.currentFHIRCode
 
 
 
