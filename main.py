@@ -1,5 +1,12 @@
 import json
+from pathlib import Path
 
+from fhir.resources.codesystem import CodeSystem
+
+#https://github.com/nazrulworld/fhir.resources
+#https://www.hl7.org/fhir/resourcelist.html
+
+allData = []
 class Region:
     codeCounter = "0000000"
 
@@ -10,7 +17,7 @@ class Region:
         self.currentFHIRCode = None
         self.parentFHIRCode = None
         self.assignFHIRCode()
-        self.__output = {"FHIRCode":self.currentFHIRCode, "Name":self.name, "Parent":self.parentFHIRCode}
+        # self.__output = {"code":self.currentFHIRCode, "display":self.name, "Parent":self.parentFHIRCode}
 
         # self.subRegions = {}
         # self.test = {"Region_Name":self.regionName, "Sub_Regions":self.subRegions}
@@ -25,7 +32,7 @@ class Region:
         Region.codeCounter = '%07d' % (int(Region.codeCounter) + 1)
 
     def output(self):
-        return {"FHIRCode":self.currentFHIRCode, "Name":self.name, "Parent":self.parentFHIRCode}
+        return {"code":self.currentFHIRCode, "display":self.name, "Parent":self.parentFHIRCode}
 
     def __eq__(self, other):
         return self.regionName == other.regionName
@@ -67,7 +74,7 @@ with open("countryInfo.txt", 'r', encoding="utf8") as countryFile:
 
 
 
-with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile: #str(Path.home())+"/Downloads/
+with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
 
 
 
@@ -108,12 +115,14 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             for city in level3:
                 #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
                 city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
-                allData.append(city) # write it already, need to save still?
-                output.write(city.toJSON())
+                allData.append(city.toJSON()) # write it already, need to save still?
+                output.write(city.toJSON() + "\n")
+
             for suburb in level4:
                 suburb.parentFHIRCode = FIPSToFHIRLevel3.get(suburb.parent)
-                allData.append(suburb)  # write it already, need to save still?
-                output.write(suburb.toJSON())
+                allData.append(suburb.toJSON())  # write it already, need to save still?
+                output.write(suburb.toJSON() + "\n")
+
 
             level2 = []
             level3 = []
@@ -121,8 +130,8 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             FIPSToFHIRLevel2 = {}
             FIPSToFHIRLevel3 = {}
 
-            allData.append(level1)
-            output.write(level1.toJSON())
+            allData.append(level1.toJSON())
+            output.write(level1.toJSON() + "\n")
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
             FIPSToFHIRLevel1[level1.regionCode] = level1.currentFHIRCode
             output.close()
@@ -141,8 +150,9 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
                 input("SHIT2")
             FIPSToFHIRLevel2[child.regionCode] = child.currentFHIRCode
             output = open("test.txt", "a")
-            output.write(child.toJSON())
+            output.write(child.toJSON() + "\n")
             output.close()
+            allData.append(child.toJSON())
 
         elif dataRow[7] == "ADM2": # LEVEL 3 CITY
             # print("TWO")
@@ -159,7 +169,7 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
             child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
             level4.append(child)
             regionLevel = 4
-        elif dataRow[7] == "PPLX":
+        elif dataRow[7] == "PPLX": #find the latest non-empty one and use it instead of fixed [12]?
             child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
             level4.append(child)
         else:
@@ -196,7 +206,16 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
 
 
 
+data1 = {"status":"THIS IS A TEST", "content": ''.join(allData)}
 
+code = CodeSystem(data1)
+print(code.content)
+# print(code.as_json())
+
+
+# output = open("haha.txt", "a")
+# output.write(str(code.as_json()))
+# output.close()
 
 
         
