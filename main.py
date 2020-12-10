@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from fhir.resources.codesystem import CodeSystem
+from fhir.resources.codesystem import CodeSystemConcept
 
 #https://github.com/nazrulworld/fhir.resources
 #https://www.hl7.org/fhir/resourcelist.html
@@ -74,10 +75,25 @@ with open("countryInfo.txt", 'r', encoding="utf8") as countryFile:
 
 
 
+
+endResult = {"status":"THIS IS A TEST"}
+
+code = CodeSystem()
+code.concept = list()
+code.content = "complete"
+code.status = "draft"
+
+
+# # print(code.content)
+
+
+
+# output = open("haha.txt", "a")
+# output.write(str(code.as_json()))
+# output.close()
+
+
 with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
-
-
-
     for line in dataFile:
         dataRow = line.split("\t")
         if len(dataRow) != 19: # Expecting 19 columns
@@ -116,12 +132,27 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
                 #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
                 city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
                 allData.append(city.toJSON()) # write it already, need to save still?
-                output.write(city.toJSON() + "\n")
+                output.write(city.toJSON())
+
+                locationObject = CodeSystemConcept()
+                locationObject.code = city.currentFHIRCode
+                locationObject.display = city.name
+                locationObject.definition = city.parentFHIRCode #THIS IS SET TO THE PARENT
+                code.concept.append(locationObject)
+
+
+
 
             for suburb in level4:
                 suburb.parentFHIRCode = FIPSToFHIRLevel3.get(suburb.parent)
                 allData.append(suburb.toJSON())  # write it already, need to save still?
-                output.write(suburb.toJSON() + "\n")
+                output.write(suburb.toJSON())
+
+                locationObject = CodeSystemConcept()
+                locationObject.code = suburb.currentFHIRCode
+                locationObject.display = suburb.name
+                locationObject.definition = suburb.parentFHIRCode  # THIS IS SET TO THE PARENT
+                code.concept.append(locationObject)
 
 
             level2 = []
@@ -131,7 +162,15 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
             FIPSToFHIRLevel3 = {}
 
             allData.append(level1.toJSON())
-            output.write(level1.toJSON() + "\n")
+            output.write(level1.toJSON())
+
+            locationObject = CodeSystemConcept()
+            locationObject.code = level1.currentFHIRCode
+            locationObject.display = level1.name
+            locationObject.definition = level1.parentFHIRCode  # THIS IS SET TO THE PARENT
+            code.concept.append(locationObject)
+
+
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
             FIPSToFHIRLevel1[level1.regionCode] = level1.currentFHIRCode
             output.close()
@@ -150,9 +189,15 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
                 input("SHIT2")
             FIPSToFHIRLevel2[child.regionCode] = child.currentFHIRCode
             output = open("test.txt", "a")
-            output.write(child.toJSON() + "\n")
+            output.write(child.toJSON())
             output.close()
             allData.append(child.toJSON())
+
+            locationObject = CodeSystemConcept()
+            locationObject.code = child.currentFHIRCode
+            locationObject.display = child.name
+            locationObject.definition = child.parentFHIRCode  # THIS IS SET TO THE PARENT
+            code.concept.append(locationObject)
 
         elif dataRow[7] == "ADM2": # LEVEL 3 CITY
             # print("TWO")
@@ -204,17 +249,21 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
 
 
 
+print(code.as_json())
+print(type(code.as_json()))
+# print(allData)
 
-
-data1 = {"status":"THIS IS A TEST", "content": ''.join(allData)}
-
-code = CodeSystem(data1)
-print(code.content)
+# data1 = {"status":"THIS IS A TEST", "content": allData}
+#
+# code = CodeSystem(data1)
+# # print(code.content)
 # print(code.as_json())
 
+with open('result.json', 'w') as fp:
+    json.dump(code.as_json(), fp, indent=4)
 
 # output = open("haha.txt", "a")
-# output.write(str(code.as_json()))
+# output.write(code.as_json())
 # output.close()
 
 
