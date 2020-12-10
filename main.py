@@ -82,6 +82,10 @@ code = CodeSystem()
 code.concept = list()
 code.content = "complete"
 code.status = "draft"
+code.description = "CodeSystem for different administrative divisions around the world"
+code.experimental = True
+# code.date = "2020-12-11" #Expecting property "date" on <class 'fhir.resources.codesystem.CodeSystem'> to be <class 'fhir.resources.fhirdate.FHIRDate'>, but is <class 'str'>
+
 
 
 # # print(code.content)
@@ -92,6 +96,7 @@ code.status = "draft"
 # output.write(str(code.as_json()))
 # output.close()
 
+codeCounter = 0
 
 with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
     for line in dataFile:
@@ -103,9 +108,9 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
             continue
 
         # try:
-        #     dataRow.index("FM")
+        #     dataRow.index("Urbanitzacio Guem")
         #     # if d[8] == 'AN':
-        #     dataRow.index("MA")
+        #     # dataRow.index("MA")
         #     # dataRow.index("ADM3")
         #     # print(d[7])
         #     # print(d[7] == "ADM")
@@ -115,6 +120,8 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
         #     pass
         #     # print("ERROR")
         # continue
+
+
 
         
         #if this is the first one or have moved on to next country
@@ -139,6 +146,7 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
                 locationObject.display = city.name
                 locationObject.definition = city.parentFHIRCode #THIS IS SET TO THE PARENT
                 code.concept.append(locationObject)
+                codeCounter += 1
 
 
 
@@ -153,6 +161,7 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
                 locationObject.display = suburb.name
                 locationObject.definition = suburb.parentFHIRCode  # THIS IS SET TO THE PARENT
                 code.concept.append(locationObject)
+                codeCounter += 1
 
 
             level2 = []
@@ -169,6 +178,7 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
             locationObject.display = level1.name
             locationObject.definition = level1.parentFHIRCode  # THIS IS SET TO THE PARENT
             code.concept.append(locationObject)
+            codeCounter += 1
 
 
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
@@ -199,6 +209,8 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
             locationObject.definition = child.parentFHIRCode  # THIS IS SET TO THE PARENT
             code.concept.append(locationObject)
 
+            codeCounter += 1
+
         elif dataRow[7] == "ADM2": # LEVEL 3 CITY
             # print("TWO")
             child = Region(dataRow[2], dataRow[10] + dataRow[11], dataRow[10])
@@ -215,8 +227,36 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
             level4.append(child)
             regionLevel = 4
         elif dataRow[7] == "PPLX": #find the latest non-empty one and use it instead of fixed [12]?
-            child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
-            level4.append(child)
+            # child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
+            # level4.append(child)
+
+
+            if dataRow[10 + 0] == "":
+                continue
+                print(dataRow)
+                # input("fak we have an issue")
+            elif dataRow[10 + 1] == "": #this one must belong under AMD2
+                # input('belong here')
+                child = Region(dataRow[2], "XXXX", dataRow[10])
+                level3.append(child)
+                regionLevel = 3
+                # if FIPSToFHIRLevel3.get(child.regionCode) is not None: #THIS will cause error cause of XXXX the same for all
+                #     print(dataRow)
+                #     print(child.regionCode)
+                #     input("SHIT3")
+                FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
+            elif dataRow[10 + 2] == "":
+                # input('belong here2')
+                child = Region(dataRow[2], "YYYY", dataRow[10] + dataRow[11])
+                level4.append(child)
+                regionLevel = 4
+            else:
+                continue
+                print(dataRow) #beyond level 4?? after ADM3??
+                input('none of these')
+
+            # input("stop")
+
         else:
             continue #Change the Class filter above?
 
@@ -248,7 +288,7 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
 
 
 
-
+code.count = codeCounter
 print(code.as_json())
 print(type(code.as_json()))
 # print(allData)
