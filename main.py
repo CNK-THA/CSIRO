@@ -3,11 +3,18 @@ from pathlib import Path
 
 from fhir.resources.codesystem import CodeSystem
 from fhir.resources.codesystem import CodeSystemConcept
+from fhir.resources.fhirdate import FHIRDate
 
-#https://github.com/nazrulworld/fhir.resources
-#https://www.hl7.org/fhir/resourcelist.html
+from datetime import date
+
+from CustomExceptions import *
+
+# https://github.com/nazrulworld/fhir.resources
+# https://www.hl7.org/fhir/resourcelist.html
 
 allData = []
+
+
 class Region:
     codeCounter = "0000000"
 
@@ -33,7 +40,7 @@ class Region:
         Region.codeCounter = '%07d' % (int(Region.codeCounter) + 1)
 
     def output(self):
-        return {"code":self.currentFHIRCode, "display":self.name, "Parent":self.parentFHIRCode}
+        return {"code": self.currentFHIRCode, "display": self.name, "Parent": self.parentFHIRCode}
 
     def __eq__(self, other):
         return self.regionName == other.regionName
@@ -45,14 +52,14 @@ class Region:
         return self.regionName + ", " + self.regionCode + ", "
 
     def toJSON(self):
-        return json.dumps(self, default=lambda o: o.output(), # was __dict__
-            sort_keys=True, indent=4)
+        return json.dumps(self, default=lambda o: o.output(),  # was __dict__
+                          sort_keys=True, indent=4)
 
 
 allData = []
 
 level1 = None
-countriesList = {} # stores a mapping between country code and the country name
+countriesList = {}  # stores a mapping between country code and the country name
 FIPS_To_FHIR = {}
 FIPSToFHIRLevel1 = {}
 FIPSToFHIRLevel2 = {}
@@ -60,23 +67,19 @@ FIPSToFHIRLevel3 = {}
 
 level2 = []
 level3 = []
-temporaryList3 = [] #level 3 PPLX
-temporaryList3_2 = [] #level 3 ADM3
-level4 = [] #level 4 ADM4
+temporaryList3 = []  # level 3 PPLX
+temporaryList3_2 = []  # level 3 ADM3
+level4 = []  # level 4 ADM4
 with open("countryInfo.txt", 'r', encoding="utf8") as countryFile:
     lineNumber = 0
     for line1 in countryFile:
         lineNumber += 1
-        if lineNumber < 51: #DATA STARTS AT LINE 51
+        if lineNumber < 51:  # DATA STARTS AT LINE 51
             continue
         l = line1.split('\t')
         countriesList[l[0]] = l[4]
 
-
-
-
-
-endResult = {"status":"THIS IS A TEST"}
+endResult = {"status": "THIS IS A TEST"}
 
 code = CodeSystem()
 code.concept = list()
@@ -84,12 +87,10 @@ code.content = "complete"
 code.status = "draft"
 code.description = "CodeSystem for different administrative divisions around the world"
 code.experimental = True
-# code.date = "2020-12-11" #Expecting property "date" on <class 'fhir.resources.codesystem.CodeSystem'> to be <class 'fhir.resources.fhirdate.FHIRDate'>, but is <class 'str'>
-
-
+code.date = FHIRDate(str(date.today()))
+code.id = "Ontology-CSIRO"
 
 # # print(code.content)
-
 
 
 # output = open("haha.txt", "a")
@@ -98,17 +99,18 @@ code.experimental = True
 
 codeCounter = 0
 
-with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
+with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
     for line in dataFile:
         dataRow = line.split("\t")
-        if len(dataRow) != 19: # Expecting 19 columns
+        if len(dataRow) != 19:  # Expecting 19 columns
             print(dataRow)
             input("STOP")
-        if dataRow[6] != 'P' and dataRow[6] != 'A': #ONLY GET CLASS A and P INFORMATION
+        if (dataRow[6] != 'P' and dataRow[6] != 'A') or (dataRow[7] != 'PPLX' and dataRow[7] != 'ADM1' and dataRow[
+            7] != 'ADM2' and dataRow[7] != 'ADM3'):  # ONLY GET CLASS A and P INFORMATION
             continue
 
         # try:
-        #     dataRow.index("Urbanitzacio Guem")
+        #     dataRow.index("VN")
         #     # if d[8] == 'AN':
         #     # dataRow.index("MA")
         #     # dataRow.index("ADM3")
@@ -121,10 +123,7 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
         #     # print("ERROR")
         # continue
 
-
-
-        
-        #if this is the first one or have moved on to next country
+        # if this is the first one or have moved on to next country
         if level1 is None:
             # current = Country(countriesList.get(d[8]))
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
@@ -133,23 +132,18 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
 
             output = open("test.txt", "a")
 
-
-
             for city in level3:
-                #SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
+                # SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
                 city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
-                allData.append(city.toJSON()) # write it already, need to save still?
+                allData.append(city.toJSON())  # write it already, need to save still?
                 output.write(city.toJSON())
 
                 locationObject = CodeSystemConcept()
                 locationObject.code = city.currentFHIRCode
                 locationObject.display = city.name
-                locationObject.definition = city.parentFHIRCode #THIS IS SET TO THE PARENT
+                locationObject.definition = city.parentFHIRCode  # THIS IS SET TO THE PARENT
                 code.concept.append(locationObject)
                 codeCounter += 1
-
-
-
 
             for suburb in level4:
                 suburb.parentFHIRCode = FIPSToFHIRLevel3.get(suburb.parent)
@@ -162,7 +156,6 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
                 locationObject.definition = suburb.parentFHIRCode  # THIS IS SET TO THE PARENT
                 code.concept.append(locationObject)
                 codeCounter += 1
-
 
             level2 = []
             level3 = []
@@ -180,23 +173,19 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
             code.concept.append(locationObject)
             codeCounter += 1
 
-
             level1 = Region(countriesList.get(dataRow[8]), dataRow[8], None)
             FIPSToFHIRLevel1[level1.regionCode] = level1.currentFHIRCode
             output.close()
 
-
         child = None
         regionLevel = 0
-        if dataRow[7] == "ADM1": # LEVEL 2 STATES
-            # print("ONE")
+        if dataRow[7] == "ADM1" and dataRow[10] != '':  # LEVEL 2 STATES
             child = Region(dataRow[2], dataRow[10], dataRow[8])
             child.parentFHIRCode = FIPSToFHIRLevel1.get(child.parent)
             regionLevel = 2
             if FIPSToFHIRLevel2.get(child.regionCode) is not None:
-                print(dataRow)
-                print(child.regionCode)
-                input("SHIT2")
+                raise DuplicateRegionCode("Level 1 locations has multiple level 2 children of same region code")
+
             FIPSToFHIRLevel2[child.regionCode] = child.currentFHIRCode
             output = open("test.txt", "a")
             output.write(child.toJSON())
@@ -211,104 +200,40 @@ with open(str(Path.home())+"/Downloads/"+ "allCountries.txt", 'r', encoding="utf
 
             codeCounter += 1
 
-        elif dataRow[7] == "ADM2": # LEVEL 3 CITY
-            # print("TWO")
-            child = Region(dataRow[2], dataRow[10] + dataRow[11], dataRow[10])
+        elif dataRow[7] == "ADM2" and dataRow[11] != '' and dataRow[10] != '':  # LEVEL 3 CITY
+            child = Region(dataRow[2], dataRow[10] + dataRow[11], dataRow[10]) #do a plus between level 2 and 3 as a city in different states may have same name (but different location)
             level3.append(child)
             regionLevel = 3
             if FIPSToFHIRLevel3.get(child.regionCode) is not None:
-                print(dataRow)
-                print(child.regionCode)
-                input("SHIT3")
+                raise DuplicateRegionCode("Level 2 locations has multiple level 3 children of same region code")
+
             FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
-        elif dataRow[7] == "ADM3": # LEVEL 4 Suburbs #CHECK THIS AGAIN
-            # print("THREE")
+        elif dataRow[7] == "ADM3" and dataRow[12] != '' and dataRow[11] != '' and dataRow[10] != '':  # LEVEL 4 Suburbs #CHECK THIS AGAIN
             child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
             level4.append(child)
             regionLevel = 4
-        elif dataRow[7] == "PPLX": #find the latest non-empty one and use it instead of fixed [12]?
-            # child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
-            # level4.append(child)
 
-
-            if dataRow[10 + 0] == "":
+        elif dataRow[7] == "PPLX":  # find the latest non-empty one and use it instead of fixed [12]?
+            if dataRow[10 + 0] == "": # The adminitrative division codes are blank, cannot link to existing ones, ignore
                 continue
-                print(dataRow)
-                # input("fak we have an issue")
-            elif dataRow[10 + 1] == "": #this one must belong under AMD2
-                # input('belong here')
+            elif dataRow[10 + 1] == "":  # this one must belong under AMD2
                 child = Region(dataRow[2], "XXXX", dataRow[10])
                 level3.append(child)
                 regionLevel = 3
-                # if FIPSToFHIRLevel3.get(child.regionCode) is not None: #THIS will cause error cause of XXXX the same for all
-                #     print(dataRow)
-                #     print(child.regionCode)
-                #     input("SHIT3")
-                FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
+                # FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
             elif dataRow[10 + 2] == "":
-                # input('belong here2')
                 child = Region(dataRow[2], "YYYY", dataRow[10] + dataRow[11])
                 level4.append(child)
                 regionLevel = 4
-            else:
-                continue
-                print(dataRow) #beyond level 4?? after ADM3??
-                input('none of these')
-
-            # input("stop")
-
-        else:
-            continue #Change the Class filter above?
-
-        # elif dataRow[7] == "ADM4":
-        #     currentRegion = Region(d[2], d[13], d[12])
-        #     temporaryList4.append(currentRegion)
-
-        # elif dataRow[7] == "PPLX": #Get the last level, check blank then add it there??
-        #     #ATM IT IS ADDING TO LEVEL 3
-        #     #use a counter here since the suburb doesn't have a code!
-        #     currentRegion = Region(d[2], d[11] + str(suburbCounter), d[11]) #DOUBLE CHECK THIS
-        #     temporaryList3.append(currentRegion)
-        #     suburbCounter += 1
-
-        # print(FIPSToFHIR)
-        # print(dataRow, "assigned", level1.regionCode + child.regionCode)
-        # if level1.regionCode + child.regionCode == "BEBRU":
-        #     print(dataRow)
-        # if FIPSToFHIR.get(str(regionLevel) + level1.regionCode + child.regionCode) is not None and regionLevel != 4:
-        #     # print(FIPSToFHIR)
-        #     print(dataRow)
-        #     print(str(regionLevel) + level1.regionCode + child.regionCode)
-        #     # print(FIPSToFHIR.get(level1.regionCode + child.regionCode))
-        #     input("SHIT")
-
-        # if regionLevel != 4: #no need to add the 4th level, won't have child anyway #AT THE MOMENT IT IS REPLACING OLD, FIXX!!
-        #     FIPSToFHIR[str(regionLevel) + level1.regionCode + child.regionCode] = child.currentFHIRCode
 
 
 
+        # ignore anything else that doesn't fit the criteria above i.e. malformed data, AMD4, AMD5
 
 code.count = codeCounter
-print(code.as_json())
-print(type(code.as_json()))
-# print(allData)
-
-# data1 = {"status":"THIS IS A TEST", "content": allData}
-#
-# code = CodeSystem(data1)
-# # print(code.content)
-# print(code.as_json())
 
 with open('result.json', 'w') as fp:
     json.dump(code.as_json(), fp, indent=4)
-
-# output = open("haha.txt", "a")
-# output.write(code.as_json())
-# output.close()
-
-
-        
-        
 
 
 
@@ -333,3 +258,4 @@ with open('result.json', 'w') as fp:
 # dem               : digital elevation model, srtm3 or gtopo30, average elevation of 3''x3'' (ca 90mx90m) or 30''x30'' (ca 900mx900m) area in meters, integer. srtm processed by cgiar/ciat.
 # timezone          : the iana timezone id (see file timeZone.txt) varchar(40)
 # modification date : date of last modification in yyyy-MM-dd format
+
