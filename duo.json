@@ -1,0 +1,6241 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "duo",
+  "url": "http://purl.obolibrary.org/obo/duo.owl",
+  "version": "http://purl.obolibrary.org/obo/duo/releases/2020-02-03/duo.owl",
+  "name": "Data Use Ontology",
+  "status": "active",
+  "experimental": false,
+  "description": "DUO allows to semantically tag datasets with restriction about their usage, making them discoverable automatically based on the authorization level of users, or intended usage.",
+  "valueSet": "http://purl.obolibrary.org/obo/duo.owl?vs",
+  "hierarchyMeaning": "is-a",
+  "compositional": false,
+  "versionNeeded": false,
+  "content": "complete",
+  "count": 281,
+  "filter": [
+    {
+      "code": "root",
+      "operator": [
+        "="
+      ],
+      "value": "True or false."
+    },
+    {
+      "code": "deprecated",
+      "operator": [
+        "="
+      ],
+      "value": "True or false."
+    },
+    {
+      "code": "imported",
+      "operator": [
+        "="
+      ],
+      "value": "True or false"
+    }
+  ],
+  "property": [
+    {
+      "code": "parent",
+      "description": "Parent codes.",
+      "type": "code"
+    },
+    {
+      "code": "imported",
+      "description": "Indicates if the concept is imported from another code system.",
+      "type": "boolean"
+    },
+    {
+      "code": "root",
+      "description": "Indicates if this concept is a root concept (i.e. Thing is equivalent or a direct parent)",
+      "type": "boolean"
+    },
+    {
+      "code": "deprecated",
+      "description": "Indicates if this concept is deprecated.",
+      "type": "boolean"
+    }
+  ],
+  "concept": [
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000029",
+      "display": "numeral",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000028"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000132",
+      "display": "lot number",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000028"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000036",
+      "display": "research control",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000037",
+      "display": "biomedical research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000038",
+      "display": "genetic research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000037"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000039",
+      "display": "drug development research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000037"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000225",
+      "display": "obsolescence reason specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000144",
+      "display": "conclusion textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000301",
+      "display": "citation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000141",
+      "display": "obsolete_digital quality",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000140",
+      "display": "setting datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000422",
+      "display": "postal address",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000330",
+      "display": "copyright section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/OBI_0000011",
+      "display": "planned process",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000015"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0000051",
+      "display": "morphology",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/PATO_0001241"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000020",
+      "display": "EL++ ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000019"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000002",
+      "display": "editors ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000608",
+      "display": "author information textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000148",
+      "display": "zero-dimensional temporal region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000008"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000147",
+      "display": "zero-dimensional continuant fiat boundary",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000140"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000146",
+      "display": "two-dimensional continuant fiat boundary",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000140"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000145",
+      "display": "relational quality",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000019"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000144",
+      "display": "process profile",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000015"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000142",
+      "display": "one-dimensional continuant fiat boundary",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000140"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000141",
+      "display": "immaterial entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000004"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000140",
+      "display": "continuant fiat boundary",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000141"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0001708",
+      "display": "1-D extent",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/PATO_0000117"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000329",
+      "display": "running title",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000305"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000328",
+      "display": "table of figures",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000306"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000327",
+      "display": "table of contents",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000306"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000326",
+      "display": "supplementary material to a document",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000325",
+      "display": "footnote",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000324",
+      "display": "acknowledgements section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000323",
+      "display": "author contributions section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000322",
+      "display": "institution list",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000321",
+      "display": "author list",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000320",
+      "display": "references section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000008",
+      "display": "analysis subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000098",
+      "display": "data format specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000033"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000097",
+      "display": "obsolete_report table",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000096",
+      "display": "source code module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000033"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000093",
+      "display": "obsolete2_binary executable",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000313",
+      "display": "patent",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000310"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000019",
+      "display": "ontology module subsetted by OWL profile",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000018",
+      "display": "obo basic subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000017",
+      "display": "ontology module subsetted by expressivity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000016",
+      "display": "taxonomic bridge ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000004"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000013",
+      "display": "journal article",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000088"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000129",
+      "display": "version number",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000028"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000128",
+      "display": "obsolete_identifier",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000012",
+      "display": "species subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000011",
+      "display": "external import ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000005"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000319",
+      "display": "discussion section of a publication about an investigation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000318",
+      "display": "results section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000317",
+      "display": "methods section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000316",
+      "display": "introduction to a publication about an investigation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000315",
+      "display": "abstract",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000314",
+      "display": "document part",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000000",
+      "display": "ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000312",
+      "display": "publication about an investigation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000311"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000311",
+      "display": "publication",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000310"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000590",
+      "display": "written name",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000591",
+      "display": "software method",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000010"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000592",
+      "display": "software module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000010"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000088",
+      "display": "report",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000310"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000593",
+      "display": "software library",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000010"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000595",
+      "display": "software script",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000010"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000178",
+      "display": "material information bearer",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000040"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000019",
+      "display": "quality",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000020"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000007",
+      "display": "curation subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000006",
+      "display": "subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000005",
+      "display": "import ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000004",
+      "display": "bridge ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000003",
+      "display": "main release ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000182",
+      "display": "history",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000015"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000001",
+      "display": "base ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000028",
+      "display": "symbol",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000308",
+      "display": "figure",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000307",
+      "display": "table of abbreviations",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000306"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000650",
+      "display": "database extract, transform, and load process",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000305",
+      "display": "document title",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.geneontology.org/formats/oboInOwl#DbXref",
+      "display": "http://www.geneontology.org/formats/oboInOwl#DbXref",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000442",
+      "display": "author role",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000023"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000302",
+      "display": "author identification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000590"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000443",
+      "display": "data item extraction from journal article",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000300",
+      "display": "textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/UO_0000001",
+      "display": "length unit",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000310",
+      "display": "document",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000079",
+      "display": "density plot",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000078",
+      "display": "curation status specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000572",
+      "display": "documenting",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000183",
+      "display": "dendrogram",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000185",
+      "display": "photograph",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000101"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000031",
+      "display": "generically dependent continuant",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000002"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000400",
+      "display": "cartesian spatial coordinate datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000014",
+      "display": "research use only",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000042",
+      "display": "general research use",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000109",
+      "display": "measurement datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000576",
+      "display": "obsolete_establishing a CRID registry",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000645",
+      "display": "tables section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000644",
+      "display": "statistical analysis section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000105",
+      "display": "obsolete2_digital document",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000104",
+      "display": "plan specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000033"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000641",
+      "display": "requirements section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000102",
+      "display": "data about an ontology part",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000101",
+      "display": "image",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000308"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000100",
+      "display": "data set",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000401",
+      "display": "one dimensional cartesian spatial coordinate datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000400"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000638",
+      "display": "pre-publication history textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/GAZ_00000448",
+      "display": "geographic location",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000029"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000019",
+      "display": "obsolete2_binary digital entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000065",
+      "display": "software interpreter",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000064"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000064",
+      "display": "algorithm",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000104"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0001018",
+      "display": "physical quality",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/PATO_0001241"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000013",
+      "display": "reasoned ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000014",
+      "display": "generated ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000000"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/topic_0003",
+      "display": "Topic",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000639",
+      "display": "related work section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/OBI_0000471",
+      "display": "study design execution",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000637",
+      "display": "pre-publication history section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000636",
+      "display": "patients textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000635",
+      "display": "patients section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000634",
+      "display": "notes section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000633",
+      "display": "materials section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000632",
+      "display": "study limitations textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000631",
+      "display": "study limitations section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000630",
+      "display": "keywords section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000059",
+      "display": "obsolete2_report figure",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000605",
+      "display": "abbreviation textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000057",
+      "display": "contour plot",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000594",
+      "display": "software application",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000010"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000055",
+      "display": "rule",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000573",
+      "display": "line graph",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.geneontology.org/formats/oboInOwl#Definition",
+      "display": "http://www.geneontology.org/formats/oboInOwl#Definition",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000575",
+      "display": "associating information with a centrally registered identifier in its registry",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000179",
+      "display": "histogram",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000577",
+      "display": "centrally registered identifier symbol",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000028"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000303",
+      "display": "institutional identification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000640",
+      "display": "related work textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000629",
+      "display": "keyword textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000628",
+      "display": "genome announcement textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000627",
+      "display": "genome announcement section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000626",
+      "display": "future directions textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000625",
+      "display": "future directions section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000624",
+      "display": "funding source declaration textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000623",
+      "display": "funding source declaration section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000622",
+      "display": "figures section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000621",
+      "display": "ethical approval textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000304",
+      "display": "caption",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000040",
+      "display": "disease category research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000037"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000002",
+      "display": "continuant",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000309",
+      "display": "diagram",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000308"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000047",
+      "display": "obsolete2_text based digital entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000584",
+      "display": "time sampled measurement data set",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000100"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000582",
+      "display": "time stamped measurement datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000109"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000580",
+      "display": "looking up a centrally registered identifier",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000429",
+      "display": "email address",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000619",
+      "display": "consent textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000618",
+      "display": "consent section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000617",
+      "display": "conflict of interest textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000616",
+      "display": "conflict of interest section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000615",
+      "display": "conclusion section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000614",
+      "display": "case report textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000613",
+      "display": "case report section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000612",
+      "display": "availability textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000611",
+      "display": "availability section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000610",
+      "display": "author summary textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0001241",
+      "display": "physical object quality",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000019"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000620",
+      "display": "ethical approval section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/UO_0000003",
+      "display": "time unit",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000579",
+      "display": "centrally registered identifier registry",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000100"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000578",
+      "display": "centrally registered identifier",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/OBI_0000066",
+      "display": "investigation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000038",
+      "display": "graph",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000309"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000037",
+      "display": "dot plot",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000574",
+      "display": "assigning a centrally registered identifier",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000011"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000035",
+      "display": "obsolete_study interpretation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000034",
+      "display": "time trigger",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000033",
+      "display": "directive information entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000032",
+      "display": "scalar measurement datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000109"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000031",
+      "display": "integer numeral",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000029"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000030",
+      "display": "information content entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000031"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000416",
+      "display": "time measurement datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000032"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000609",
+      "display": "author summary section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000414",
+      "display": "mass measurement datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000032"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000607",
+      "display": "author information section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000606",
+      "display": "abbreviations section",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000314"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000035",
+      "display": "gender category research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000034",
+      "display": "age category research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000033",
+      "display": "ancestry research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000032",
+      "display": "population research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000031",
+      "display": "method development",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/OBI_0000066"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000015",
+      "display": "template generated ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000014"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000038",
+      "display": "one-dimensional temporal region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000008"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000186",
+      "display": "photographic print",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000178"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.geneontology.org/formats/oboInOwl#SynonymType",
+      "display": "http://www.geneontology.org/formats/oboInOwl#SynonymType",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000184",
+      "display": "scatter plot",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000034",
+      "display": "function",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000016"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000182",
+      "display": "obsolete_survival curve",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000181",
+      "display": "Venn diagram",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000180",
+      "display": "heatmap",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000038"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000030",
+      "display": "object",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000040"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.geneontology.org/formats/oboInOwl#Synonym",
+      "display": "http://www.geneontology.org/formats/oboInOwl#Synonym",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000027",
+      "display": "data item",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000025",
+      "display": "programming language",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000104"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000024",
+      "display": "obsolete_unit of measure",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000409",
+      "display": "denotator type",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000408",
+      "display": "length measurement datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000032"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000029",
+      "display": "return to database or resource",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000028",
+      "display": "institution specific restriction",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000027",
+      "display": "project specific restriction",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000026",
+      "display": "user specific restriction",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000025",
+      "display": "time limit on use",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000024",
+      "display": "publication moratorium",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0000125",
+      "display": "mass",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/PATO_0001018"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000022",
+      "display": "geographical restriction",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000021",
+      "display": "ethics approval required",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0000122",
+      "display": "length",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/PATO_0001708"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000029",
+      "display": "site",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000141"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000028",
+      "display": "three-dimensional spatial region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000027",
+      "display": "object aggregate",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000040"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000026",
+      "display": "one-dimensional spatial region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000306",
+      "display": "table",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000024",
+      "display": "fiat object part",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000040"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000023",
+      "display": "role",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000642",
+      "display": "requirements textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000643",
+      "display": "statistical analysis textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000020",
+      "display": "specifically dependent continuant",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000002"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000018",
+      "display": "obsolete_material_entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000017",
+      "display": "model number",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000028"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass",
+      "display": "Obsolete Class",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.w3.org/2002/07/owl#Thing"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000015",
+      "display": "information carrier",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000019"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000415",
+      "display": "hypothesis textual entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000300"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000012",
+      "display": "obsolete2_digital entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000010",
+      "display": "software",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000104"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/DOID_4",
+      "display": "disease",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000016"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000091",
+      "display": "obsolete_report element",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000019",
+      "display": "publication required",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000018",
+      "display": "not for profit use only",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000017",
+      "display": "data use requirements",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000016",
+      "display": "genetic studies only",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/PATO_0000117",
+      "display": "size",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/PATO_0000051"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000015",
+      "display": "no general methods research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000012",
+      "display": "research specific restrictions",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000011",
+      "display": "population origins or ancestry research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000042"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/OBI_0500000",
+      "display": "study design",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000104"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000018",
+      "display": "zero-dimensional spatial region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000017",
+      "display": "realizable entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000020"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000016",
+      "display": "disposition",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000015",
+      "display": "process",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000040",
+      "display": "material entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000004"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000011",
+      "display": "spatiotemporal region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000009",
+      "display": "datum label",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000008",
+      "display": "obsolete_artifact",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000007",
+      "display": "action specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000033"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000006",
+      "display": "narrative object",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000030"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000005",
+      "display": "objective specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000033"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000131",
+      "display": "serial number",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000028"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000003",
+      "display": "measurement unit label",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000009"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000035",
+      "display": "process boundary",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000001",
+      "display": "conditional specification",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000033"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000010",
+      "display": "exclusion subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000020",
+      "display": "collaboration required",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000017"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000007",
+      "display": "disease specific research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000006",
+      "display": "health or medical or biomedical research",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000042"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000005",
+      "display": "general research use and clinical care",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000042"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000004",
+      "display": "no restriction",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "DUO:0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000402",
+      "display": "two dimensional cartesian spatial coordinate datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000400"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.geneontology.org/formats/oboInOwl#Subset",
+      "display": "http://www.geneontology.org/formats/oboInOwl#Subset",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000102"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "DUO:0000001",
+      "display": "data use limitation",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": false
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000027"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_0000403",
+      "display": "three dimensional cartesian spatial coordinate datum",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000400"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000009",
+      "display": "two-dimensional spatial region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000008",
+      "display": "temporal region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://www.w3.org/2002/07/owl#Thing",
+      "display": "http://www.w3.org/2002/07/owl#Thing",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "root",
+          "valueBoolean": true
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000006",
+      "display": "spatial region",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000141"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000005",
+      "display": "obsolete dependent continuant",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000004",
+      "display": "independent continuant",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000002"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000003",
+      "display": "occurrent",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/BFO_0000001"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/UO_0000002",
+      "display": "mass unit",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_0000003"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/BFO_0000001",
+      "display": "entity",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://www.w3.org/2002/07/owl#Thing"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "code": "http://purl.obolibrary.org/obo/IAO_8000009",
+      "display": "single layer subset ontology module",
+      "property": [
+        {
+          "code": "imported",
+          "valueBoolean": true
+        },
+        {
+          "code": "parent",
+          "valueCode": "http://purl.obolibrary.org/obo/IAO_8000006"
+        },
+        {
+          "code": "root",
+          "valueBoolean": false
+        },
+        {
+          "code": "deprecated",
+          "valueBoolean": false
+        }
+      ]
+    }
+  ]
+}
