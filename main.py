@@ -157,8 +157,9 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
 
                 locationObject.property = list()
                 conceptProperty = CodeSystemConceptProperty()
+                conceptProperty.valueString
                 conceptProperty.code = "parent"
-                conceptProperty.valueCode = city.parentFHIRCode
+                conceptProperty.valueCode = "TEST"
                 locationObject.property.append(conceptProperty)
 
                 code.concept.append(locationObject)
@@ -181,7 +182,7 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
                 locationObject.property = list()
                 conceptProperty = CodeSystemConceptProperty()
                 conceptProperty.code = "parent"
-                conceptProperty.valueCode = suburb.parentFHIRCode
+                conceptProperty.valueCode = "TEST"
                 locationObject.property.append(conceptProperty)
 
                 code.concept.append(locationObject)
@@ -204,7 +205,7 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             locationObject.property = list()
             conceptProperty = CodeSystemConceptProperty()
             conceptProperty.code = "parent"
-            conceptProperty.valueCode = level1.parentFHIRCode
+            conceptProperty.valueCode = "Earth" # TEMPORARILY SET AS EARTH
             locationObject.property.append(conceptProperty)
 
             code.concept.append(locationObject)
@@ -241,7 +242,7 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             locationObject.property = list()
             conceptProperty = CodeSystemConceptProperty()
             conceptProperty.code = "parent"
-            conceptProperty.valueCode = child.parentFHIRCode
+            conceptProperty.valueCode = "TEST"
             locationObject.property.append(conceptProperty)
 
             code.concept.append(locationObject)
