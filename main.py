@@ -122,7 +122,7 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             continue
 
         # try:
-        #     dataRow.index("VN")
+        #     dataRow.index("AO") # Sambizanga, 2010629820
         #     # if d[8] == 'AN':
         #     # dataRow.index("MA")
         #     # dataRow.index("ADM3")
@@ -144,45 +144,93 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
 
             output = open("test.txt", "a")
 
+            unknownState = None
             for city in level3:
-                # SOME REGIONS CAN"T FIND THEIR PARENTS!! FIX!!
-                city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
+                if FIPSToFHIRLevel2.get(city.parent) is None:
+                    if unknownState is None:
+                        unknownState = Region("unknownState", "unknownState", level1.regionCode)
+                        unknownState.parentFHIRCode = FIPSToFHIRLevel1.get(unknownState.parent)
+
+                        unknownLocationObject = CodeSystemConcept()
+                        unknownLocationObject.code = unknownState.currentFHIRCode
+                        unknownLocationObject.display = unknownState.name
+                        unknownLocationObject.property = list()
+                        conceptProperty1 = CodeSystemConceptProperty()
+                        conceptProperty1.code = "parent"
+                        conceptProperty1.valueCode = unknownState.parentFHIRCode
+                        unknownLocationObject.property.append(conceptProperty1)
+
+                        code.concept.append(unknownLocationObject)
+                        codeCounter += 1
+
+                    city.parentFHIRCode = unknownState.currentFHIRCode # set parent of this city to the unknown
+                else:
+                    city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
                 allData.append(city.toJSON())  # write it already, need to save still?
                 output.write(city.toJSON())
 
                 locationObject = CodeSystemConcept()
                 locationObject.code = city.currentFHIRCode
                 locationObject.display = city.name
-                # locationObject.definition = city.parentFHIRCode  # THIS IS SET TO THE PARENT
-
                 locationObject.property = list()
                 conceptProperty = CodeSystemConceptProperty()
-                conceptProperty.valueString
                 conceptProperty.code = "parent"
-                conceptProperty.valueCode = "TEST"
+                conceptProperty.valueCode = city.parentFHIRCode
                 locationObject.property.append(conceptProperty)
 
                 code.concept.append(locationObject)
                 codeCounter += 1
 
+            unknownCity = None
             for suburb in level4:
-                if suburb.parent == 'unknown': #FIX THIS AS PER ADM3 BELOW
-                    suburb.parentFHIRCode = level1.currentFHIRCode
-                    suburb.name = suburb.name + ' - unknown'
+                if FIPSToFHIRLevel3.get(suburb.parent) is None:
+                    if unknownState is None:
+                        unknownState = Region("unknownState", "unknownState", level1.regionCode)
+                        unknownState.parentFHIRCode = FIPSToFHIRLevel1.get(unknownState.parent)
+
+                        unknownLocationObject = CodeSystemConcept()
+                        unknownLocationObject.code = unknownState.currentFHIRCode
+                        unknownLocationObject.display = unknownState.name
+                        unknownLocationObject.property = list()
+                        conceptProperty1 = CodeSystemConceptProperty()
+                        conceptProperty1.code = "parent"
+                        conceptProperty1.valueCode = unknownState.parentFHIRCode
+                        unknownLocationObject.property.append(conceptProperty1)
+
+                        code.concept.append(unknownLocationObject)
+                        codeCounter += 1
+
+                    if unknownCity is None: # ATM GROUP EVERYTHING UNDER UNKNOWN, MOST OF THESE HAVE KNOWN STATES
+                        unknownCity = Region(dataRow[2], "unknownCity", unknownState.currentFHIRCode)
+                        unknownCity.parentFHIRCode = unknownState.currentFHIRCode
+
+                        unknownCityObject = CodeSystemConcept()
+                        unknownCityObject.code = unknownCity.currentFHIRCode
+                        unknownCityObject.display = unknownCity.name
+                        unknownCityObject.property = list()
+                        conceptProperty2 = CodeSystemConceptProperty()
+                        conceptProperty2.code = "parent"
+                        conceptProperty2.valueCode = unknownCity.parentFHIRCode
+                        unknownCityObject.property.append(conceptProperty2)
+
+                        code.concept.append(unknownCityObject)
+                        codeCounter += 1
+
+                    suburb.parentFHIRCode = unknownCity.currentFHIRCode
+                    suburb.name = suburb.name
                 else:
                     suburb.parentFHIRCode = FIPSToFHIRLevel3.get(suburb.parent)
-                    allData.append(suburb.toJSON())  # write it already, need to save still?
+                    # allData.append(suburb.toJSON())  # write it already, need to save still?
+
                 output.write(suburb.toJSON())
 
                 locationObject = CodeSystemConcept()
                 locationObject.code = suburb.currentFHIRCode
                 locationObject.display = suburb.name
-                # locationObject.definition = suburb.parentFHIRCode  # THIS IS SET TO THE PARENT
-
                 locationObject.property = list()
                 conceptProperty = CodeSystemConceptProperty()
                 conceptProperty.code = "parent"
-                conceptProperty.valueCode = "TEST"
+                conceptProperty.valueCode = suburb.parentFHIRCode
                 locationObject.property.append(conceptProperty)
 
                 code.concept.append(locationObject)
@@ -242,7 +290,7 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             locationObject.property = list()
             conceptProperty = CodeSystemConceptProperty()
             conceptProperty.code = "parent"
-            conceptProperty.valueCode = "TEST"
+            conceptProperty.valueCode = level1.currentFHIRCode
             locationObject.property.append(conceptProperty)
 
             code.concept.append(locationObject)
@@ -253,8 +301,7 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             if dataRow[11] == '' or dataRow[10] == '':
                 print(dataRow)
                 raise MissingFeatureCode("Missing Level 3 location codes")
-                # child = Region(dataRow[2], dataRow[10] + dataRow[11], dataRow[10]) #do a plus between level 2 and 3 as a city in different states may have same name (but different location)
-            else:
+            else: # do a plus between level 2 and 3 as a city in different states may have same name (but different location)
                 child = Region(dataRow[2], dataRow[10] + dataRow[11], dataRow[10])
             level3.append(child)
             regionLevel = 3
@@ -263,7 +310,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
 
             FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
         elif dataRow[7] == "ADM3":  # LEVEL 4 Suburbs #CHECK THIS AGAIN
-            if dataRow[11] == '' or dataRow[10] == '': # check dataRow[12] if going down more than ADM3
+            if dataRow[10] == '': # there're only 5 of these at are blank, will decide what TODO with it
+                pass
+                # input(dataRow)
+            if dataRow[11] == '': # check dataRow[12] if going down more than ADM3?
+                # input(dataRow)
                 child = Region(dataRow[2], dataRow[12], "unknown") #ATM ignore the 'state' level code, drop that, FIX
             else:
                 child = Region(dataRow[2], dataRow[12], dataRow[10] + dataRow[11])
@@ -273,13 +324,13 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
 
         elif dataRow[7] == "PPLX":  # find the latest non-empty one and use it instead of fixed [12]?
             if dataRow[10 + 0] == "": # The adminitrative division codes are blank, cannot link to existing ones, ignore
-                continue
-            elif dataRow[10 + 1] == "":  # this one must belong under AMD2
+                pass
+            elif dataRow[11] == "":  # this one must belong under AMD2
                 child = Region(dataRow[2], "XXXX", dataRow[10])
                 level3.append(child)
                 regionLevel = 3
                 # FIPSToFHIRLevel3[child.regionCode] = child.currentFHIRCode
-            elif dataRow[10 + 2] == "":
+            elif dataRow[12] == "":
                 child = Region(dataRow[2], "YYYY", dataRow[10] + dataRow[11])
                 level4.append(child)
                 regionLevel = 4
