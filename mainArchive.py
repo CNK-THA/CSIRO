@@ -11,7 +11,7 @@ class Region:
         self.test = {"Region_Name":self.regionName, "Sub_Regions":self.subRegions}
 
     def add_sub_region(self, region):
-        key = region.regionCode
+        key = region.FIPSCode
         if self.subRegions.get(key) is None:
             self.subRegions[key] = region
 
@@ -102,13 +102,13 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
                         tmp = []
                         while temporaryList3_2:
                             level3 = temporaryList3_2.pop()
-                            if stuff.regionCode == level3.parentCode:
+                            if stuff.FIPSCode == level3.parentCode:
                                 stuff.add_sub_region(level3)
 
                                 tmp2 = []
                                 while temporaryList4:
                                     level4 = temporaryList4.pop()
-                                    if level4.parentCode == level3.regionCode:
+                                    if level4.parentCode == level3.FIPSCode:
                                         level3.add_sub_region(level4)
                                     else:
                                         tmp2.append(level4)
@@ -123,7 +123,7 @@ with open("allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile
                         tmp = []
                         while temporaryList3: # while it is not empty
                             stuff2 = temporaryList3.pop()
-                            if stuff2.parentCode == stuff.regionCode:
+                            if stuff2.parentCode == stuff.FIPSCode:
                                 stuff.add_sub_region(stuff2)
                             else:
                                 tmp.append(stuff2)

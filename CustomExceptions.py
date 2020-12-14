@@ -13,3 +13,13 @@ class DuplicateRegionCode(Exception):
 class MissingFeatureCode(Exception):
     def __init__(self, message):
         super().__init__(message)
+
+
+class UnknownCodeSystemConceptType(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+
+class DataFileInWrongFormat(Exception):
+    def __init__(self, message):
+        super().__init__(message)
