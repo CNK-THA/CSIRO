@@ -83,6 +83,10 @@ with open("countryInfo.txt", 'r', encoding="utf8") as countryFile:
 
 endResult = {"status": "THIS IS A TEST"}
 
+
+codeCounter = 0
+
+
 code = CodeSystem()
 code.concept = list()
 code.content = "complete"
@@ -92,10 +96,11 @@ code.experimental = True
 code.date = FHIRDate(str(date.today()))
 code.id = "Ontology-CSIRO"
 code.url = "SOME URL"
-code.version = "0.0"
-code.name = "some name?"
-code.publisher = "Me"
-code.caseSensitive = False #??
+code.version = "0.1"
+code.name = "Location Ontology"
+code.publisher = "Chanon K."
+code.caseSensitive = True
+code.hierarchyMeaning = "is-a"
 
 code.property = list()
 codeProperty = CodeSystemProperty()
@@ -104,12 +109,42 @@ codeProperty.description = "Parent codes"
 codeProperty.type = "code"
 code.property.append(codeProperty)
 
+codeProperty2 = CodeSystemProperty()
+codeProperty2.code = "root"
+codeProperty2.description = "Indicates if this concept is a root concept"
+codeProperty2.type = "boolean"
+code.property.append(codeProperty2)
+
+codeProperty3 = CodeSystemProperty()
+codeProperty3.code = "deprecated"
+codeProperty3.description = "Indicates if this concept is deprecated"
+codeProperty3.type = "boolean"
+code.property.append(codeProperty3)
+
+
+earth = Region("Earth", "Earth", None)
+locationObject = CodeSystemConcept()
+locationObject.code = earth.currentFHIRCode
+locationObject.display = earth.name
+
+locationObject.property = list()
+conceptProperty = CodeSystemConceptProperty()
+conceptProperty.code = "root"
+conceptProperty.valueBoolean = True
+locationObject.property.append(conceptProperty)
+
+conceptProperty2 = CodeSystemConceptProperty()
+conceptProperty2.code = "deprecated"
+conceptProperty2.valueBoolean = False
+locationObject.property.append(conceptProperty2)
+
+code.concept.append(locationObject)
+
+codeCounter += 1
 
 
 
 
-
-codeCounter = 0
 
 with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
     for line in dataFile:
@@ -160,6 +195,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
                         conceptProperty1.valueCode = unknownState.parentFHIRCode
                         unknownLocationObject.property.append(conceptProperty1)
 
+                        conceptProperty1 = CodeSystemConceptProperty()
+                        conceptProperty1.code = "deprecated"
+                        conceptProperty1.valueBoolean = False
+                        unknownLocationObject.property.append(conceptProperty1)
+
                         code.concept.append(unknownLocationObject)
                         codeCounter += 1
 
@@ -176,6 +216,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
                 conceptProperty = CodeSystemConceptProperty()
                 conceptProperty.code = "parent"
                 conceptProperty.valueCode = city.parentFHIRCode
+                locationObject.property.append(conceptProperty)
+
+                conceptProperty = CodeSystemConceptProperty()
+                conceptProperty.code = "deprecated"
+                conceptProperty.valueBoolean = False
                 locationObject.property.append(conceptProperty)
 
                 code.concept.append(locationObject)
@@ -197,6 +242,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
                         conceptProperty1.valueCode = unknownState.parentFHIRCode
                         unknownLocationObject.property.append(conceptProperty1)
 
+                        conceptProperty1 = CodeSystemConceptProperty()
+                        conceptProperty1.code = "deprecated"
+                        conceptProperty1.valueBoolean = False
+                        unknownLocationObject.property.append(conceptProperty1)
+
                         code.concept.append(unknownLocationObject)
                         codeCounter += 1
 
@@ -211,6 +261,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
                         conceptProperty2 = CodeSystemConceptProperty()
                         conceptProperty2.code = "parent"
                         conceptProperty2.valueCode = unknownCity.parentFHIRCode
+                        unknownCityObject.property.append(conceptProperty2)
+
+                        conceptProperty2 = CodeSystemConceptProperty()
+                        conceptProperty2.code = "deprecated"
+                        conceptProperty2.valueBoolean = False
                         unknownCityObject.property.append(conceptProperty2)
 
                         code.concept.append(unknownCityObject)
@@ -233,6 +288,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
                 conceptProperty.valueCode = suburb.parentFHIRCode
                 locationObject.property.append(conceptProperty)
 
+                conceptProperty = CodeSystemConceptProperty()
+                conceptProperty.code = "deprecated"
+                conceptProperty.valueBoolean = False
+                locationObject.property.append(conceptProperty)
+
                 code.concept.append(locationObject)
                 codeCounter += 1
 
@@ -253,7 +313,12 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             locationObject.property = list()
             conceptProperty = CodeSystemConceptProperty()
             conceptProperty.code = "parent"
-            conceptProperty.valueCode = "Earth" # TEMPORARILY SET AS EARTH
+            conceptProperty.valueCode = earth.currentFHIRCode
+            locationObject.property.append(conceptProperty)
+
+            conceptProperty = CodeSystemConceptProperty()
+            conceptProperty.code = "deprecated"
+            conceptProperty.valueBoolean = False
             locationObject.property.append(conceptProperty)
 
             code.concept.append(locationObject)
@@ -291,6 +356,11 @@ with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="
             conceptProperty = CodeSystemConceptProperty()
             conceptProperty.code = "parent"
             conceptProperty.valueCode = level1.currentFHIRCode
+            locationObject.property.append(conceptProperty)
+
+            conceptProperty = CodeSystemConceptProperty()
+            conceptProperty.code = "root"
+            conceptProperty.valueBoolean = False
             locationObject.property.append(conceptProperty)
 
             code.concept.append(locationObject)
