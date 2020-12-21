@@ -11,6 +11,8 @@ from datetime import date
 
 from CustomExceptions import *
 
+import traceback # for debugging
+
 
 LOCATION_NAME = 2
 FEATURE_CLASS = 6
@@ -70,7 +72,7 @@ class Region:
 
     def __str__(self):
         """Overrides the string function implementation."""
-        return self.name + ", " + self.FIPSCode + ", " + self.parent + ',' + self.FHIRCode + ',' + self.parentFHIRCode
+        return str(self.name) + ", " + str(self.FIPSCode) + ", " + str(self.parent) + ',' + str(self.FHIRCode) + ',' + str(self.parentFHIRCode)
 
     def toJSON(self):
         """
@@ -81,6 +83,7 @@ class Region:
         """
         return json.dumps(self, default=lambda o: o.output(),
                           sort_keys=True, indent=4)
+
 
 def parse_countries(file_name):
     """
@@ -181,21 +184,17 @@ def populate_code_system_concept_property_field(code_concept, property_code, pro
 
 
 def main():
-    countries_list = parse_countries("countryInfo.txt")
+    countries_list = parse_countries("countryInfo.txt") # stores a mapping between country code and the country name
     code_system = create_code_system_instance("complete", "draft", "CodeSystem for different administrative divisions around the world", True, FHIRDate(str(date.today())), "Ontology-CSIRO",
-                                "SOME URL", "0.1", "Location Ontology", "Chanon K.", True, "is-a")
-
-    code_counter = 0 # how many code system concept have we created so far
+                                "http://hl7.org/fhir/CodeSystem/example", "0.2", "Location Ontology", "Chanon K.", True, "is-a")
 
     # Populate the root concept location (Earth)
     root = Region("Earth", "Earth", None)
     code_concept = create_code_system_concept_instance(code_system, root)
     populate_code_system_concept_property_field(code_concept, "root", True)
     populate_code_system_concept_property_field(code_concept, "deprecated", False)
-    code_counter += 1
 
     current_country = None
-    countriesList = {}  # stores a mapping between country code and the country name
     FIPSToFHIRLevel1 = {}
     FIPSToFHIRLevel2 = {}
     FIPSToFHIRLevel3 = {}
@@ -204,14 +203,21 @@ def main():
     level3 = []
     level4 = []  # level 4 ADM4
 
+
     with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
-        for line in dataFile:
+        lines = dataFile.readlines()
+        last = lines[-1]
+        for line in lines:
+
             data_row = line.split("\t")
             if len(data_row) != 19:  # Expecting 19 columns
                 raise DataFileInWrongFormat()
-            if (data_row[FEATURE_CLASS] != 'P' and data_row[FEATURE_CLASS] != 'A') or (data_row[FEATURE_CODE] != 'PPLX' and data_row[FEATURE_CODE] != 'ADM1' and data_row[
-                FEATURE_CODE] != 'ADM2' and data_row[FEATURE_CODE] != 'ADM3'):  # ONLY GET CLASS A and P INFORMATION
+            if line != last and ((data_row[FEATURE_CLASS] != 'P' and data_row[FEATURE_CLASS] != 'A') or (data_row[FEATURE_CODE] != 'PPLX' and data_row[FEATURE_CODE] != 'ADM1' and data_row[
+                FEATURE_CODE] != 'ADM2' and data_row[FEATURE_CODE] != 'ADM3')):  # ONLY GET CLASS A and P INFORMATION AND IT's NOT THE LAST LINE
                 continue
+
+            if data_row[LOCATION_NAME] == "":
+                raise MissingFeatureCode("location name is missing")
 
             # DEBUGGING ONLY
             # try:
@@ -229,9 +235,9 @@ def main():
             # continue
 
             if current_country is None:  # first country or we are moving on to a new country now
-                current_country = Region(countriesList.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
+                current_country = Region(countries_list.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
-            elif current_country is not None and current_country.FIPSCode != data_row[COUNTRY_CODE]: #CHECK IF THE LAST COUNTRY IS ADDED OR NOT???
+            elif (current_country is not None and current_country.FIPSCode != data_row[COUNTRY_CODE]) or line == last: #CHECK IF THE LAST COUNTRY IS ADDED OR NOT???
 
                 unknown_state = None
                 for city in level3:
@@ -244,7 +250,6 @@ def main():
                             populate_code_system_concept_property_field(unknown_state_code_concept, "parent", unknown_state.parentFHIRCode)
                             populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
                             populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
-                            code_counter += 1
 
                         city.parentFHIRCode = unknown_state.FHIRCode # set parent of this city to the unknown
                     else:
@@ -254,7 +259,6 @@ def main():
                     populate_code_system_concept_property_field(city_code_concept, "parent", city.parentFHIRCode)
                     populate_code_system_concept_property_field(city_code_concept, "deprecated", False)
                     populate_code_system_concept_property_field(city_code_concept, "root", False)
-                    code_counter += 1
 
                 unknown_city = None
                 for suburb in level4:
@@ -268,7 +272,6 @@ def main():
                                                                         unknown_state.parentFHIRCode)
                             populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
                             populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
-                            code_counter += 1
 
                         if unknown_city is None:  # ATM GROUP EVERYTHING UNDER UNKNOWN, MOST OF THESE HAVE KNOWN STATES
                             unknown_city = Region(data_row[2], "unknown_city", unknown_state.FHIRCode)
@@ -278,7 +281,6 @@ def main():
                             populate_code_system_concept_property_field(unknown_city_code_concept, "parent", unknown_city.parentFHIRCode)
                             populate_code_system_concept_property_field(unknown_city_code_concept, "deprecated", False)
                             populate_code_system_concept_property_field(unknown_city_code_concept, "root", False)
-                            code_counter += 1
 
                         suburb.parentFHIRCode = unknown_city.FHIRCode
                     else:
@@ -289,7 +291,8 @@ def main():
                     populate_code_system_concept_property_field(suburb_code_concept, "parent", suburb.parentFHIRCode)
                     populate_code_system_concept_property_field(suburb_code_concept, "deprecated", False)
                     populate_code_system_concept_property_field(suburb_code_concept, "root", False)
-                    code_counter += 1
+
+
 
                 level3 = []
                 level4 = []
@@ -301,9 +304,11 @@ def main():
                 populate_code_system_concept_property_field(country_code_concept, "parent", root.FHIRCode)
                 populate_code_system_concept_property_field(country_code_concept, "deprecated", False)
                 populate_code_system_concept_property_field(country_code_concept, "root", False)
-                code_counter += 1
 
-                current_country = Region(countriesList.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
+                if line == last:
+                    break
+
+                current_country = Region(countries_list.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
 
             if data_row[FEATURE_CODE] == "ADM1":  # States (level 2)
@@ -321,7 +326,6 @@ def main():
                 populate_code_system_concept_property_field(state_code_concept, "deprecated", False)
                 populate_code_system_concept_property_field(state_code_concept, "root", False)
 
-                code_counter += 1
 
             elif data_row[FEATURE_CODE] == "ADM2":  # City (level 3)
                 if data_row[ADMIN_2_CODE] == '' or data_row[ADMIN_1_CODE] == '':
@@ -351,6 +355,8 @@ def main():
                     level4.append(Region(data_row[LOCATION_NAME], "YYYY", data_row[ADMIN_1_CODE] + data_row[ADMIN_2_CODE]))
 
             # ignore anything else that doesn't fit the criteria above i.e. malformed data, AMD4, AMD5
+
+    code_system.count = int('%07d' % (int(Region.codeCounter))) # add 1 since root (earth) started at 0000000
 
 
     with open('resultSample.json', 'w') as fp:
