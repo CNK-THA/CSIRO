@@ -11,8 +11,6 @@ from datetime import date
 
 from CustomExceptions import *
 
-# https://github.com/nazrulworld/fhir.resources
-# https://www.hl7.org/fhir/resourcelist.html
 
 LOCATION_NAME = 2
 FEATURE_CLASS = 6
@@ -23,9 +21,21 @@ ADMIN_2_CODE = 11
 ADMIN_3_CODE = 12
 
 class Region:
-    codeCounter = "0000000"
+    """
+    All geographical information across all administrative levels will be stored as Region class before transforming
+    into a FHIR CodeSystem object for JSON serialisation.
+    """
+
+    codeCounter = "0000000" # FHIR Code, incremental
 
     def __init__(self, regionName, regionCode, parent):
+        """
+        Initialise a Region object.
+
+        :param regionName: (str) Ascii name of the region
+        :param regionCode: (str) GeoName assigned code for this region (FIPS or ISO code)
+        :param parent: (str) FHIR code of the parent's Region object
+        """
         self.name = regionName
         self.FIPSCode = regionCode
         self.parent = parent
@@ -34,26 +44,49 @@ class Region:
         self.assignFHIRCode()
 
     def assignFHIRCode(self):
+        """
+        Automatically run after each initialisation of new Region object.
+        Assign a FHIR code to the current object and increment it by one.
+        """
         self.FHIRCode = Region.codeCounter
         Region.codeCounter = '%07d' % (int(Region.codeCounter) + 1)
 
     def output(self):
+        """
+        Helper method used to produce a json string of Region object. Note: The json produced is NOT a FHIR format and
+        is not used to produce the final output file.
+
+        :return: A Json dict string format of the Region class data.
+        """
         return {"code": self.FHIRCode, "display": self.name, "Parent": self.parentFHIRCode}
 
     def __eq__(self, other):
+        """Overrides the equality method implementation."""
         return self.regionName == other.regionName
 
     def __hash__(self):
+        """Overrides the hash function implementation."""
         return hash(self.regionName)
 
     def __str__(self):
+        """Overrides the string function implementation."""
         return self.name + ", " + self.FIPSCode + ", " + self.parent + ',' + self.FHIRCode + ',' + self.parentFHIRCode
 
     def toJSON(self):
-        return json.dumps(self, default=lambda o: o.output(),  # was __dict__
+        """
+        Produce the current Region object in json format. Note: The json produced is NOT a FHIR format and is not
+        used to produce the final output file.
+
+        :return: A Json dict string format of the Region class data.
+        """
+        return json.dumps(self, default=lambda o: o.output(),
                           sort_keys=True, indent=4)
 
 def parse_countries(file_name):
+    """
+    :param file_name: (str) directory to the countryInfo.txt file
+    :return: Dictionary mapping of FIPS country code to country name e.g. "AU" = "Australia"
+    """
     countries_list = {}
     with open(file_name, 'r', encoding="utf8") as countryFile:
         line_number = 0
@@ -67,6 +100,13 @@ def parse_countries(file_name):
 
 
 def create_code_system_instance(content, status, description, experimental, dateYearTime, id, url, version, name, publisher, caseSensitive, hierarchyMeaning):
+    """
+    Create a codeSystem object instance.
+    See https://www.hl7.org/fhir/codesystem.html for documentation and value constriants of these parameters.
+
+    :return: a FHIR CodeSystem object instance.
+    """
+
     code = CodeSystem()
     code.concept = list()
     code.content = content
@@ -88,6 +128,12 @@ def create_code_system_instance(content, status, description, experimental, date
 
 
 def populate_code_system_property_field(code):
+    """
+    Populate the property field of the created codeSystem instance. Currently hardcoded 3 properties.
+
+    :param code: codeSystem instance to be populated
+    """
+
     code.property = list()
     properties = [("parent", "Parent codes", "code"), ("root", "Indicates if this concept is a root concept", "boolean"), ("deprecated", "Indicates if this concept is deprecated", "boolean")]
     for property in properties:
@@ -98,9 +144,16 @@ def populate_code_system_property_field(code):
         code.property.append(property_instance)
 
 
-
-
 def create_code_system_concept_instance(code, region):
+    """
+    Populate the codeSystem instance with new codeSystemConcept instance. Transforming the Region class instance into
+    a new codeSystemConcept instance, FHIR compatible format.
+
+    :param code: codeSystem instance to be populated.
+    :param region: Region class object to be transformed.
+    :return: the newly created codeSystemConcept instance.
+    """
+
     code_concept = CodeSystemConcept()
     code_concept.code = region.FHIRCode
     code_concept.display = region.name
@@ -110,6 +163,14 @@ def create_code_system_concept_instance(code, region):
 
 
 def populate_code_system_concept_property_field(code_concept, property_code, property_value):
+    """
+    Populate the codeSystemConcept instance with it's own properties. Create a new codeSystemConceptProperty.
+
+    :param code_concept: codeSystemConcept instance to be populated.
+    :param property_code: (str) specifies which property of the codeSystemConcept to be added. As defined in codeSystem properties.
+    :param property_value: (str) or (bool) value of the property to be added.
+    """
+
     concept_property = CodeSystemConceptProperty()
     concept_property.code = property_code
     if type(property_value) == bool:
@@ -117,12 +178,6 @@ def populate_code_system_concept_property_field(code_concept, property_code, pro
     elif type(property_value) == str:
         concept_property.valueCode = property_value
     code_concept.property.append(concept_property)
-
-
-#
-# code.count = codeCounter
-# with open('resultSample.json', 'w') as fp:
-#     json.dump(code.as_json(), fp, indent=4)
 
 
 def main():
@@ -145,7 +200,7 @@ def main():
     FIPSToFHIRLevel2 = {}
     FIPSToFHIRLevel3 = {}
 
-    level2 = []
+    # no need for level2 (states) since the level 1 will already be known prior to adding.
     level3 = []
     level4 = []  # level 4 ADM4
 
@@ -178,8 +233,6 @@ def main():
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
             elif current_country is not None and current_country.FIPSCode != data_row[COUNTRY_CODE]: #CHECK IF THE LAST COUNTRY IS ADDED OR NOT???
 
-                # output = open("test.txt", "a")
-
                 unknown_state = None
                 for city in level3:
                     if FIPSToFHIRLevel2.get(city.parent) is None:
@@ -196,7 +249,6 @@ def main():
                         city.parentFHIRCode = unknown_state.FHIRCode # set parent of this city to the unknown
                     else:
                         city.parentFHIRCode = FIPSToFHIRLevel2.get(city.parent)
-                    # output.write(city.toJSON()) #Still need this?
 
                     city_code_concept = create_code_system_concept_instance(code_system, city)
                     populate_code_system_concept_property_field(city_code_concept, "parent", city.parentFHIRCode)
@@ -217,7 +269,7 @@ def main():
                             populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
                             populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
                             code_counter += 1
-    #
+
                         if unknown_city is None:  # ATM GROUP EVERYTHING UNDER UNKNOWN, MOST OF THESE HAVE KNOWN STATES
                             unknown_city = Region(data_row[2], "unknown_city", unknown_state.FHIRCode)
                             unknown_city.parentFHIRCode = unknown_state.FHIRCode
@@ -232,7 +284,6 @@ def main():
                     else:
                         suburb.parentFHIRCode = FIPSToFHIRLevel3.get(suburb.parent)
 
-    #                 output.write(suburb.toJSON()) # still need this?
 
                     suburb_code_concept = create_code_system_concept_instance(code_system, suburb)
                     populate_code_system_concept_property_field(suburb_code_concept, "parent", suburb.parentFHIRCode)
@@ -240,13 +291,11 @@ def main():
                     populate_code_system_concept_property_field(suburb_code_concept, "root", False)
                     code_counter += 1
 
-                level2 = [] #Why level is added straight to the file???
                 level3 = []
                 level4 = []
                 FIPSToFHIRLevel2 = {}
                 FIPSToFHIRLevel3 = {}
 
-    #             output.write(current_country.toJSON())
 
                 country_code_concept = create_code_system_concept_instance(code_system, current_country)
                 populate_code_system_concept_property_field(country_code_concept, "parent", root.FHIRCode)
@@ -256,7 +305,6 @@ def main():
 
                 current_country = Region(countriesList.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
-                # output.close()
 
             if data_row[FEATURE_CODE] == "ADM1":  # States (level 2)
                 if data_row[ADMIN_1_CODE] == '':
@@ -267,10 +315,6 @@ def main():
                     raise DuplicateRegionCode("Level 1 locations has multiple level 2 children of same region code")
 
                 FIPSToFHIRLevel2[state.FIPSCode] = state.FHIRCode
-
-                # output = open("test.txt", "a")
-                # output.write(state.toJSON())
-                # output.close()
 
                 state_code_concept = create_code_system_concept_instance(code_system, state)
                 populate_code_system_concept_property_field(state_code_concept, "parent", current_country.FHIRCode)
