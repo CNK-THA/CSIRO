@@ -6,6 +6,7 @@ from fhir.resources.codesystem import CodeSystemConcept
 from fhir.resources.fhirdate import FHIRDate
 from fhir.resources.codesystem import CodeSystemProperty
 from fhir.resources.codesystem import CodeSystemConceptProperty
+from fhir.resources.codesystem import CodeSystemFilter
 
 from datetime import date
 
@@ -102,7 +103,7 @@ def parse_countries(file_name):
     return countries_list
 
 
-def create_code_system_instance(content, status, description, experimental, dateYearTime, id, url, version, name, publisher, caseSensitive, hierarchyMeaning):
+def create_code_system_instance(content, status, description, experimental, dateYearTime, id, url, version, name, publisher, caseSensitive, hierarchyMeaning, valueSet):
     """
     Create a codeSystem object instance.
     See https://www.hl7.org/fhir/codesystem.html for documentation and value constriants of these parameters.
@@ -124,11 +125,28 @@ def create_code_system_instance(content, status, description, experimental, date
     code.publisher = publisher
     code.caseSensitive = caseSensitive
     code.hierarchyMeaning = hierarchyMeaning
+    code.valueSet = valueSet
 
+    populate_code_system_filter_field(code)
     populate_code_system_property_field(code)
 
     return code
 
+def populate_code_system_filter_field(code):
+    """
+    Populate the filter field of the created codeSystem instance. Currently hardcoded 2 filters.
+
+    :param code: codeSystem instance to be populated
+    """
+
+    code.filter = list()
+    filters = [("root", ["="], "True or false."), ("deprecated", ["="], "True or false.")]
+    for filter in filters:
+        filter_instance = CodeSystemFilter()
+        filter_instance.code = filter[0]
+        filter_instance.operator = filter[1]
+        filter_instance.value = filter[2]
+        code.filter.append(filter_instance)
 
 def populate_code_system_property_field(code):
     """
@@ -186,7 +204,7 @@ def populate_code_system_concept_property_field(code_concept, property_code, pro
 def main():
     countries_list = parse_countries("countryInfo.txt") # stores a mapping between country code and the country name
     code_system = create_code_system_instance("complete", "draft", "CodeSystem for different administrative divisions around the world", True, FHIRDate(str(date.today())), "Ontology-CSIRO",
-                                "http://hl7.org/fhir/CodeSystem/example", "0.2", "Location Ontology", "Chanon K.", True, "is-a")
+                                "http://csiro.au/geographic-locations", "0.3", "Location Ontology", "Chanon K.", True, "is-a", "http://csiro.au/geographic-locations?vs")
 
     # Populate the root concept location (Earth)
     root = Region("Earth", "Earth", None)
@@ -220,19 +238,19 @@ def main():
                 raise MissingFeatureCode("location name is missing")
 
             # DEBUGGING ONLY
-            # try:
-            #     data_row.index("AO") # Sambizanga, 2010629820
-            #     # if d[8] == 'AN':
-            #     # data_row.index("MA")
-            #     # data_row.index("ADM3")
-            #     # print(d[7])
-            #     # print(d[7] == "ADM")
-            #     # # d.index("US")
-            #     print(data_row)
-            # except:
-            #     pass
-            #     # print("ERROR")
-            # continue
+            try:
+                data_row.index("VN") # Sambizanga, 2010629820
+                # if d[8] == 'AN':
+                # data_row.index("MA")
+                data_row.index("ADM4")
+                # print(d[7])
+                # print(d[7] == "ADM")
+                # # d.index("US")
+                print(data_row)
+            except:
+                pass
+                # print("ERROR")
+            continue
 
             if current_country is None:  # first country or we are moving on to a new country now
                 current_country = Region(countries_list.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)

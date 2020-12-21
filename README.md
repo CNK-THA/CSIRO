@@ -27,6 +27,8 @@ Each location are asigned a *code* which is a 7 digit incremental number startin
 ## Administrative Divisions
 **Level 0**: Root - Earth
 
+**TODO Add continents**
+
 **Level 1**: Countries (e.g. Australia)
 
 **Level 2**: States (e.g. State of Queensland)
