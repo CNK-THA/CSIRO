@@ -99,7 +99,7 @@ def parse_countries(file_name):
             if line_number < 51:  # DATA STARTS AT LINE 51
                 continue
             line_parsed = line.split('\t')
-            countries_list[line_parsed[0]] = line_parsed[4]
+            countries_list[line_parsed[0]] = (line_parsed[4], line_parsed[8])
     return countries_list
 
 
@@ -200,17 +200,30 @@ def populate_code_system_concept_property_field(code_concept, property_code, pro
         concept_property.valueCode = property_value
     code_concept.property.append(concept_property)
 
+def create_continents_region(code, earth):
+    continents = [("North America", "NA"), ("South America", "SA"), ("Africa","AF"), ("Antarctica","AN"), ("Europe","EU"), ("Oceania","OC"), ("Asia","AS")]
+    continents_to_FHIR = {}
+    for location in continents:
+        current_location = Region(location, location, earth)
+        code_concept = create_code_system_concept_instance(code, current_location)
+        populate_code_system_concept_property_field(code_concept, "parent", current_location.parentFHIRCode)
+        populate_code_system_concept_property_field(code_concept, "root", False)
+        populate_code_system_concept_property_field(code_concept, "deprecated", False)
+        continents_to_FHIR[location[1]] = current_location.FHIRCode
+    return continents_to_FHIR
 
 def main():
     countries_list = parse_countries("countryInfo.txt") # stores a mapping between country code and the country name
     code_system = create_code_system_instance("complete", "draft", "CodeSystem for different administrative divisions around the world", True, FHIRDate(str(date.today())), "Ontology-CSIRO",
-                                "http://csiro.au/geographic-locations", "0.3", "Location Ontology", "Chanon K.", True, "is-a", "http://csiro.au/geographic-locations?vs")
+                                "http://csiro.au/geographic-locations", "0.4", "Location Ontology", "Chanon K.", True, "is-a", "http://csiro.au/geographic-locations?vs")
 
     # Populate the root concept location (Earth)
     root = Region("Earth", "Earth", None)
     code_concept = create_code_system_concept_instance(code_system, root)
     populate_code_system_concept_property_field(code_concept, "root", True)
     populate_code_system_concept_property_field(code_concept, "deprecated", False)
+
+    continents_to_FHIR = create_continents_region(code_system, root.FHIRCode)
 
     current_country = None
     FIPSToFHIRLevel1 = {}
@@ -220,6 +233,11 @@ def main():
     # no need for level2 (states) since the level 1 will already be known prior to adding.
     level3 = []
     level4 = []  # level 4 ADM4
+
+    # with open(str(Path.home()) + "/Downloads/" + "Countries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
+    #     for line in dataFile:
+    #         data = line.split("\t")
+    #         input(data)
 
 
     with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
@@ -238,24 +256,24 @@ def main():
                 raise MissingFeatureCode("location name is missing")
 
             # DEBUGGING ONLY
-            try:
-                data_row.index("VN") # Sambizanga, 2010629820
-                # if d[8] == 'AN':
-                # data_row.index("MA")
-                data_row.index("ADM4")
-                # print(d[7])
-                # print(d[7] == "ADM")
-                # # d.index("US")
-                print(data_row)
-            except:
-                pass
-                # print("ERROR")
-            continue
+            # try:
+            #     data_row.index("VN") # Sambizanga, 2010629820
+            #     # if d[8] == 'AN':
+            #     # data_row.index("MA")
+            #     data_row.index("ADM4")
+            #     # print(d[7])
+            #     # print(d[7] == "ADM")
+            #     # # d.index("US")
+            #     print(data_row)
+            # except:
+            #     pass
+            #     # print("ERROR")
+            # continue
 
             if current_country is None:  # first country or we are moving on to a new country now
-                current_country = Region(countries_list.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
+                current_country = Region(countries_list.get(data_row[COUNTRY_CODE])[0], data_row[COUNTRY_CODE], countries_list.get(data_row[COUNTRY_CODE])[1])
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
-            elif (current_country is not None and current_country.FIPSCode != data_row[COUNTRY_CODE]) or line == last: #CHECK IF THE LAST COUNTRY IS ADDED OR NOT???
+            elif (current_country is not None and current_country.FIPSCode != data_row[COUNTRY_CODE]) or line == last:
 
                 unknown_state = None
                 for city in level3:
@@ -319,14 +337,14 @@ def main():
 
 
                 country_code_concept = create_code_system_concept_instance(code_system, current_country)
-                populate_code_system_concept_property_field(country_code_concept, "parent", root.FHIRCode)
+                populate_code_system_concept_property_field(country_code_concept, "parent", continents_to_FHIR.get(current_country.parent))
                 populate_code_system_concept_property_field(country_code_concept, "deprecated", False)
                 populate_code_system_concept_property_field(country_code_concept, "root", False)
 
                 if line == last:
                     break
 
-                current_country = Region(countries_list.get(data_row[COUNTRY_CODE]), data_row[COUNTRY_CODE], None)
+                current_country = Region(countries_list.get(data_row[COUNTRY_CODE])[0], data_row[COUNTRY_CODE], countries_list.get(data_row[COUNTRY_CODE])[1])
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
 
             if data_row[FEATURE_CODE] == "ADM1":  # States (level 2)
