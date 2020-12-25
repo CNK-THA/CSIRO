@@ -244,7 +244,6 @@ def main():
         lines = dataFile.readlines()
         last = lines[-1]
         for line in lines:
-
             data_row = line.split("\t")
             if len(data_row) != 19:  # Expecting 19 columns
                 raise DataFileInWrongFormat()
