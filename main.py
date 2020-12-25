@@ -3,7 +3,7 @@ from pathlib import Path
 
 from fhir.resources.codesystem import CodeSystem
 from fhir.resources.codesystem import CodeSystemConcept
-from fhir.resources.fhirdate import FHIRDate
+# from fhir.resources.fhirdate import FHIRDate
 from fhir.resources.codesystem import CodeSystemProperty
 from fhir.resources.codesystem import CodeSystemConceptProperty
 from fhir.resources.codesystem import CodeSystemFilter
