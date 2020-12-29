@@ -12,16 +12,15 @@ data = None
 class JsonTesting(unittest.TestCase):
 
     def test_output_file_format(self):
-        self.assertTrue(os.path.exists('resultSample.json'), "File not found")
-        self.assertTrue(os.stat("resultSample.json").st_size != 0, "File is Empty")
+        self.assertTrue(os.path.exists('newResultOutput.json'), "File not found")
+        self.assertTrue(os.stat("newResultOutput.json").st_size != 0, "File is Empty")
 
     @classmethod
     def setUpClass(cls):
         global currentCounter, allLocations, allParents, tmp, data
 
-        with open('resultSample.json') as json_file:
+        with open('newResultOutput.json') as json_file:
             data = json.load(json_file)
-
             for location in data['concept']:
                 if location['display'] != "Earth":
                     allParents.add(location['property'][0]['valueCode'])
@@ -33,6 +32,7 @@ class JsonTesting(unittest.TestCase):
         global currentCounter, allLocations, allParents, tmp, data
 
         if len(allLocations) != int(data['count']):
+            print("got", len(allLocations), "expecting", int(data['count']))
             self.fail("Not equal")
 
         for index in range(0, int(data['count'])):  # TEST THAT ALL CODES EXIST

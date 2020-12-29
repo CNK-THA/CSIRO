@@ -106,28 +106,28 @@ for layername in fiona.listlayers("gadm28_levels.shp"):
                 new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                 countries[current_location['properties']['ISO']] = new_country
             elif layername == "gadm28_adm1": # states level
-                if countries.get(current_location['properties']['ISO']) is not None: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
+                if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1']: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
                     new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO']).FHIRCode)
                     states[new_state.name] = new_state
-                else:
-                    print('these are in else')
-                    print(current_location)
-                    print(countries.get(current_location['properties']['ISO']))
-                    input(states.get(current_location['properties']['NAME_1']))
+                # else:
+                #     print('these are in else')
+                #     print(current_location)
+                #     print(countries.get(current_location['properties']['ISO']))
+                #     input(states.get(current_location['properties']['NAME_1']))
             elif layername == "gadm28_adm2": # district level
-                if states.get(current_location['properties']['NAME_1']) is not None:
+                if states.get(current_location['properties']['NAME_1']) is not None and current_location['properties']['NAME_2'] is not None:
                     new_district = Region2(current_location['properties']['NAME_2'], states.get(current_location['properties']['NAME_1']).FHIRCode)
                     districts[new_district.name] = new_district
-                else:
-                    print('in district level')
-                    input(current_location)
+                # else:
+                #     print('in district level')
+                #     input(current_location)
             elif layername == "gadm28_adm3":
-                if districts.get(current_location['properties']['NAME_2']) is not None:
+                if districts.get(current_location['properties']['NAME_2']) is not None and current_location['properties']['NAME_3'] is not None:
                     new_suburb = Region2(current_location['properties']['NAME_3'], districts.get(current_location['properties']['NAME_2']).FHIRCode)
                     suburbs[new_suburb.name] = new_suburb
-                else:
-                    print('in suburbs level')
-                    input(current_location)
+                # else:
+                #     print('in suburbs level')
+                #     input(current_location)
             try:
                 current_location = c.next()
             except StopIteration:
