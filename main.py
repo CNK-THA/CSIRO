@@ -205,9 +205,9 @@ def create_continents_region(code, earth):
     continents = [("North America", "NA"), ("South America", "SA"), ("Africa","AF"), ("Antarctica","AN"), ("Europe","EU"), ("Oceania","OC"), ("Asia","AS")]
     continents_to_FHIR = {}
     for location in continents:
-        current_location = Region(location, location, earth)
+        current_location = Region(location[0], location[1], earth)
         code_concept = create_code_system_concept_instance(code, current_location)
-        populate_code_system_concept_property_field(code_concept, "parent", current_location.parentFHIRCode)
+        populate_code_system_concept_property_field(code_concept, "parent", current_location.parent)
         populate_code_system_concept_property_field(code_concept, "root", False)
         populate_code_system_concept_property_field(code_concept, "deprecated", False)
         continents_to_FHIR[location[1]] = current_location.FHIRCode
@@ -223,7 +223,6 @@ def main():
     code_concept = create_code_system_concept_instance(code_system, root)
     populate_code_system_concept_property_field(code_concept, "root", True)
     populate_code_system_concept_property_field(code_concept, "deprecated", False)
-
     continents_to_FHIR = create_continents_region(code_system, root.FHIRCode)
 
     current_country = None
