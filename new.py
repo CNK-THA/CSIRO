@@ -103,31 +103,34 @@ for layername in fiona.listlayers("gadm28_levels.shp"):
         print("there are:", len(c), "in total")
         while True:
             if layername == "gadm28_adm0": # countries level
-                new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
-                countries[current_location['properties']['ISO']] = new_country
+                 new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
+                 countries[current_location['properties']['ISO']] = new_country
             elif layername == "gadm28_adm1": # states level
-                if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1']: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
+                if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1'] is not None and states.get(current_location['properties']['NAME_1']) is None: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
                     new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO']).FHIRCode)
                     states[new_state.name] = new_state
                 # else:
                 #     print('these are in else')
-                #     print(current_location)
+                #     # print(current_location)
                 #     print(countries.get(current_location['properties']['ISO']))
+                #     print(current_location['properties'])
                 #     input(states.get(current_location['properties']['NAME_1']))
             elif layername == "gadm28_adm2": # district level
-                if states.get(current_location['properties']['NAME_1']) is not None and current_location['properties']['NAME_2'] is not None:
+                if states.get(current_location['properties']['NAME_1']) is not None and current_location['properties']['NAME_2'] is not None and districts.get(current_location['properties']['NAME_2']) is None:
                     new_district = Region2(current_location['properties']['NAME_2'], states.get(current_location['properties']['NAME_1']).FHIRCode)
                     districts[new_district.name] = new_district
                 # else:
                 #     print('in district level')
-                #     input(current_location)
+                #     print(districts.get(current_location['properties']['NAME_2']))
+                #     input(current_location['properties']['NAME_2'])
             elif layername == "gadm28_adm3":
-                if districts.get(current_location['properties']['NAME_2']) is not None and current_location['properties']['NAME_3'] is not None:
+                if districts.get(current_location['properties']['NAME_2']) is not None and current_location['properties']['NAME_3'] is not None and suburbs.get(current_location['properties']['NAME_3']) is None:
                     new_suburb = Region2(current_location['properties']['NAME_3'], districts.get(current_location['properties']['NAME_2']).FHIRCode)
                     suburbs[new_suburb.name] = new_suburb
                 # else:
                 #     print('in suburbs level')
-                #     input(current_location)
+                #     print(suburbs.get(current_location['properties']['NAME_3']))
+                #     input(current_location['properties']['NAME_3'])
             try:
                 current_location = c.next()
             except StopIteration:
@@ -152,7 +155,7 @@ print("got", len(districts))
 print("got", len(suburbs))
 for element in countries.values():
     unknown_state_code_concept = create_code_system_concept_instance(code_system, element)
-    populate_code_system_concept_property_field(unknown_state_code_concept, "parent", element.parent)
+    populate_code_system_concept_property_field(unknown_state_code_concept, "parent", root.FHIRCode)
     populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
     populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
 

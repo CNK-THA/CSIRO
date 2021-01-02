@@ -244,8 +244,8 @@ def main():
         lines = dataFile.readlines()
         last = lines[-1]
         for line in lines:
+            # print(Region.codeCounter)
             data_row = line.split("\t")
-            print(line)
             if len(data_row) != 19:  # Expecting 19 columns
                 raise DataFileInWrongFormat()
             if line != last and ((data_row[FEATURE_CLASS] != 'P' and data_row[FEATURE_CLASS] != 'A') or (data_row[FEATURE_CODE] != 'PPLX' and data_row[FEATURE_CODE] != 'ADM1' and data_row[
