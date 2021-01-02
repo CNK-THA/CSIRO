@@ -105,6 +105,7 @@ for layername in fiona.listlayers("gadm28_levels.shp"):
             if layername == "gadm28_adm0": # countries level
                  new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                  countries[current_location['properties']['ISO']] = new_country
+                 input(current_location['properties']['UNREGION1']) # TODO work on this!!
             elif layername == "gadm28_adm1": # states level
                 if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1'] is not None and states.get(current_location['properties']['NAME_1']) is None: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
                     new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO']).FHIRCode)
