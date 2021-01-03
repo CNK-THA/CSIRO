@@ -47,6 +47,18 @@ import json
 #         input(first)
 #     first = shape.next()
 
+def create_continents_region2(code, earth):
+    continents = [("North America", "NA"), ("South America", "SA"), ("Africa","AF"), ("Antarctica","AN"), ("Europe","EU"), ("Oceania","OC"), ("Asia","AS")]
+    continents_to_FHIR = {}
+    for location in continents:
+        current_location = Region2(location[0], earth)
+        code_concept = create_code_system_concept_instance(code, current_location)
+        populate_code_system_concept_property_field(code_concept, "parent", current_location.parent)
+        populate_code_system_concept_property_field(code_concept, "root", False)
+        populate_code_system_concept_property_field(code_concept, "deprecated", False)
+        continents_to_FHIR[location[1]] = current_location.FHIRCode
+    return continents_to_FHIR
+
 class Region2:
     fhir_code_counter = "0000000"
 
@@ -103,12 +115,14 @@ for layername in fiona.listlayers("gadm28_levels.shp"):
         print("there are:", len(c), "in total")
         while True:
             if layername == "gadm28_adm0": # countries level
-                 new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
-                 countries[current_location['properties']['ISO']] = new_country
-                 input(current_location['properties']['UNREGION1']) # TODO work on this!!
+                new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
+                if current_location['properties']['UNREGION1'] is None:
+                    countries[current_location['properties']['ISO']] = (current_location['properties']['NAME_ENGLI'], new_country)
+                else:
+                    countries[current_location['properties']['ISO']] = (current_location['properties']['UNREGION1'], new_country)
             elif layername == "gadm28_adm1": # states level
                 if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1'] is not None and states.get(current_location['properties']['NAME_1']) is None: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
-                    new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO']).FHIRCode)
+                    new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO'])[1].FHIRCode)
                     states[new_state.name] = new_state
                 # else:
                 #     print('these are in else')
@@ -148,15 +162,35 @@ code_concept = create_code_system_concept_instance(code_system, root)
 populate_code_system_concept_property_field(code_concept, "root", True)
 populate_code_system_concept_property_field(code_concept, "deprecated", False)
 
-# continents_to_FHIR = create_continents_region(code_system, root.FHIRCode) # TODO
+continents_to_FHIR = create_continents_region2(code_system, root.FHIRCode)
 
 print("got", len(countries))
 print("got", len(states))
 print("got", len(districts))
 print("got", len(suburbs))
 for element in countries.values():
-    unknown_state_code_concept = create_code_system_concept_instance(code_system, element)
-    populate_code_system_concept_property_field(unknown_state_code_concept, "parent", root.FHIRCode)
+    unknown_state_code_concept = create_code_system_concept_instance(code_system, element[1])
+    if "Asia" in element[0] or "British Indian Ocean Territory" in element[0] or "Caspian Sea" in element[0] or "Paracel Islands" in element[0] or \
+            "Spratly islands" in element[0]: # the sea could be in Europe?
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("AS"))
+    elif "Europe" in element[0] or "Akrotiri and Dhekelia" in element[0] or "Kosovo" in element[0] or "Northern Cyprus" in element[0]:
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("EU"))
+    elif "Africa" in element[0] or "South Sudan" in element[0]:
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("AF"))
+    elif "Polynesia" in element[0] or "Australia" in element[0] or "Christmas Island" in element[0] or "Cocos Islands" in element[0] or "Melanesia" in element[0] or \
+            "Micronesia" in element[0]: # part of Oceania
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("OC"))
+    elif "Caribbean" in element[0] or "Central America" in element[0] or "Clipperton Island" in element[0] or "Saint-Martin" in element[0] or \
+            "United States Minor Outlying Islands" in element[0] or "Northern America" in element[0]: # North America
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("NA"))
+    elif "Antarctica" in element[0] or "Bouvet Island" in element[0] or "French Southern Territories" in element[0] or "Heard Island and McDonald Islands" in element[0] or \
+            "South Georgia and the South Sandwich Islands" in element[0] or "Antartica" in element[0]:
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("AN"))
+    elif "South America" in element[0]:
+        populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("SA"))
+    else:
+        input(element[0])
+
     populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
     populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
 
@@ -185,7 +219,7 @@ with open('newResultOutput.json', 'w') as fp:
 
 with open("newOutputTest.txt", "w") as out:
     for element in countries.values():
-        out.write(element.toJSON())
+        out.write(element[1].toJSON())
     for element in states.values():
         out.write(element.toJSON())
     for element in districts.values():
