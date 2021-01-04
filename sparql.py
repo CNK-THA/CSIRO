@@ -1,19 +1,75 @@
+
+# http://dev.grakn.ai/docs/examples/phone-calls-migration-python
+# https://medium.com/virtuoso-blog/dbpedia-basic-queries-bc1ac172cc09
+# http://dev.grakn.ai/docs/examples/phone-calls-migration-python
+# https://sparqlwrapper.readthedocs.io/en/latest/main.html#how-to-use
+# https://towardsdatascience.com/where-do-mayors-come-from-querying-wikidata-with-python-and-sparql-91f3c0af22e2
+
+import json
+
+countries = []
+
+with open('newResultOutput.json') as json_file:
+   data = json.load(json_file)
+   for location in data['concept']:
+      if location['display'] != "Earth" and (location['property'][0]['valueCode'] != '0151626' and
+                                             location['property'][0]['valueCode'] != '0151620' and
+                                             location['property'][0]['valueCode'] != '0151621' and
+                                             location['property'][0]['valueCode'] != '0151622' and
+                                             location['property'][0]['valueCode'] != '0151623' and
+                                             location['property'][0]['valueCode'] != '0151624' and
+                                             location['property'][0]['valueCode'] != '0151625') and \
+                                             (location['code'] != '0151626' and
+                                             location['code'] != '0151620' and
+                                             location['code'] != '0151621' and
+                                             location['code'] != '0151622' and
+                                             location['code'] != '0151623' and
+                                             location['code'] != '0151624' and
+                                             location['code'] != '0151625'):
+         countries.append(location['display'])
+
+
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")
-sparql.setQuery("""
-    SELECT ?label
-    WHERE { <http://dbpedia.org/resource/Australia> rdfs:label ?label }
-""")
-sparql.setReturnFormat(JSON)
-results = sparql.query().convert()
 
-print(results)
+collection = []
 
-for result in results["results"]["bindings"]:
-    print(result["label"]["value"])
+for country in countries:
+   remove_space = country.replace(" ", "_")
+   link = 'http://dbpedia.org/resource/' + remove_space
 
-print('---------------------------')
+   query = "SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:north ?north; dbp:northeast ?northeast; dbp:northwest ?northwest;" \
+           "dbp:south ?south; dbp:southeast ?southeast; dbp:southwest ?southwest; dbp:east ?east; dbp:west ?west }".replace("{link}", link)   #  """SELECT *WHERE{?location rdfs:label "New Zealand"@en}"""
+
+   sparql.setQuery(query)
+   sparql.setReturnFormat(JSON)
+   results = sparql.query().convert()
+
+   print(link)
+   print(results)
+   linking = {}
+   if len(results["results"]["bindings"]) == 0:
+      print("SKIPPING")
+      continue # Something went wrong. Either it's not a suburb or broken link
+
+   for data in results["results"]["bindings"]:
+      for direction in ['north', 'northeast', 'northwest', 'south', 'southeast', 'southwest', 'east', 'west']:
+         neighbour = data[direction]['value'].replace('Province','').split(',')[0].strip() # SPLIT ON COMMA, ANY NAME WITH THAT???
+         existing = linking.get(direction)
+         if existing is None:
+            existing = set()
+         existing.add(neighbour)
+         linking[direction] = existing
+
+   print(linking)
+   collection.append(linking)
+
+
+   # print(results["results"]["bindings"][2]['location']['value'])
+
+
+
 
 # for result in results["results"]["bindings"]:
 #     print('%s: %s' % (result["label"]["xml:lang"], result["label"]["value"]))

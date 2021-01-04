@@ -22,7 +22,7 @@ with open('newResultOutput.json') as json_file2:
         if location['display'] != "Earth" and (location['property'][0]['valueCode'] == '0151619' or
                 location['property'][0]['valueCode'] == '0151620' or location['property'][0]['valueCode'] == '0151621' or
                 location['property'][0]['valueCode'] == '0151622' or location['property'][0]['valueCode'] == '0151623' or
-                location['property'][0]['valueCode'] == '0151624' or location['property'][0]['valueCode'] == '0151625'):
+                location['property'][0]['valueCode'] == '0151624' or location['property'][0]['valueCode'] == '0151625'): # CHECK THESE NUMBERS, GOTTA BE BETWEEN 20 TO 26!!!
             countries2[location['code']] = location['display']
 
 countries1_set = set(countries1.values())

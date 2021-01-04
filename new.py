@@ -71,8 +71,6 @@ if __name__ == '__main__':
                     if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1'] is not None and states.get(current_location['properties']['NAME_1']) is None: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
                         new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO'])[1].FHIRCode)
                         states[new_state.name] = new_state
-                        if current_location['properties']['NAME_1'] == "Queensland":
-                            input(current_location['properties'])
                     # else:
                     #     print('these are in else')
                     #     # print(current_location)
@@ -173,5 +171,9 @@ if __name__ == '__main__':
             out.write(element.toJSON())
         for element in districts.values():
             out.write(element.toJSON())
+        for element in suburbs.values():
+            out.write(element.toJSON())
+
+    with open("suburbsOnly.txt", "w") as out:
         for element in suburbs.values():
             out.write(element.toJSON())

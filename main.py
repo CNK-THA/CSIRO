@@ -348,8 +348,6 @@ def main():
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
 
             if data_row[FEATURE_CODE] == "ADM1":  # States (level 2)
-                if data_row[LOCATION_NAME] == "State of Queensland":
-                    input(data_row)
                 if data_row[ADMIN_1_CODE] == '':
                     raise MissingFeatureCode("Missing Level 2 (states) location code")
                 state = Region(data_row[LOCATION_NAME], data_row[ADMIN_1_CODE], data_row[COUNTRY_CODE])
