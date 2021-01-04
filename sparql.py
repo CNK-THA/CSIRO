@@ -7,6 +7,14 @@
 
 import json
 
+
+
+class SetEncoder(json.JSONEncoder):
+   def default(self, obj):
+      if isinstance(obj, set):
+         return list(obj)
+      return json.JSONEncoder.default(self, obj)
+
 countries = []
 
 with open('newResultOutput.json') as json_file:
@@ -33,7 +41,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
-collection = []
+collection = {}
 
 for country in countries:
    remove_space = country.replace(" ", "_")
@@ -46,11 +54,11 @@ for country in countries:
    sparql.setReturnFormat(JSON)
    results = sparql.query().convert()
 
-   print(link)
-   print(results)
+   # print(link)
+   # print(results)
    linking = {}
    if len(results["results"]["bindings"]) == 0:
-      print("SKIPPING")
+      # print("SKIPPING")
       continue # Something went wrong. Either it's not a suburb or broken link
 
    for data in results["results"]["bindings"]:
@@ -62,8 +70,14 @@ for country in countries:
          existing.add(neighbour)
          linking[direction] = existing
 
-   print(linking)
-   collection.append(linking)
+
+   # print(linking)
+   collection[country] = linking
+
+
+with open("test.txt", "a") as testingFile:
+   testingFile.write(json.dumps(collection, cls=SetEncoder))
+
 
 
    # print(results["results"]["bindings"][2]['location']['value'])

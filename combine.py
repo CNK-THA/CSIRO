@@ -124,6 +124,7 @@ with open('newResultOutput.json') as json_file1:
                     district.append((location['code'], location['display']))
                     district2[country + "," + states[1]] = district  # parent code (country) mapped to list containing tuples of current code and name (states)
 
+
 print(district1)
 print()
 print()
