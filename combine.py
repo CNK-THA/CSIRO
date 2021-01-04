@@ -5,7 +5,7 @@ from new import *
 countries1 = {}
 countries2 = {}
 
-# GET COUNTRIES
+# GET COUNTRIES, TODO REMOVE THE CONTINENTS FROM THESE ONES!!!
 with open('resultSample.json') as json_file1:
     data = json.load(json_file1)
     for location in data['concept']:
@@ -31,8 +31,8 @@ countries2_set = set(countries2.values())
 in_second_but_not_first = countries2_set - countries1_set
 combined = list(countries1.values()) + list(in_second_but_not_first) # use 1 cause that's the one that is less
 
-print(combined)
-print(len(combined))
+# print(combined)
+# print(len(combined))
 
 code_system = create_code_system_instance("complete", "draft", "CodeSystem for different administrative divisions around the world", True, FHIRDate(str(date.today())), "Ontology-CSIRO",
                                 "http://csiro.au/geographic-locations", "0.4", "Location Ontology", "Chanon K.", True, "is-a", "http://csiro.au/geographic-locations?vs") # FHIRDate(str(date.today()))
@@ -52,30 +52,82 @@ with open('resultSample.json') as json_file1:
     for location in data['concept']:
         for codes in countries1.keys():
             if location['display'] != "Earth" and location['property'][0]['valueCode'] == codes: # if parent is the country
-                if states1.get(codes) is None:
+                if states1.get(countries1.get(codes)) is None:
                     state = []
                 else:
-                    state = states1.get(codes)
+                    state = states1.get(countries1.get(codes))
                 state.append((location['code'], location['display']))
-                states1[codes] = state # parent code (country) mapped to list containing tuples of current code and name (states)
+                states1[countries1.get(codes)] = state # parent code (country) mapped to list containing tuples of current code and name (states)
 
 with open('newResultOutput.json') as json_file1:
     data = json.load(json_file1)
     for location in data['concept']:
         for codes in countries2.keys():
             if location['display'] != "Earth" and location['property'][0]['valueCode'] == codes: # if parent is the country
-                if states2.get(codes) is None:
+                if states2.get(countries2.get(codes)) is None:
                     state = []
                 else:
-                    state = states2.get(codes)
+                    state = states2.get(countries2.get(codes))
                 state.append((location['code'], location['display']))
-                states2[codes] = state # parent code (country) mapped to list containing tuples of current code and name (states)
+                states2[countries2.get(codes)] = state # parent code (country) mapped to list containing tuples of current code and name (states)
 
 
-print(states1)
-print(states2)
-#TODO Combine these together!!
+# print(states1)
+# print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+# print(states2)
+
+combined_states = {}
+
+for country in combined:
+    s12 = set()
+    s1 = states1.get(country)
+    s2 = states1.get(country)
+    if s1 is not None:
+        for element in s1:
+            s12.add(element[1])
+    if s2 is not None:
+        for element in s2:
+            s12.add(element[1])
+    combined_states[country] = s12
+
+
 
 
 # GET DISTRICTS
 
+district1 = {}
+district2 = {}
+
+with open('resultSample.json') as json_file1:
+    data = json.load(json_file1)
+    for location in data['concept']:
+        for country in states1.keys():
+            for states in states1.get(country):
+                if location['display'] != "Earth" and location['property'][0]['valueCode'] == states[0]: # if parent is the country
+                    if district1.get(country+","+states[1]) is None:
+                        district = []
+                    else:
+                        district = district1.get(country+","+states[1])
+                    district.append((location['code'], location['display']))
+                    district1[country+","+states[1]] = district # parent code (country) mapped to list containing tuples of current code and name (states)
+
+with open('newResultOutput.json') as json_file1:
+    data = json.load(json_file1)
+    for location in data['concept']:
+        for country in states2.keys():
+            for states in states2.get(country):
+                if location['display'] != "Earth" and location['property'][0]['valueCode'] == states[0]:  # if parent is the country
+                    if district2.get(country + "," + states[1]) is None:
+                        district = []
+                    else:
+                        district = district2.get(country + "," + states[1])
+                    district.append((location['code'], location['display']))
+                    district2[country + "," + states[1]] = district  # parent code (country) mapped to list containing tuples of current code and name (states)
+
+print(district1)
+print()
+print()
+print()
+print()
+print()
+print(district2)
