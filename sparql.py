@@ -5,6 +5,8 @@
 # https://sparqlwrapper.readthedocs.io/en/latest/main.html#how-to-use
 # https://towardsdatascience.com/where-do-mayors-come-from-querying-wikidata-with-python-and-sparql-91f3c0af22e2
 
+
+# PREFIX http://prefix.cc/dbr,dbo,dct,owl,prov,qb,qudt,rdf,rdfs,schema,skos,unit,xsd,sdmx.sparql
 import json
 
 
@@ -44,21 +46,38 @@ sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 collection = {}
 
 for country in countries:
+   country = country.strip()
    remove_space = country.replace(" ", "_")
    link = 'http://dbpedia.org/resource/' + remove_space
 
-   query = "SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:north ?north; dbp:northeast ?northeast; dbp:northwest ?northwest;" \
+   query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:north ?north; dbp:northeast ?northeast; dbp:northwest ?northwest;" \
            "dbp:south ?south; dbp:southeast ?southeast; dbp:southwest ?southwest; dbp:east ?east; dbp:west ?west }".replace("{link}", link)   #  """SELECT *WHERE{?location rdfs:label "New Zealand"@en}"""
 
-   sparql.setQuery(query)
-   sparql.setReturnFormat(JSON)
-   results = sparql.query().convert()
+   # print(query)
+   try: # <http://dbpedia.org/resource/Al_Isma`iliyah> causing error!!!
+      sparql.setQuery(query)
+      sparql.setReturnFormat(JSON)
+      results = sparql.query().convert()
+   except: # what ever error we ignore it
+      print("error")
+      continue
 
-   # print(link)
    # print(results)
    linking = {}
+
+
    if len(results["results"]["bindings"]) == 0:
-      # print("SKIPPING")
+      # link = 'http://dbpedia.org/page/' + remove_space + "_Province"
+      # query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?label WHERE { <{link}> rdfs:label ?label }".replace(
+      #    "{link}", link)
+      # # query = """SELECT *WHERE{?location rdfs:label "{name}"@en}""".replace("{name}", country)
+      #
+      # # print(query)
+      # sparql.setQuery(query)
+      # sparql.setReturnFormat(JSON)
+      # results = sparql.query().convert()
+      # # print(results)
+      # # print("SKIPPING")
       continue # Something went wrong. Either it's not a suburb or broken link
 
    for data in results["results"]["bindings"]:
@@ -74,7 +93,8 @@ for country in countries:
    # print(linking)
    collection[country] = linking
 
-
+   print(query)
+   print("GOT HERE")
 with open("test.txt", "a") as testingFile:
    testingFile.write(json.dumps(collection, cls=SetEncoder))
 

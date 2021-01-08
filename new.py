@@ -61,6 +61,11 @@ if __name__ == '__main__':
             current_location = c.next()
             print("there are:", len(c), "in total")
             while True:
+                # if Region2.fhir_code_counter == "0053283":
+                #     # udata = current_location['properties']['NAME_3'].decode("utf-8")
+                #     asciidata = current_location['properties']['NAME_3'].encode("ascii", "ignore")
+                #     print(asciidata)
+                #     input(current_location)
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                     if current_location['properties']['UNREGION1'] is None:
