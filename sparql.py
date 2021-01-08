@@ -19,7 +19,7 @@ class SetEncoder(json.JSONEncoder):
 
 countries = []
 
-with open('newResultOutput.json') as json_file:
+with open('newResultOutput2.json') as json_file:
    data = json.load(json_file)
    for location in data['concept']:
       if location['display'] != "Earth" and (location['property'][0]['valueCode'] != '0151626' and
@@ -36,8 +36,8 @@ with open('newResultOutput.json') as json_file:
                                              location['code'] != '0151623' and
                                              location['code'] != '0151624' and
                                              location['code'] != '0151625'):
+                                             #(location['property'][0]['valueCode'] == "0151625" ): # Not the contients label and not the country levels
          countries.append(location['display'])
-
 
 from SPARQLWrapper import SPARQLWrapper, JSON
 
@@ -53,7 +53,13 @@ for country in countries:
    query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:north ?north; dbp:northeast ?northeast; dbp:northwest ?northwest;" \
            "dbp:south ?south; dbp:southeast ?southeast; dbp:southwest ?southwest; dbp:east ?east; dbp:west ?west }".replace("{link}", link)   #  """SELECT *WHERE{?location rdfs:label "New Zealand"@en}"""
 
-   # print(query)
+   # query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:nearN ?north; dbp:nearNe ?northeast; dbp:nearNw ?northwest;" \
+   #         "dbp:nearS ?south; dbp:nearSe ?southeast; dbp:nearSw ?southwest; dbp:nearE ?east; dbp:nearW ?west }".replace("{link}", link)
+
+   # query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <http://dbpedia.org/resource/Sunnybank,_Queensland> dbp:nearN ?north; dbp:nearNe ?northeast; dbp:nearNw ?northwest;" \
+   #         "dbp:nearS ?south; dbp:nearSe ?southeast; dbp:nearSw ?southwest; dbp:nearE ?east; dbp:nearW ?west }"
+
+   print(query)
    try: # <http://dbpedia.org/resource/Al_Isma`iliyah> causing error!!!
       sparql.setQuery(query)
       sparql.setReturnFormat(JSON)
@@ -62,7 +68,7 @@ for country in countries:
       print("error")
       continue
 
-   # print(results)
+   print(results)
    linking = {}
 
 
@@ -95,7 +101,7 @@ for country in countries:
 
    print(query)
    print("GOT HERE")
-with open("test.txt", "a") as testingFile:
+with open("test2.txt", "a") as testingFile:
    testingFile.write(json.dumps(collection, cls=SetEncoder))
 
 

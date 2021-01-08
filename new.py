@@ -61,11 +61,28 @@ if __name__ == '__main__':
             current_location = c.next()
             print("there are:", len(c), "in total")
             while True:
-                # if Region2.fhir_code_counter == "0053283":
-                #     # udata = current_location['properties']['NAME_3'].decode("utf-8")
-                #     asciidata = current_location['properties']['NAME_3'].encode("ascii", "ignore")
-                #     print(asciidata)
+                try:
+                    name = current_location['properties']['NAME_ENGLI']
+                    if name != "Australia":
+                        current_location = c.next()
+                        continue
+                except StopIteration:
+                    break
+                except:
+                    name = current_location['properties']['NAME_0']
+                    if name != "Australia":
+                        try:
+                            current_location = c.next()
+                            continue
+                        except StopIteration:
+                            break
+                # else:
                 #     input(current_location)
+                # if Region2.fhir_code_counter == "0053283":
+                    # udata = current_location['properties']['NAME_3'].decode("utf-8")
+                    # asciidata = current_location['properties']['NAME_3'].encode("ascii", "ignore")
+                    # print(asciidata)
+                # input(current_location)
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                     if current_location['properties']['UNREGION1'] is None:
@@ -166,10 +183,10 @@ if __name__ == '__main__':
 
     code_system.count = int(Region2.fhir_code_counter)
 
-    with open('newResultOutput.json', 'w') as fp:
+    with open('newResultOutput2.json', 'w') as fp:
         json.dump(code_system.as_json(), fp, indent=4)
 
-    with open("newOutputTest.txt", "w") as out:
+    with open("newOutputTest2.txt", "w") as out:
         for element in countries.values():
             out.write(element[1].toJSON())
         for element in states.values():
@@ -179,6 +196,6 @@ if __name__ == '__main__':
         for element in suburbs.values():
             out.write(element.toJSON())
 
-    with open("suburbsOnly.txt", "w") as out:
+    with open("suburbsOnly2.txt", "w") as out:
         for element in suburbs.values():
             out.write(element.toJSON())
