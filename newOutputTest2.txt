@@ -1,0 +1,5545 @@
+{
+    "Parent": "None",
+    "code": "0000000",
+    "display": "Australia"
+}{
+    "Parent": "0000000",
+    "code": "0000001",
+    "display": "Ashmore and Cartier Islands"
+}{
+    "Parent": "0000000",
+    "code": "0000002",
+    "display": "Australian Capital Territory"
+}{
+    "Parent": "0000000",
+    "code": "0000003",
+    "display": "Coral Sea Islands"
+}{
+    "Parent": "0000000",
+    "code": "0000004",
+    "display": "Jervis Bay Territory"
+}{
+    "Parent": "0000000",
+    "code": "0000005",
+    "display": "New South Wales"
+}{
+    "Parent": "0000000",
+    "code": "0000006",
+    "display": "Northern Territory"
+}{
+    "Parent": "0000000",
+    "code": "0000007",
+    "display": "Queensland"
+}{
+    "Parent": "0000000",
+    "code": "0000008",
+    "display": "South Australia"
+}{
+    "Parent": "0000000",
+    "code": "0000009",
+    "display": "Tasmania"
+}{
+    "Parent": "0000000",
+    "code": "0000010",
+    "display": "Victoria"
+}{
+    "Parent": "0000000",
+    "code": "0000011",
+    "display": "Western Australia"
+}{
+    "Parent": "0000001",
+    "code": "0000012",
+    "display": "n.a.1"
+}{
+    "Parent": "0000002",
+    "code": "0000013",
+    "display": "Acton"
+}{
+    "Parent": "0000002",
+    "code": "0000014",
+    "display": "Ainslie"
+}{
+    "Parent": "0000002",
+    "code": "0000015",
+    "display": "Amaroo"
+}{
+    "Parent": "0000002",
+    "code": "0000016",
+    "display": "Aranda"
+}{
+    "Parent": "0000002",
+    "code": "0000017",
+    "display": "Banks"
+}{
+    "Parent": "0000002",
+    "code": "0000018",
+    "display": "Barton"
+}{
+    "Parent": "0000002",
+    "code": "0000019",
+    "display": "Belconnen - SSD Bal"
+}{
+    "Parent": "0000002",
+    "code": "0000020",
+    "display": "Belconnen Town Centre"
+}{
+    "Parent": "0000002",
+    "code": "0000021",
+    "display": "Bonython"
+}{
+    "Parent": "0000002",
+    "code": "0000022",
+    "display": "Braddon"
+}{
+    "Parent": "0000002",
+    "code": "0000023",
+    "display": "Bruce"
+}{
+    "Parent": "0000002",
+    "code": "0000024",
+    "display": "Calwell"
+}{
+    "Parent": "0000002",
+    "code": "0000025",
+    "display": "Campbell"
+}{
+    "Parent": "0000002",
+    "code": "0000026",
+    "display": "Chapman"
+}{
+    "Parent": "0000002",
+    "code": "0000027",
+    "display": "Charnwood"
+}{
+    "Parent": "0000002",
+    "code": "0000028",
+    "display": "Chifley"
+}{
+    "Parent": "0000002",
+    "code": "0000029",
+    "display": "Chisholm"
+}{
+    "Parent": "0000002",
+    "code": "0000030",
+    "display": "City"
+}{
+    "Parent": "0000002",
+    "code": "0000031",
+    "display": "Conder"
+}{
+    "Parent": "0000002",
+    "code": "0000032",
+    "display": "Cook"
+}{
+    "Parent": "0000002",
+    "code": "0000033",
+    "display": "Curtin"
+}{
+    "Parent": "0000002",
+    "code": "0000034",
+    "display": "Deakin"
+}{
+    "Parent": "0000002",
+    "code": "0000035",
+    "display": "Dickson"
+}{
+    "Parent": "0000002",
+    "code": "0000036",
+    "display": "Downer"
+}{
+    "Parent": "0000002",
+    "code": "0000037",
+    "display": "Duffy"
+}{
+    "Parent": "0000002",
+    "code": "0000038",
+    "display": "Dunlop"
+}{
+    "Parent": "0000002",
+    "code": "0000039",
+    "display": "Duntroon"
+}{
+    "Parent": "0000002",
+    "code": "0000040",
+    "display": "Evatt"
+}{
+    "Parent": "0000002",
+    "code": "0000041",
+    "display": "Fadden"
+}{
+    "Parent": "0000002",
+    "code": "0000042",
+    "display": "Farrer"
+}{
+    "Parent": "0000002",
+    "code": "0000043",
+    "display": "Fisher"
+}{
+    "Parent": "0000002",
+    "code": "0000044",
+    "display": "Florey"
+}{
+    "Parent": "0000002",
+    "code": "0000045",
+    "display": "Flynn"
+}{
+    "Parent": "0000002",
+    "code": "0000046",
+    "display": "Forrest"
+}{
+    "Parent": "0000002",
+    "code": "0000047",
+    "display": "Fraser"
+}{
+    "Parent": "0000002",
+    "code": "0000048",
+    "display": "Fyshwick"
+}{
+    "Parent": "0000002",
+    "code": "0000049",
+    "display": "Garran"
+}{
+    "Parent": "0000002",
+    "code": "0000050",
+    "display": "Gilmore"
+}{
+    "Parent": "0000002",
+    "code": "0000051",
+    "display": "Giralang"
+}{
+    "Parent": "0000002",
+    "code": "0000052",
+    "display": "Gordon"
+}{
+    "Parent": "0000002",
+    "code": "0000053",
+    "display": "Gowrie"
+}{
+    "Parent": "0000002",
+    "code": "0000054",
+    "display": "Greenway"
+}{
+    "Parent": "0000002",
+    "code": "0000055",
+    "display": "Griffith"
+}{
+    "Parent": "0000002",
+    "code": "0000056",
+    "display": "Gungahlin-Hall - SSD Bal"
+}{
+    "Parent": "0000002",
+    "code": "0000057",
+    "display": "Gungahlin"
+}{
+    "Parent": "0000002",
+    "code": "0000058",
+    "display": "Hackett"
+}{
+    "Parent": "0000002",
+    "code": "0000059",
+    "display": "Hall"
+}{
+    "Parent": "0000002",
+    "code": "0000060",
+    "display": "Harman"
+}{
+    "Parent": "0000002",
+    "code": "0000061",
+    "display": "Harrison"
+}{
+    "Parent": "0000002",
+    "code": "0000062",
+    "display": "Hawker"
+}{
+    "Parent": "0000002",
+    "code": "0000063",
+    "display": "Higgins"
+}{
+    "Parent": "0000002",
+    "code": "0000064",
+    "display": "Holder"
+}{
+    "Parent": "0000002",
+    "code": "0000065",
+    "display": "Holt"
+}{
+    "Parent": "0000002",
+    "code": "0000066",
+    "display": "Hughes"
+}{
+    "Parent": "0000002",
+    "code": "0000067",
+    "display": "Hume"
+}{
+    "Parent": "0000002",
+    "code": "0000068",
+    "display": "Isaacs"
+}{
+    "Parent": "0000002",
+    "code": "0000069",
+    "display": "Isabella Plains"
+}{
+    "Parent": "0000002",
+    "code": "0000070",
+    "display": "Jerrabomberra"
+}{
+    "Parent": "0000002",
+    "code": "0000071",
+    "display": "Kaleen"
+}{
+    "Parent": "0000002",
+    "code": "0000072",
+    "display": "Kambah"
+}{
+    "Parent": "0000002",
+    "code": "0000073",
+    "display": "Kingston"
+}{
+    "Parent": "0000002",
+    "code": "0000074",
+    "display": "Kowen"
+}{
+    "Parent": "0000002",
+    "code": "0000075",
+    "display": "Latham"
+}{
+    "Parent": "0000002",
+    "code": "0000076",
+    "display": "Lyneham"
+}{
+    "Parent": "0000002",
+    "code": "0000077",
+    "display": "Lyons"
+}{
+    "Parent": "0000002",
+    "code": "0000078",
+    "display": "Macarthur"
+}{
+    "Parent": "0000002",
+    "code": "0000079",
+    "display": "Macgregor"
+}{
+    "Parent": "0000002",
+    "code": "0000080",
+    "display": "Macquarie"
+}{
+    "Parent": "0000002",
+    "code": "0000081",
+    "display": "Majura"
+}{
+    "Parent": "0000002",
+    "code": "0000082",
+    "display": "Mawson"
+}{
+    "Parent": "0000002",
+    "code": "0000083",
+    "display": "McKellar"
+}{
+    "Parent": "0000002",
+    "code": "0000084",
+    "display": "Melba"
+}{
+    "Parent": "0000002",
+    "code": "0000085",
+    "display": "Mitchell"
+}{
+    "Parent": "0000002",
+    "code": "0000086",
+    "display": "Monash"
+}{
+    "Parent": "0000002",
+    "code": "0000087",
+    "display": "Narrabundah"
+}{
+    "Parent": "0000002",
+    "code": "0000088",
+    "display": "Ngunnawal"
+}{
+    "Parent": "0000002",
+    "code": "0000089",
+    "display": "Nicholls"
+}{
+    "Parent": "0000002",
+    "code": "0000090",
+    "display": "O'Connor"
+}{
+    "Parent": "0000002",
+    "code": "0000091",
+    "display": "O'Malley"
+}{
+    "Parent": "0000002",
+    "code": "0000092",
+    "display": "Oaks Estate"
+}{
+    "Parent": "0000002",
+    "code": "0000093",
+    "display": "Oxley"
+}{
+    "Parent": "0000002",
+    "code": "0000094",
+    "display": "Page"
+}{
+    "Parent": "0000002",
+    "code": "0000095",
+    "display": "Palmerston"
+}{
+    "Parent": "0000002",
+    "code": "0000096",
+    "display": "Parkes"
+}{
+    "Parent": "0000002",
+    "code": "0000097",
+    "display": "Pearce"
+}{
+    "Parent": "0000002",
+    "code": "0000098",
+    "display": "Phillip"
+}{
+    "Parent": "0000002",
+    "code": "0000099",
+    "display": "Pialligo"
+}{
+    "Parent": "0000002",
+    "code": "0000100",
+    "display": "Red Hill"
+}{
+    "Parent": "0000002",
+    "code": "0000101",
+    "display": "Reid"
+}{
+    "Parent": "0000002",
+    "code": "0000102",
+    "display": "Remainder of ACT"
+}{
+    "Parent": "0000002",
+    "code": "0000103",
+    "display": "Richardson"
+}{
+    "Parent": "0000002",
+    "code": "0000104",
+    "display": "Rivett"
+}{
+    "Parent": "0000002",
+    "code": "0000105",
+    "display": "Russell"
+}{
+    "Parent": "0000002",
+    "code": "0000106",
+    "display": "Scullin"
+}{
+    "Parent": "0000002",
+    "code": "0000107",
+    "display": "Spence"
+}{
+    "Parent": "0000002",
+    "code": "0000108",
+    "display": "Stirling"
+}{
+    "Parent": "0000002",
+    "code": "0000109",
+    "display": "Stromlo"
+}{
+    "Parent": "0000002",
+    "code": "0000110",
+    "display": "Symonston"
+}{
+    "Parent": "0000002",
+    "code": "0000111",
+    "display": "Theodore"
+}{
+    "Parent": "0000002",
+    "code": "0000112",
+    "display": "Torrens"
+}{
+    "Parent": "0000002",
+    "code": "0000113",
+    "display": "Tuggeranong - SSD Bal"
+}{
+    "Parent": "0000002",
+    "code": "0000114",
+    "display": "Turner"
+}{
+    "Parent": "0000002",
+    "code": "0000115",
+    "display": "Wanniassa"
+}{
+    "Parent": "0000002",
+    "code": "0000116",
+    "display": "Waramanga"
+}{
+    "Parent": "0000002",
+    "code": "0000117",
+    "display": "Watson"
+}{
+    "Parent": "0000002",
+    "code": "0000118",
+    "display": "Weetangera"
+}{
+    "Parent": "0000002",
+    "code": "0000119",
+    "display": "Weston Creek-Stromlo - SSD Bal"
+}{
+    "Parent": "0000002",
+    "code": "0000120",
+    "display": "Weston"
+}{
+    "Parent": "0000002",
+    "code": "0000121",
+    "display": "Yarralumla"
+}{
+    "Parent": "0000003",
+    "code": "0000122",
+    "display": "n.a.2"
+}{
+    "Parent": "0000004",
+    "code": "0000123",
+    "display": "Jervis Bay"
+}{
+    "Parent": "0000005",
+    "code": "0000124",
+    "display": "Albury"
+}{
+    "Parent": "0000005",
+    "code": "0000125",
+    "display": "Armidale Dumaresq Bal"
+}{
+    "Parent": "0000005",
+    "code": "0000126",
+    "display": "Armidale Dumaresq"
+}{
+    "Parent": "0000005",
+    "code": "0000127",
+    "display": "Ashfield"
+}{
+    "Parent": "0000005",
+    "code": "0000128",
+    "display": "Auburn"
+}{
+    "Parent": "0000005",
+    "code": "0000129",
+    "display": "Ballina"
+}{
+    "Parent": "0000005",
+    "code": "0000130",
+    "display": "Balranald"
+}{
+    "Parent": "0000005",
+    "code": "0000131",
+    "display": "Bankstown - North-East"
+}{
+    "Parent": "0000005",
+    "code": "0000132",
+    "display": "Bankstown  - North-West"
+}{
+    "Parent": "0000005",
+    "code": "0000133",
+    "display": "Bankstown  - South"
+}{
+    "Parent": "0000005",
+    "code": "0000134",
+    "display": "Bathurst Regional - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000135",
+    "display": "Bathurst Regional - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000136",
+    "display": "Baulkham Hills - Central"
+}{
+    "Parent": "0000005",
+    "code": "0000137",
+    "display": "Baulkham Hills  - North"
+}{
+    "Parent": "0000005",
+    "code": "0000138",
+    "display": "Baulkham Hills  - South"
+}{
+    "Parent": "0000005",
+    "code": "0000139",
+    "display": "Bega Valley"
+}{
+    "Parent": "0000005",
+    "code": "0000140",
+    "display": "Bellingen"
+}{
+    "Parent": "0000005",
+    "code": "0000141",
+    "display": "Berrigan"
+}{
+    "Parent": "0000005",
+    "code": "0000142",
+    "display": "Blacktown - South-East"
+}{
+    "Parent": "0000005",
+    "code": "0000143",
+    "display": "Blacktown  - North"
+}{
+    "Parent": "0000005",
+    "code": "0000144",
+    "display": "Blacktown  - South-West"
+}{
+    "Parent": "0000005",
+    "code": "0000145",
+    "display": "Bland"
+}{
+    "Parent": "0000005",
+    "code": "0000146",
+    "display": "Blayney"
+}{
+    "Parent": "0000005",
+    "code": "0000147",
+    "display": "Blue Mountains"
+}{
+    "Parent": "0000005",
+    "code": "0000148",
+    "display": "Bogan"
+}{
+    "Parent": "0000005",
+    "code": "0000149",
+    "display": "Bombala"
+}{
+    "Parent": "0000005",
+    "code": "0000150",
+    "display": "Boorowa"
+}{
+    "Parent": "0000005",
+    "code": "0000151",
+    "display": "Botany Bay"
+}{
+    "Parent": "0000005",
+    "code": "0000152",
+    "display": "Bourke"
+}{
+    "Parent": "0000005",
+    "code": "0000153",
+    "display": "Brewarrina"
+}{
+    "Parent": "0000005",
+    "code": "0000154",
+    "display": "Broken Hill"
+}{
+    "Parent": "0000005",
+    "code": "0000155",
+    "display": "Burwood"
+}{
+    "Parent": "0000005",
+    "code": "0000156",
+    "display": "Byron"
+}{
+    "Parent": "0000005",
+    "code": "0000157",
+    "display": "Cabonne"
+}{
+    "Parent": "0000005",
+    "code": "0000158",
+    "display": "Camden"
+}{
+    "Parent": "0000005",
+    "code": "0000159",
+    "display": "Campbelltown - North"
+}{
+    "Parent": "0000005",
+    "code": "0000160",
+    "display": "Campbelltown  - South"
+}{
+    "Parent": "0000005",
+    "code": "0000161",
+    "display": "Canada Bay - Concord"
+}{
+    "Parent": "0000005",
+    "code": "0000162",
+    "display": "Canada Bay - Drummoyne"
+}{
+    "Parent": "0000005",
+    "code": "0000163",
+    "display": "Canterbury"
+}{
+    "Parent": "0000005",
+    "code": "0000164",
+    "display": "Carrathool"
+}{
+    "Parent": "0000005",
+    "code": "0000165",
+    "display": "Central Darling"
+}{
+    "Parent": "0000005",
+    "code": "0000166",
+    "display": "Cessnock"
+}{
+    "Parent": "0000005",
+    "code": "0000167",
+    "display": "Clarence Valley- Coast"
+}{
+    "Parent": "0000005",
+    "code": "0000168",
+    "display": "Clarence Valley- Grafton"
+}{
+    "Parent": "0000005",
+    "code": "0000169",
+    "display": "Clarence Valley Bal"
+}{
+    "Parent": "0000005",
+    "code": "0000170",
+    "display": "Cobar"
+}{
+    "Parent": "0000005",
+    "code": "0000171",
+    "display": "Coffs Harbour - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000172",
+    "display": "Coffs Harbour - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000173",
+    "display": "Conargo"
+}{
+    "Parent": "0000005",
+    "code": "0000174",
+    "display": "Coolamon"
+}{
+    "Parent": "0000005",
+    "code": "0000175",
+    "display": "Cooma-Monaro"
+}{
+    "Parent": "0000005",
+    "code": "0000176",
+    "display": "Coonamble"
+}{
+    "Parent": "0000005",
+    "code": "0000177",
+    "display": "Cootamundra"
+}{
+    "Parent": "0000005",
+    "code": "0000178",
+    "display": "Corowa"
+}{
+    "Parent": "0000005",
+    "code": "0000179",
+    "display": "Cowra"
+}{
+    "Parent": "0000005",
+    "code": "0000180",
+    "display": "Deniliquin"
+}{
+    "Parent": "0000005",
+    "code": "0000181",
+    "display": "Dubbo - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000182",
+    "display": "Dubbo - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000183",
+    "display": "Dungog"
+}{
+    "Parent": "0000005",
+    "code": "0000184",
+    "display": "Eurobodalla"
+}{
+    "Parent": "0000005",
+    "code": "0000185",
+    "display": "Fairfield - East"
+}{
+    "Parent": "0000005",
+    "code": "0000186",
+    "display": "Fairfield - West"
+}{
+    "Parent": "0000005",
+    "code": "0000187",
+    "display": "Forbes"
+}{
+    "Parent": "0000005",
+    "code": "0000188",
+    "display": "Gilgandra"
+}{
+    "Parent": "0000005",
+    "code": "0000189",
+    "display": "Glen Innes Severn"
+}{
+    "Parent": "0000005",
+    "code": "0000190",
+    "display": "Gloucester"
+}{
+    "Parent": "0000005",
+    "code": "0000191",
+    "display": "Gosford - East"
+}{
+    "Parent": "0000005",
+    "code": "0000192",
+    "display": "Gosford - West"
+}{
+    "Parent": "0000005",
+    "code": "0000193",
+    "display": "Goulburn Mulwaree - Goulburn"
+}{
+    "Parent": "0000005",
+    "code": "0000194",
+    "display": "Goulburn Mulwaree Bal"
+}{
+    "Parent": "0000005",
+    "code": "0000195",
+    "display": "Great Lakes"
+}{
+    "Parent": "0000005",
+    "code": "0000196",
+    "display": "Greater Hume Shire - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000197",
+    "display": "Greater Hume Shire - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000198",
+    "display": "Greater Taree"
+}{
+    "Parent": "0000005",
+    "code": "0000199",
+    "display": "Gundagai"
+}{
+    "Parent": "0000005",
+    "code": "0000200",
+    "display": "Gunnedah"
+}{
+    "Parent": "0000005",
+    "code": "0000201",
+    "display": "Guyra"
+}{
+    "Parent": "0000005",
+    "code": "0000202",
+    "display": "Gwydir"
+}{
+    "Parent": "0000005",
+    "code": "0000203",
+    "display": "Harden"
+}{
+    "Parent": "0000005",
+    "code": "0000204",
+    "display": "Hawkesbury"
+}{
+    "Parent": "0000005",
+    "code": "0000205",
+    "display": "Hay"
+}{
+    "Parent": "0000005",
+    "code": "0000206",
+    "display": "Holroyd"
+}{
+    "Parent": "0000005",
+    "code": "0000207",
+    "display": "Hornsby - North"
+}{
+    "Parent": "0000005",
+    "code": "0000208",
+    "display": "Hornsby - South"
+}{
+    "Parent": "0000005",
+    "code": "0000209",
+    "display": "Hunters Hill"
+}{
+    "Parent": "0000005",
+    "code": "0000210",
+    "display": "Hurstville"
+}{
+    "Parent": "0000005",
+    "code": "0000211",
+    "display": "Inverell - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000212",
+    "display": "Inverell - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000213",
+    "display": "Jerilderie"
+}{
+    "Parent": "0000005",
+    "code": "0000214",
+    "display": "Junee"
+}{
+    "Parent": "0000005",
+    "code": "0000215",
+    "display": "Kempsey"
+}{
+    "Parent": "0000005",
+    "code": "0000216",
+    "display": "Kiama"
+}{
+    "Parent": "0000005",
+    "code": "0000217",
+    "display": "Kogarah"
+}{
+    "Parent": "0000005",
+    "code": "0000218",
+    "display": "Ku-ring-gai"
+}{
+    "Parent": "0000005",
+    "code": "0000219",
+    "display": "Kyogle"
+}{
+    "Parent": "0000005",
+    "code": "0000220",
+    "display": "Lachlan"
+}{
+    "Parent": "0000005",
+    "code": "0000221",
+    "display": "Lake Macquarie - East"
+}{
+    "Parent": "0000005",
+    "code": "0000222",
+    "display": "Lake Macquarie - West"
+}{
+    "Parent": "0000005",
+    "code": "0000223",
+    "display": "Lake Macquarie  - North"
+}{
+    "Parent": "0000005",
+    "code": "0000224",
+    "display": "Lane Cove"
+}{
+    "Parent": "0000005",
+    "code": "0000225",
+    "display": "Leeton"
+}{
+    "Parent": "0000005",
+    "code": "0000226",
+    "display": "Leichhardt"
+}{
+    "Parent": "0000005",
+    "code": "0000227",
+    "display": "Lismore - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000228",
+    "display": "Lismore - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000229",
+    "display": "Lithgow"
+}{
+    "Parent": "0000005",
+    "code": "0000230",
+    "display": "Liverpool - East"
+}{
+    "Parent": "0000005",
+    "code": "0000231",
+    "display": "Liverpool - West"
+}{
+    "Parent": "0000005",
+    "code": "0000232",
+    "display": "Liverpool Plains"
+}{
+    "Parent": "0000005",
+    "code": "0000233",
+    "display": "Lockhart"
+}{
+    "Parent": "0000005",
+    "code": "0000234",
+    "display": "Lord Howe Island"
+}{
+    "Parent": "0000005",
+    "code": "0000235",
+    "display": "Maitland"
+}{
+    "Parent": "0000005",
+    "code": "0000236",
+    "display": "Manly"
+}{
+    "Parent": "0000005",
+    "code": "0000237",
+    "display": "Marrickville"
+}{
+    "Parent": "0000005",
+    "code": "0000238",
+    "display": "Mid-Western Regional - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000239",
+    "display": "Mid-Western Regional - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000240",
+    "display": "Moree Plains"
+}{
+    "Parent": "0000005",
+    "code": "0000241",
+    "display": "Mosman"
+}{
+    "Parent": "0000005",
+    "code": "0000242",
+    "display": "Murray"
+}{
+    "Parent": "0000005",
+    "code": "0000243",
+    "display": "Murrumbidgee"
+}{
+    "Parent": "0000005",
+    "code": "0000244",
+    "display": "Muswellbrook"
+}{
+    "Parent": "0000005",
+    "code": "0000245",
+    "display": "Nambucca"
+}{
+    "Parent": "0000005",
+    "code": "0000246",
+    "display": "Narrabri"
+}{
+    "Parent": "0000005",
+    "code": "0000247",
+    "display": "Narrandera"
+}{
+    "Parent": "0000005",
+    "code": "0000248",
+    "display": "Narromine"
+}{
+    "Parent": "0000005",
+    "code": "0000249",
+    "display": "Newcastle - Inner City"
+}{
+    "Parent": "0000005",
+    "code": "0000250",
+    "display": "Newcastle - Outer West"
+}{
+    "Parent": "0000005",
+    "code": "0000251",
+    "display": "Newcastle - Throsby"
+}{
+    "Parent": "0000005",
+    "code": "0000252",
+    "display": "North Sydney"
+}{
+    "Parent": "0000005",
+    "code": "0000253",
+    "display": "Oberon"
+}{
+    "Parent": "0000005",
+    "code": "0000254",
+    "display": "Orange"
+}{
+    "Parent": "0000005",
+    "code": "0000255",
+    "display": "Palerang - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000256",
+    "display": "Palerang - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000257",
+    "display": "Parramatta - North-East"
+}{
+    "Parent": "0000005",
+    "code": "0000258",
+    "display": "Parramatta - North-West"
+}{
+    "Parent": "0000005",
+    "code": "0000259",
+    "display": "Parramatta - South"
+}{
+    "Parent": "0000005",
+    "code": "0000260",
+    "display": "Parramatta  - Inner"
+}{
+    "Parent": "0000005",
+    "code": "0000261",
+    "display": "Penrith - East"
+}{
+    "Parent": "0000005",
+    "code": "0000262",
+    "display": "Penrith - West"
+}{
+    "Parent": "0000005",
+    "code": "0000263",
+    "display": "Pittwater"
+}{
+    "Parent": "0000005",
+    "code": "0000264",
+    "display": "Port Macquarie-Hastings - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000265",
+    "display": "Port Macquarie-Hastings - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000266",
+    "display": "Port Stephens"
+}{
+    "Parent": "0000005",
+    "code": "0000267",
+    "display": "Queanbeyan"
+}{
+    "Parent": "0000005",
+    "code": "0000268",
+    "display": "Randwick"
+}{
+    "Parent": "0000005",
+    "code": "0000269",
+    "display": "Richmond Valley - Casino"
+}{
+    "Parent": "0000005",
+    "code": "0000270",
+    "display": "Richmond Valley Bal"
+}{
+    "Parent": "0000005",
+    "code": "0000271",
+    "display": "Rockdale"
+}{
+    "Parent": "0000005",
+    "code": "0000272",
+    "display": "Ryde"
+}{
+    "Parent": "0000005",
+    "code": "0000273",
+    "display": "Shellharbour"
+}{
+    "Parent": "0000005",
+    "code": "0000274",
+    "display": "Shoalhaven - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000275",
+    "display": "Shoalhaven - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000276",
+    "display": "Singleton"
+}{
+    "Parent": "0000005",
+    "code": "0000277",
+    "display": "Snowy River"
+}{
+    "Parent": "0000005",
+    "code": "0000278",
+    "display": "Strathfield"
+}{
+    "Parent": "0000005",
+    "code": "0000279",
+    "display": "Sutherland Shire - East"
+}{
+    "Parent": "0000005",
+    "code": "0000280",
+    "display": "Sutherland Shire - West"
+}{
+    "Parent": "0000005",
+    "code": "0000281",
+    "display": "Sydney - East"
+}{
+    "Parent": "0000005",
+    "code": "0000282",
+    "display": "Sydney - Inner"
+}{
+    "Parent": "0000005",
+    "code": "0000283",
+    "display": "Sydney - South"
+}{
+    "Parent": "0000005",
+    "code": "0000284",
+    "display": "Sydney - West"
+}{
+    "Parent": "0000005",
+    "code": "0000285",
+    "display": "Tamworth Regional - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000286",
+    "display": "Tamworth Regional - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000287",
+    "display": "Temora"
+}{
+    "Parent": "0000005",
+    "code": "0000288",
+    "display": "Tenterfield"
+}{
+    "Parent": "0000005",
+    "code": "0000289",
+    "display": "Tumbarumba"
+}{
+    "Parent": "0000005",
+    "code": "0000290",
+    "display": "Tumut"
+}{
+    "Parent": "0000005",
+    "code": "0000291",
+    "display": "Tweed - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000292",
+    "display": "Tweed  - Tweed-Heads"
+}{
+    "Parent": "0000005",
+    "code": "0000293",
+    "display": "Tweed  - Tweed Coast"
+}{
+    "Parent": "0000005",
+    "code": "0000294",
+    "display": "Unincorp. Far West"
+}{
+    "Parent": "0000005",
+    "code": "0000295",
+    "display": "Upper Hunter Shire"
+}{
+    "Parent": "0000005",
+    "code": "0000296",
+    "display": "Upper Lachlan Shire"
+}{
+    "Parent": "0000005",
+    "code": "0000297",
+    "display": "Uralla"
+}{
+    "Parent": "0000005",
+    "code": "0000298",
+    "display": "Urana"
+}{
+    "Parent": "0000005",
+    "code": "0000299",
+    "display": "Wagga Wagga - Pt A"
+}{
+    "Parent": "0000005",
+    "code": "0000300",
+    "display": "Wagga Wagga - Pt B"
+}{
+    "Parent": "0000005",
+    "code": "0000301",
+    "display": "Wakool"
+}{
+    "Parent": "0000005",
+    "code": "0000302",
+    "display": "Walcha"
+}{
+    "Parent": "0000005",
+    "code": "0000303",
+    "display": "Walgett"
+}{
+    "Parent": "0000005",
+    "code": "0000304",
+    "display": "Warren"
+}{
+    "Parent": "0000005",
+    "code": "0000305",
+    "display": "Warringah"
+}{
+    "Parent": "0000005",
+    "code": "0000306",
+    "display": "Warrumbungle Shire"
+}{
+    "Parent": "0000005",
+    "code": "0000307",
+    "display": "Waverley"
+}{
+    "Parent": "0000005",
+    "code": "0000308",
+    "display": "Weddin"
+}{
+    "Parent": "0000005",
+    "code": "0000309",
+    "display": "Wellington"
+}{
+    "Parent": "0000005",
+    "code": "0000310",
+    "display": "Wentworth"
+}{
+    "Parent": "0000005",
+    "code": "0000311",
+    "display": "Willoughby"
+}{
+    "Parent": "0000005",
+    "code": "0000312",
+    "display": "Wingecarribee"
+}{
+    "Parent": "0000005",
+    "code": "0000313",
+    "display": "Wollondilly"
+}{
+    "Parent": "0000005",
+    "code": "0000314",
+    "display": "Wollongong - Inner"
+}{
+    "Parent": "0000005",
+    "code": "0000315",
+    "display": "Wollongong Bal"
+}{
+    "Parent": "0000005",
+    "code": "0000316",
+    "display": "Woollahra"
+}{
+    "Parent": "0000005",
+    "code": "0000317",
+    "display": "Wyong - North-East"
+}{
+    "Parent": "0000005",
+    "code": "0000318",
+    "display": "Wyong - South and West"
+}{
+    "Parent": "0000005",
+    "code": "0000319",
+    "display": "Yass Valley"
+}{
+    "Parent": "0000005",
+    "code": "0000320",
+    "display": "Young"
+}{
+    "Parent": "0000006",
+    "code": "0000321",
+    "display": "Alawa"
+}{
+    "Parent": "0000006",
+    "code": "0000322",
+    "display": "Alice Springs- Charles"
+}{
+    "Parent": "0000006",
+    "code": "0000323",
+    "display": "Alice Springs- Heavitree"
+}{
+    "Parent": "0000006",
+    "code": "0000324",
+    "display": "Alice Springs- Ross"
+}{
+    "Parent": "0000006",
+    "code": "0000325",
+    "display": "Alice Springs- Stuart"
+}{
+    "Parent": "0000006",
+    "code": "0000326",
+    "display": "Alice Springs - Larapinta"
+}{
+    "Parent": "0000006",
+    "code": "0000327",
+    "display": "Alpurrurulam"
+}{
+    "Parent": "0000006",
+    "code": "0000328",
+    "display": "Angurugu"
+}{
+    "Parent": "0000006",
+    "code": "0000329",
+    "display": "Anmatjere"
+}{
+    "Parent": "0000006",
+    "code": "0000330",
+    "display": "Anula"
+}{
+    "Parent": "0000006",
+    "code": "0000331",
+    "display": "Arltarlpilta"
+}{
+    "Parent": "0000006",
+    "code": "0000332",
+    "display": "Bakewell"
+}{
+    "Parent": "0000006",
+    "code": "0000333",
+    "display": "Bayview-Woolner"
+}{
+    "Parent": "0000006",
+    "code": "0000334",
+    "display": "Belyuen"
+}{
+    "Parent": "0000006",
+    "code": "0000335",
+    "display": "Binjari"
+}{
+    "Parent": "0000006",
+    "code": "0000336",
+    "display": "Borroloola"
+}{
+    "Parent": "0000006",
+    "code": "0000337",
+    "display": "Brinkin"
+}{
+    "Parent": "0000006",
+    "code": "0000338",
+    "display": "City - Inner"
+}{
+    "Parent": "0000006",
+    "code": "0000339",
+    "display": "City - Remainder"
+}{
+    "Parent": "0000006",
+    "code": "0000340",
+    "display": "Coconut Grove"
+}{
+    "Parent": "0000006",
+    "code": "0000341",
+    "display": "Coomalie"
+}{
+    "Parent": "0000006",
+    "code": "0000342",
+    "display": "Cox-Finniss"
+}{
+    "Parent": "0000006",
+    "code": "0000343",
+    "display": "Cox Peninsula"
+}{
+    "Parent": "0000006",
+    "code": "0000344",
+    "display": "Daguragu"
+}{
+    "Parent": "0000006",
+    "code": "0000345",
+    "display": "Daly"
+}{
+    "Parent": "0000006",
+    "code": "0000346",
+    "display": "Driver"
+}{
+    "Parent": "0000006",
+    "code": "0000347",
+    "display": "Durack"
+}{
+    "Parent": "0000006",
+    "code": "0000348",
+    "display": "East Arm"
+}{
+    "Parent": "0000006",
+    "code": "0000349",
+    "display": "East Arnhem - Bal"
+}{
+    "Parent": "0000006",
+    "code": "0000350",
+    "display": "Elliott District"
+}{
+    "Parent": "0000006",
+    "code": "0000351",
+    "display": "Elsey"
+}{
+    "Parent": "0000006",
+    "code": "0000352",
+    "display": "Fannie Bay"
+}{
+    "Parent": "0000006",
+    "code": "0000353",
+    "display": "Gray"
+}{
+    "Parent": "0000006",
+    "code": "0000354",
+    "display": "Groote Eylandt"
+}{
+    "Parent": "0000006",
+    "code": "0000355",
+    "display": "Gulf"
+}{
+    "Parent": "0000006",
+    "code": "0000356",
+    "display": "Gunn-Palmerston"
+}{
+    "Parent": "0000006",
+    "code": "0000357",
+    "display": "Hanson"
+}{
+    "Parent": "0000006",
+    "code": "0000358",
+    "display": "Jabiru"
+}{
+    "Parent": "0000006",
+    "code": "0000359",
+    "display": "Jilkminggan"
+}{
+    "Parent": "0000006",
+    "code": "0000360",
+    "display": "Jingili"
+}{
+    "Parent": "0000006",
+    "code": "0000361",
+    "display": "Karama"
+}{
+    "Parent": "0000006",
+    "code": "0000362",
+    "display": "Katherine"
+}{
+    "Parent": "0000006",
+    "code": "0000363",
+    "display": "Kunbarllanjnja"
+}{
+    "Parent": "0000006",
+    "code": "0000364",
+    "display": "Lajamanu"
+}{
+    "Parent": "0000006",
+    "code": "0000365",
+    "display": "Larrakeyah"
+}{
+    "Parent": "0000006",
+    "code": "0000366",
+    "display": "Leanyer"
+}{
+    "Parent": "0000006",
+    "code": "0000367",
+    "display": "Lee Point-Leanyer Swamp"
+}{
+    "Parent": "0000006",
+    "code": "0000368",
+    "display": "Litchfield - Pt A"
+}{
+    "Parent": "0000006",
+    "code": "0000369",
+    "display": "Litchfield - Pt B"
+}{
+    "Parent": "0000006",
+    "code": "0000370",
+    "display": "Ltyentye Purte"
+}{
+    "Parent": "0000006",
+    "code": "0000371",
+    "display": "Ludmilla"
+}{
+    "Parent": "0000006",
+    "code": "0000372",
+    "display": "Malak"
+}{
+    "Parent": "0000006",
+    "code": "0000373",
+    "display": "Marngarr"
+}{
+    "Parent": "0000006",
+    "code": "0000374",
+    "display": "Marrara"
+}{
+    "Parent": "0000006",
+    "code": "0000375",
+    "display": "Mataranka"
+}{
+    "Parent": "0000006",
+    "code": "0000376",
+    "display": "Millner"
+}{
+    "Parent": "0000006",
+    "code": "0000377",
+    "display": "Moil"
+}{
+    "Parent": "0000006",
+    "code": "0000378",
+    "display": "Moulden"
+}{
+    "Parent": "0000006",
+    "code": "0000379",
+    "display": "Nakara"
+}{
+    "Parent": "0000006",
+    "code": "0000380",
+    "display": "Narrows"
+}{
+    "Parent": "0000006",
+    "code": "0000381",
+    "display": "Nauiyu Nambiyu"
+}{
+    "Parent": "0000006",
+    "code": "0000382",
+    "display": "Nhulunbuy"
+}{
+    "Parent": "0000006",
+    "code": "0000383",
+    "display": "Nightcliff"
+}{
+    "Parent": "0000006",
+    "code": "0000384",
+    "display": "Numbulwar/Numburindi"
+}{
+    "Parent": "0000006",
+    "code": "0000385",
+    "display": "Nyirranggulung Mardrulk Ngadberre"
+}{
+    "Parent": "0000006",
+    "code": "0000386",
+    "display": "Parap"
+}{
+    "Parent": "0000006",
+    "code": "0000387",
+    "display": "Petermann-Simpson"
+}{
+    "Parent": "0000006",
+    "code": "0000388",
+    "display": "Pine Creek"
+}{
+    "Parent": "0000006",
+    "code": "0000389",
+    "display": "Rapid Creek"
+}{
+    "Parent": "0000006",
+    "code": "0000390",
+    "display": "Sandover"
+}{
+    "Parent": "0000006",
+    "code": "0000391",
+    "display": "South Alligator"
+}{
+    "Parent": "0000006",
+    "code": "0000392",
+    "display": "Stuart Park"
+}{
+    "Parent": "0000006",
+    "code": "0000393",
+    "display": "Tableland"
+}{
+    "Parent": "0000006",
+    "code": "0000394",
+    "display": "Tanami"
+}{
+    "Parent": "0000006",
+    "code": "0000395",
+    "display": "Tapatijatjaka"
+}{
+    "Parent": "0000006",
+    "code": "0000396",
+    "display": "Tennant Creek - Bal"
+}{
+    "Parent": "0000006",
+    "code": "0000397",
+    "display": "Tennant Creek"
+}{
+    "Parent": "0000006",
+    "code": "0000398",
+    "display": "Thamarrurr"
+}{
+    "Parent": "0000006",
+    "code": "0000399",
+    "display": "The Gardens"
+}{
+    "Parent": "0000006",
+    "code": "0000400",
+    "display": "Timber Creek"
+}{
+    "Parent": "0000006",
+    "code": "0000401",
+    "display": "Tiwi Islands"
+}{
+    "Parent": "0000006",
+    "code": "0000402",
+    "display": "Tiwi"
+}{
+    "Parent": "0000006",
+    "code": "0000403",
+    "display": "Victoria"
+}{
+    "Parent": "0000006",
+    "code": "0000404",
+    "display": "Wagaman"
+}{
+    "Parent": "0000006",
+    "code": "0000405",
+    "display": "Walingeri-Ngumpinku"
+}{
+    "Parent": "0000006",
+    "code": "0000406",
+    "display": "Wallace Rockhole"
+}{
+    "Parent": "0000006",
+    "code": "0000407",
+    "display": "Wanguri"
+}{
+    "Parent": "0000006",
+    "code": "0000408",
+    "display": "Watiyawanu"
+}{
+    "Parent": "0000006",
+    "code": "0000409",
+    "display": "West Arnhem"
+}{
+    "Parent": "0000006",
+    "code": "0000410",
+    "display": "Winnellie"
+}{
+    "Parent": "0000006",
+    "code": "0000411",
+    "display": "Woodroffe"
+}{
+    "Parent": "0000006",
+    "code": "0000412",
+    "display": "Wulagi"
+}{
+    "Parent": "0000006",
+    "code": "0000413",
+    "display": "Yuendumu"
+}{
+    "Parent": "0000006",
+    "code": "0000414",
+    "display": "Yugal Mangi"
+}{
+    "Parent": "0000007",
+    "code": "0000415",
+    "display": "Acacia Ridge"
+}{
+    "Parent": "0000007",
+    "code": "0000416",
+    "display": "Aitkenvale"
+}{
+    "Parent": "0000007",
+    "code": "0000417",
+    "display": "Albany Creek"
+}{
+    "Parent": "0000007",
+    "code": "0000418",
+    "display": "Albion"
+}{
+    "Parent": "0000007",
+    "code": "0000419",
+    "display": "Alderley"
+}{
+    "Parent": "0000007",
+    "code": "0000420",
+    "display": "Alexandra Hills"
+}{
+    "Parent": "0000007",
+    "code": "0000421",
+    "display": "Algester"
+}{
+    "Parent": "0000007",
+    "code": "0000422",
+    "display": "Annerley"
+}{
+    "Parent": "0000007",
+    "code": "0000423",
+    "display": "Anstead"
+}{
+    "Parent": "0000007",
+    "code": "0000424",
+    "display": "Aramac"
+}{
+    "Parent": "0000007",
+    "code": "0000425",
+    "display": "Archerfield"
+}{
+    "Parent": "0000007",
+    "code": "0000426",
+    "display": "Ascot"
+}{
+    "Parent": "0000007",
+    "code": "0000427",
+    "display": "Ashgrove"
+}{
+    "Parent": "0000007",
+    "code": "0000428",
+    "display": "Ashmore-Benowa"
+}{
+    "Parent": "0000007",
+    "code": "0000429",
+    "display": "Aspley"
+}{
+    "Parent": "0000007",
+    "code": "0000430",
+    "display": "Atherton"
+}{
+    "Parent": "0000007",
+    "code": "0000431",
+    "display": "Aurukun"
+}{
+    "Parent": "0000007",
+    "code": "0000432",
+    "display": "Badu"
+}{
+    "Parent": "0000007",
+    "code": "0000433",
+    "display": "Bald Hills"
+}{
+    "Parent": "0000007",
+    "code": "0000434",
+    "display": "Balmoral"
+}{
+    "Parent": "0000007",
+    "code": "0000435",
+    "display": "Balonne"
+}{
+    "Parent": "0000007",
+    "code": "0000436",
+    "display": "Bamaga"
+}{
+    "Parent": "0000007",
+    "code": "0000437",
+    "display": "Banana"
+}{
+    "Parent": "0000007",
+    "code": "0000438",
+    "display": "Banyo"
+}{
+    "Parent": "0000007",
+    "code": "0000439",
+    "display": "Barcaldine"
+}{
+    "Parent": "0000007",
+    "code": "0000440",
+    "display": "Barcoo"
+}{
+    "Parent": "0000007",
+    "code": "0000441",
+    "display": "Bardon"
+}{
+    "Parent": "0000007",
+    "code": "0000442",
+    "display": "Bauhinia"
+}{
+    "Parent": "0000007",
+    "code": "0000443",
+    "display": "Beaudesert  - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000444",
+    "display": "Beaudesert  - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000445",
+    "display": "Beaudesert  - Pt C"
+}{
+    "Parent": "0000007",
+    "code": "0000446",
+    "display": "Beenleigh"
+}{
+    "Parent": "0000007",
+    "code": "0000447",
+    "display": "Bellbowrie"
+}{
+    "Parent": "0000007",
+    "code": "0000448",
+    "display": "Belmont-Mackenzie"
+}{
+    "Parent": "0000007",
+    "code": "0000449",
+    "display": "Belyando"
+}{
+    "Parent": "0000007",
+    "code": "0000450",
+    "display": "Bendemere"
+}{
+    "Parent": "0000007",
+    "code": "0000451",
+    "display": "Bethania-Waterford"
+}{
+    "Parent": "0000007",
+    "code": "0000452",
+    "display": "Biggenden"
+}{
+    "Parent": "0000007",
+    "code": "0000453",
+    "display": "Biggera Waters-Labrador"
+}{
+    "Parent": "0000007",
+    "code": "0000454",
+    "display": "Bilinga-Tugun"
+}{
+    "Parent": "0000007",
+    "code": "0000455",
+    "display": "Birkdale"
+}{
+    "Parent": "0000007",
+    "code": "0000456",
+    "display": "Blackall"
+}{
+    "Parent": "0000007",
+    "code": "0000457",
+    "display": "Boigu"
+}{
+    "Parent": "0000007",
+    "code": "0000458",
+    "display": "Boonah"
+}{
+    "Parent": "0000007",
+    "code": "0000459",
+    "display": "Boondall"
+}{
+    "Parent": "0000007",
+    "code": "0000460",
+    "display": "Booringa"
+}{
+    "Parent": "0000007",
+    "code": "0000461",
+    "display": "Boulia"
+}{
+    "Parent": "0000007",
+    "code": "0000462",
+    "display": "Bowen Hills"
+}{
+    "Parent": "0000007",
+    "code": "0000463",
+    "display": "Bowen"
+}{
+    "Parent": "0000007",
+    "code": "0000464",
+    "display": "Bracken Ridge"
+}{
+    "Parent": "0000007",
+    "code": "0000465",
+    "display": "Bray Park"
+}{
+    "Parent": "0000007",
+    "code": "0000466",
+    "display": "Bribie Island"
+}{
+    "Parent": "0000007",
+    "code": "0000467",
+    "display": "Bridgeman Downs"
+}{
+    "Parent": "0000007",
+    "code": "0000468",
+    "display": "Brighton"
+}{
+    "Parent": "0000007",
+    "code": "0000469",
+    "display": "Broadbeach-Mermaid Beach"
+}{
+    "Parent": "0000007",
+    "code": "0000470",
+    "display": "Broadbeach Waters"
+}{
+    "Parent": "0000007",
+    "code": "0000471",
+    "display": "Broadsound"
+}{
+    "Parent": "0000007",
+    "code": "0000472",
+    "display": "Brookfield (incl. Brisbane Forest Park)"
+}{
+    "Parent": "0000007",
+    "code": "0000473",
+    "display": "Browns Plains"
+}{
+    "Parent": "0000007",
+    "code": "0000474",
+    "display": "Bulimba"
+}{
+    "Parent": "0000007",
+    "code": "0000475",
+    "display": "Bulloo"
+}{
+    "Parent": "0000007",
+    "code": "0000476",
+    "display": "Bundaberg"
+}{
+    "Parent": "0000007",
+    "code": "0000477",
+    "display": "Bundall"
+}{
+    "Parent": "0000007",
+    "code": "0000478",
+    "display": "Bungil"
+}{
+    "Parent": "0000007",
+    "code": "0000479",
+    "display": "Burbank"
+}{
+    "Parent": "0000007",
+    "code": "0000480",
+    "display": "Burdekin"
+}{
+    "Parent": "0000007",
+    "code": "0000481",
+    "display": "Burke"
+}{
+    "Parent": "0000007",
+    "code": "0000482",
+    "display": "Burleigh Heads"
+}{
+    "Parent": "0000007",
+    "code": "0000483",
+    "display": "Burleigh Waters"
+}{
+    "Parent": "0000007",
+    "code": "0000484",
+    "display": "Burnett  - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000485",
+    "display": "Burnett  - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000486",
+    "display": "Burpengary-Narangba"
+}{
+    "Parent": "0000007",
+    "code": "0000487",
+    "display": "Caboolture - Hinterland"
+}{
+    "Parent": "0000007",
+    "code": "0000488",
+    "display": "Caboolture - Midwest"
+}{
+    "Parent": "0000007",
+    "code": "0000489",
+    "display": "Caboolture  - Central"
+}{
+    "Parent": "0000007",
+    "code": "0000490",
+    "display": "Caboolture  - East"
+}{
+    "Parent": "0000007",
+    "code": "0000491",
+    "display": "Cairns - Central Suburbs"
+}{
+    "Parent": "0000007",
+    "code": "0000492",
+    "display": "Cairns - Mt Whitfield"
+}{
+    "Parent": "0000007",
+    "code": "0000493",
+    "display": "Cairns - Northern Suburbs"
+}{
+    "Parent": "0000007",
+    "code": "0000494",
+    "display": "Cairns - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000495",
+    "display": "Cairns - Trinity"
+}{
+    "Parent": "0000007",
+    "code": "0000496",
+    "display": "Cairns - Western Suburbs"
+}{
+    "Parent": "0000007",
+    "code": "0000497",
+    "display": "Cairns  - Barron"
+}{
+    "Parent": "0000007",
+    "code": "0000498",
+    "display": "Cairns  - City"
+}{
+    "Parent": "0000007",
+    "code": "0000499",
+    "display": "Calamvale"
+}{
+    "Parent": "0000007",
+    "code": "0000500",
+    "display": "Calliope - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000501",
+    "display": "Calliope - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000502",
+    "display": "Caloundra - Caloundra N."
+}{
+    "Parent": "0000007",
+    "code": "0000503",
+    "display": "Caloundra - Caloundra S."
+}{
+    "Parent": "0000007",
+    "code": "0000504",
+    "display": "Caloundra - Hinterland"
+}{
+    "Parent": "0000007",
+    "code": "0000505",
+    "display": "Caloundra - Kawana"
+}{
+    "Parent": "0000007",
+    "code": "0000506",
+    "display": "Caloundra - Rail Corridor"
+}{
+    "Parent": "0000007",
+    "code": "0000507",
+    "display": "Cambooya - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000508",
+    "display": "Cambooya - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000509",
+    "display": "Camp Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000510",
+    "display": "Cannon Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000511",
+    "display": "Capalaba"
+}{
+    "Parent": "0000007",
+    "code": "0000512",
+    "display": "Carbrook-Cornubia"
+}{
+    "Parent": "0000007",
+    "code": "0000513",
+    "display": "Cardwell"
+}{
+    "Parent": "0000007",
+    "code": "0000514",
+    "display": "Carina Heights"
+}{
+    "Parent": "0000007",
+    "code": "0000515",
+    "display": "Carina"
+}{
+    "Parent": "0000007",
+    "code": "0000516",
+    "display": "Carindale"
+}{
+    "Parent": "0000007",
+    "code": "0000517",
+    "display": "Carpentaria"
+}{
+    "Parent": "0000007",
+    "code": "0000518",
+    "display": "Carrara-Merrimac"
+}{
+    "Parent": "0000007",
+    "code": "0000519",
+    "display": "Carseldine"
+}{
+    "Parent": "0000007",
+    "code": "0000520",
+    "display": "Central Pine West"
+}{
+    "Parent": "0000007",
+    "code": "0000521",
+    "display": "Chandler-Capalaba West"
+}{
+    "Parent": "0000007",
+    "code": "0000522",
+    "display": "Chapel Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000523",
+    "display": "Charters Towers"
+}{
+    "Parent": "0000007",
+    "code": "0000524",
+    "display": "Chelmer"
+}{
+    "Parent": "0000007",
+    "code": "0000525",
+    "display": "Cherbourg"
+}{
+    "Parent": "0000007",
+    "code": "0000526",
+    "display": "Chermside West"
+}{
+    "Parent": "0000007",
+    "code": "0000527",
+    "display": "Chermside"
+}{
+    "Parent": "0000007",
+    "code": "0000528",
+    "display": "Chinchilla"
+}{
+    "Parent": "0000007",
+    "code": "0000529",
+    "display": "Clayfield"
+}{
+    "Parent": "0000007",
+    "code": "0000530",
+    "display": "Cleveland"
+}{
+    "Parent": "0000007",
+    "code": "0000531",
+    "display": "Clifton"
+}{
+    "Parent": "0000007",
+    "code": "0000532",
+    "display": "Cloncurry"
+}{
+    "Parent": "0000007",
+    "code": "0000533",
+    "display": "Clontarf"
+}{
+    "Parent": "0000007",
+    "code": "0000534",
+    "display": "Coolangatta"
+}{
+    "Parent": "0000007",
+    "code": "0000535",
+    "display": "Cooloola - Gympie only"
+}{
+    "Parent": "0000007",
+    "code": "0000536",
+    "display": "Cooloola (excl. Gympie)"
+}{
+    "Parent": "0000007",
+    "code": "0000537",
+    "display": "Coombabah"
+}{
+    "Parent": "0000007",
+    "code": "0000538",
+    "display": "Coopers Plains"
+}{
+    "Parent": "0000007",
+    "code": "0000539",
+    "display": "Coorparoo"
+}{
+    "Parent": "0000007",
+    "code": "0000540",
+    "display": "Corinda"
+}{
+    "Parent": "0000007",
+    "code": "0000541",
+    "display": "Cranbrook"
+}{
+    "Parent": "0000007",
+    "code": "0000542",
+    "display": "Crow's Nest - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000543",
+    "display": "Crow's Nest - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000544",
+    "display": "Croydon"
+}{
+    "Parent": "0000007",
+    "code": "0000545",
+    "display": "Currajong"
+}{
+    "Parent": "0000007",
+    "code": "0000546",
+    "display": "Currumbin Valley-Tallebudgera"
+}{
+    "Parent": "0000007",
+    "code": "0000547",
+    "display": "Currumbin Waters"
+}{
+    "Parent": "0000007",
+    "code": "0000548",
+    "display": "Currumbin"
+}{
+    "Parent": "0000007",
+    "code": "0000549",
+    "display": "Daisy Hill-Priestdale"
+}{
+    "Parent": "0000007",
+    "code": "0000550",
+    "display": "Dakabin-Kallangur-M. Downs"
+}{
+    "Parent": "0000007",
+    "code": "0000551",
+    "display": "Dalby"
+}{
+    "Parent": "0000007",
+    "code": "0000552",
+    "display": "Dalrymple"
+}{
+    "Parent": "0000007",
+    "code": "0000553",
+    "display": "Darra-Sumner"
+}{
+    "Parent": "0000007",
+    "code": "0000554",
+    "display": "Dauan"
+}{
+    "Parent": "0000007",
+    "code": "0000555",
+    "display": "Deagon"
+}{
+    "Parent": "0000007",
+    "code": "0000556",
+    "display": "Deception Bay"
+}{
+    "Parent": "0000007",
+    "code": "0000557",
+    "display": "Diamantina"
+}{
+    "Parent": "0000007",
+    "code": "0000558",
+    "display": "Doolandella-Forest Lake"
+}{
+    "Parent": "0000007",
+    "code": "0000559",
+    "display": "Doomadgee"
+}{
+    "Parent": "0000007",
+    "code": "0000560",
+    "display": "Douglas"
+}{
+    "Parent": "0000007",
+    "code": "0000561",
+    "display": "Duaringa"
+}{
+    "Parent": "0000007",
+    "code": "0000562",
+    "display": "Dutton Park"
+}{
+    "Parent": "0000007",
+    "code": "0000563",
+    "display": "Eacham"
+}{
+    "Parent": "0000007",
+    "code": "0000564",
+    "display": "Eagleby"
+}{
+    "Parent": "0000007",
+    "code": "0000565",
+    "display": "East Brisbane"
+}{
+    "Parent": "0000007",
+    "code": "0000566",
+    "display": "Edens Landing-Holmview"
+}{
+    "Parent": "0000007",
+    "code": "0000567",
+    "display": "Eidsvold"
+}{
+    "Parent": "0000007",
+    "code": "0000568",
+    "display": "Eight Mile Plains"
+}{
+    "Parent": "0000007",
+    "code": "0000569",
+    "display": "Elanora"
+}{
+    "Parent": "0000007",
+    "code": "0000570",
+    "display": "Ellen Grove"
+}{
+    "Parent": "0000007",
+    "code": "0000571",
+    "display": "Emerald"
+}{
+    "Parent": "0000007",
+    "code": "0000572",
+    "display": "Enoggera"
+}{
+    "Parent": "0000007",
+    "code": "0000573",
+    "display": "Erub"
+}{
+    "Parent": "0000007",
+    "code": "0000574",
+    "display": "Esk"
+}{
+    "Parent": "0000007",
+    "code": "0000575",
+    "display": "Etheridge"
+}{
+    "Parent": "0000007",
+    "code": "0000576",
+    "display": "Everton Park"
+}{
+    "Parent": "0000007",
+    "code": "0000577",
+    "display": "Fairfield"
+}{
+    "Parent": "0000007",
+    "code": "0000578",
+    "display": "Ferny Grove"
+}{
+    "Parent": "0000007",
+    "code": "0000579",
+    "display": "Fig Tree Pocket"
+}{
+    "Parent": "0000007",
+    "code": "0000580",
+    "display": "Fitzroy - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000581",
+    "display": "Fitzroy - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000582",
+    "display": "Flinders"
+}{
+    "Parent": "0000007",
+    "code": "0000583",
+    "display": "Fortitude Valley"
+}{
+    "Parent": "0000007",
+    "code": "0000584",
+    "display": "Garbutt"
+}{
+    "Parent": "0000007",
+    "code": "0000585",
+    "display": "Gatton"
+}{
+    "Parent": "0000007",
+    "code": "0000586",
+    "display": "Gayndah"
+}{
+    "Parent": "0000007",
+    "code": "0000587",
+    "display": "Geebung"
+}{
+    "Parent": "0000007",
+    "code": "0000588",
+    "display": "Gladstone"
+}{
+    "Parent": "0000007",
+    "code": "0000589",
+    "display": "Goondiwind"
+}{
+    "Parent": "0000007",
+    "code": "0000590",
+    "display": "Graceville"
+}{
+    "Parent": "0000007",
+    "code": "0000591",
+    "display": "Grange"
+}{
+    "Parent": "0000007",
+    "code": "0000592",
+    "display": "Greenbank-Boronia Heights"
+}{
+    "Parent": "0000007",
+    "code": "0000593",
+    "display": "Greenslopes"
+}{
+    "Parent": "0000007",
+    "code": "0000594",
+    "display": "Griffin-Mango Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000595",
+    "display": "Guanaba-Springbrook"
+}{
+    "Parent": "0000007",
+    "code": "0000596",
+    "display": "Gulliver"
+}{
+    "Parent": "0000007",
+    "code": "0000597",
+    "display": "Gumdale-Ransome"
+}{
+    "Parent": "0000007",
+    "code": "0000598",
+    "display": "Hamilton"
+}{
+    "Parent": "0000007",
+    "code": "0000599",
+    "display": "Hammond"
+}{
+    "Parent": "0000007",
+    "code": "0000600",
+    "display": "Hawthorne"
+}{
+    "Parent": "0000007",
+    "code": "0000601",
+    "display": "Heatley"
+}{
+    "Parent": "0000007",
+    "code": "0000602",
+    "display": "Helensvale"
+}{
+    "Parent": "0000007",
+    "code": "0000603",
+    "display": "Hemmant-Lytton"
+}{
+    "Parent": "0000007",
+    "code": "0000604",
+    "display": "Hendra"
+}{
+    "Parent": "0000007",
+    "code": "0000605",
+    "display": "Herberton"
+}{
+    "Parent": "0000007",
+    "code": "0000606",
+    "display": "Hermit Park"
+}{
+    "Parent": "0000007",
+    "code": "0000607",
+    "display": "Herston"
+}{
+    "Parent": "0000007",
+    "code": "0000608",
+    "display": "Hervey Bay - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000609",
+    "display": "Hervey Bay - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000610",
+    "display": "Highgate Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000611",
+    "display": "Hills District"
+}{
+    "Parent": "0000007",
+    "code": "0000612",
+    "display": "Hinchinbrook"
+}{
+    "Parent": "0000007",
+    "code": "0000613",
+    "display": "Holland Park West"
+}{
+    "Parent": "0000007",
+    "code": "0000614",
+    "display": "Holland Park"
+}{
+    "Parent": "0000007",
+    "code": "0000615",
+    "display": "Hope Island"
+}{
+    "Parent": "0000007",
+    "code": "0000616",
+    "display": "Hopevale"
+}{
+    "Parent": "0000007",
+    "code": "0000617",
+    "display": "Hyde Park-Mysterton"
+}{
+    "Parent": "0000007",
+    "code": "0000618",
+    "display": "Iama"
+}{
+    "Parent": "0000007",
+    "code": "0000619",
+    "display": "Ilfracombe"
+}{
+    "Parent": "0000007",
+    "code": "0000620",
+    "display": "Inala"
+}{
+    "Parent": "0000007",
+    "code": "0000621",
+    "display": "Indooroopilly"
+}{
+    "Parent": "0000007",
+    "code": "0000622",
+    "display": "Inglewood"
+}{
+    "Parent": "0000007",
+    "code": "0000623",
+    "display": "Injinoo"
+}{
+    "Parent": "0000007",
+    "code": "0000624",
+    "display": "Ipswich - Central"
+}{
+    "Parent": "0000007",
+    "code": "0000625",
+    "display": "Ipswich - East"
+}{
+    "Parent": "0000007",
+    "code": "0000626",
+    "display": "Ipswich - North"
+}{
+    "Parent": "0000007",
+    "code": "0000627",
+    "display": "Ipswich - South-West"
+}{
+    "Parent": "0000007",
+    "code": "0000628",
+    "display": "Ipswich - West"
+}{
+    "Parent": "0000007",
+    "code": "0000629",
+    "display": "Isisford"
+}{
+    "Parent": "0000007",
+    "code": "0000630",
+    "display": "Isis"
+}{
+    "Parent": "0000007",
+    "code": "0000631",
+    "display": "Jacobs Well-Alberton"
+}{
+    "Parent": "0000007",
+    "code": "0000632",
+    "display": "Jamboree Heights"
+}{
+    "Parent": "0000007",
+    "code": "0000633",
+    "display": "Jericho"
+}{
+    "Parent": "0000007",
+    "code": "0000634",
+    "display": "Jindalee"
+}{
+    "Parent": "0000007",
+    "code": "0000635",
+    "display": "Johnstone"
+}{
+    "Parent": "0000007",
+    "code": "0000636",
+    "display": "Jondaryan - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000637",
+    "display": "Jondaryan - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000638",
+    "display": "Kangaroo Point"
+}{
+    "Parent": "0000007",
+    "code": "0000639",
+    "display": "Karana Downs-Lake Manchester"
+}{
+    "Parent": "0000007",
+    "code": "0000640",
+    "display": "Kedron"
+}{
+    "Parent": "0000007",
+    "code": "0000641",
+    "display": "Kelso"
+}{
+    "Parent": "0000007",
+    "code": "0000642",
+    "display": "Kelvin Grove"
+}{
+    "Parent": "0000007",
+    "code": "0000643",
+    "display": "Kenmore Hills"
+}{
+    "Parent": "0000007",
+    "code": "0000644",
+    "display": "Kenmore"
+}{
+    "Parent": "0000007",
+    "code": "0000645",
+    "display": "Keperra"
+}{
+    "Parent": "0000007",
+    "code": "0000646",
+    "display": "Kilcoy"
+}{
+    "Parent": "0000007",
+    "code": "0000647",
+    "display": "Kilkivan"
+}{
+    "Parent": "0000007",
+    "code": "0000648",
+    "display": "Kingaroy"
+}{
+    "Parent": "0000007",
+    "code": "0000649",
+    "display": "Kingsholme-Upper Coomera"
+}{
+    "Parent": "0000007",
+    "code": "0000650",
+    "display": "Kirwan"
+}{
+    "Parent": "0000007",
+    "code": "0000651",
+    "display": "Kolan"
+}{
+    "Parent": "0000007",
+    "code": "0000652",
+    "display": "Kowanyama"
+}{
+    "Parent": "0000007",
+    "code": "0000653",
+    "display": "Kubin"
+}{
+    "Parent": "0000007",
+    "code": "0000654",
+    "display": "Kuraby"
+}{
+    "Parent": "0000007",
+    "code": "0000655",
+    "display": "Laidley"
+}{
+    "Parent": "0000007",
+    "code": "0000656",
+    "display": "Lawnton"
+}{
+    "Parent": "0000007",
+    "code": "0000657",
+    "display": "Livingstone - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000658",
+    "display": "Livingstone - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000659",
+    "display": "Lockhart River"
+}{
+    "Parent": "0000007",
+    "code": "0000660",
+    "display": "Logan"
+}{
+    "Parent": "0000007",
+    "code": "0000661",
+    "display": "Loganholme"
+}{
+    "Parent": "0000007",
+    "code": "0000662",
+    "display": "Loganlea"
+}{
+    "Parent": "0000007",
+    "code": "0000663",
+    "display": "Longreach"
+}{
+    "Parent": "0000007",
+    "code": "0000664",
+    "display": "Lota"
+}{
+    "Parent": "0000007",
+    "code": "0000665",
+    "display": "Lutwyche"
+}{
+    "Parent": "0000007",
+    "code": "0000666",
+    "display": "Mabuiag"
+}{
+    "Parent": "0000007",
+    "code": "0000667",
+    "display": "MacGregor"
+}{
+    "Parent": "0000007",
+    "code": "0000668",
+    "display": "Mackay - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000669",
+    "display": "Mackay - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000670",
+    "display": "Magnetic Island"
+}{
+    "Parent": "0000007",
+    "code": "0000671",
+    "display": "Main Beach-South Stradbroke"
+}{
+    "Parent": "0000007",
+    "code": "0000672",
+    "display": "Manly West"
+}{
+    "Parent": "0000007",
+    "code": "0000673",
+    "display": "Mansfield"
+}{
+    "Parent": "0000007",
+    "code": "0000674",
+    "display": "Mapoon"
+}{
+    "Parent": "0000007",
+    "code": "0000675",
+    "display": "Mareeba"
+}{
+    "Parent": "0000007",
+    "code": "0000676",
+    "display": "Margate-Woody Point"
+}{
+    "Parent": "0000007",
+    "code": "0000677",
+    "display": "Maroochy - Buderim"
+}{
+    "Parent": "0000007",
+    "code": "0000678",
+    "display": "Maroochy - Coastal North"
+}{
+    "Parent": "0000007",
+    "code": "0000679",
+    "display": "Maroochy - Maroochydore"
+}{
+    "Parent": "0000007",
+    "code": "0000680",
+    "display": "Maroochy - Mooloolaba"
+}{
+    "Parent": "0000007",
+    "code": "0000681",
+    "display": "Maroochy - Nambour"
+}{
+    "Parent": "0000007",
+    "code": "0000682",
+    "display": "Maroochy - Paynter-Petrie Creek"
+}{
+    "Parent": "0000007",
+    "code": "0000683",
+    "display": "Maroochy"
+}{
+    "Parent": "0000007",
+    "code": "0000684",
+    "display": "Marsden"
+}{
+    "Parent": "0000007",
+    "code": "0000685",
+    "display": "Maryborough"
+}{
+    "Parent": "0000007",
+    "code": "0000686",
+    "display": "McDowall"
+}{
+    "Parent": "0000007",
+    "code": "0000687",
+    "display": "McKinlay"
+}{
+    "Parent": "0000007",
+    "code": "0000688",
+    "display": "Mermaid Wtrs-Clear Is. Wtrs"
+}{
+    "Parent": "0000007",
+    "code": "0000689",
+    "display": "Mer"
+}{
+    "Parent": "0000007",
+    "code": "0000690",
+    "display": "Miami"
+}{
+    "Parent": "0000007",
+    "code": "0000691",
+    "display": "Middle Park"
+}{
+    "Parent": "0000007",
+    "code": "0000692",
+    "display": "Millmerran"
+}{
+    "Parent": "0000007",
+    "code": "0000693",
+    "display": "Milton"
+}{
+    "Parent": "0000007",
+    "code": "0000694",
+    "display": "Mirani"
+}{
+    "Parent": "0000007",
+    "code": "0000695",
+    "display": "Miriam Vale"
+}{
+    "Parent": "0000007",
+    "code": "0000696",
+    "display": "Mitchelton"
+}{
+    "Parent": "0000007",
+    "code": "0000697",
+    "display": "Moggill"
+}{
+    "Parent": "0000007",
+    "code": "0000698",
+    "display": "Molendinar"
+}{
+    "Parent": "0000007",
+    "code": "0000699",
+    "display": "Monto"
+}{
+    "Parent": "0000007",
+    "code": "0000700",
+    "display": "Moorooka"
+}{
+    "Parent": "0000007",
+    "code": "0000701",
+    "display": "Morayfield"
+}{
+    "Parent": "0000007",
+    "code": "0000702",
+    "display": "Moreton Island"
+}{
+    "Parent": "0000007",
+    "code": "0000703",
+    "display": "Morningside"
+}{
+    "Parent": "0000007",
+    "code": "0000704",
+    "display": "Mornington"
+}{
+    "Parent": "0000007",
+    "code": "0000705",
+    "display": "Mount Gravatt East"
+}{
+    "Parent": "0000007",
+    "code": "0000706",
+    "display": "Mount Gravatt"
+}{
+    "Parent": "0000007",
+    "code": "0000707",
+    "display": "Mount Isa"
+}{
+    "Parent": "0000007",
+    "code": "0000708",
+    "display": "Mount Morgan"
+}{
+    "Parent": "0000007",
+    "code": "0000709",
+    "display": "Mount Ommaney"
+}{
+    "Parent": "0000007",
+    "code": "0000710",
+    "display": "Mt Louisa-Mt St John-Bohle"
+}{
+    "Parent": "0000007",
+    "code": "0000711",
+    "display": "Mt Warren Park"
+}{
+    "Parent": "0000007",
+    "code": "0000712",
+    "display": "Mudgeeraba-Reedy Creek"
+}{
+    "Parent": "0000007",
+    "code": "0000713",
+    "display": "Mundingburra"
+}{
+    "Parent": "0000007",
+    "code": "0000714",
+    "display": "Mundubbera"
+}{
+    "Parent": "0000007",
+    "code": "0000715",
+    "display": "Murarrie"
+}{
+    "Parent": "0000007",
+    "code": "0000716",
+    "display": "Murgon"
+}{
+    "Parent": "0000007",
+    "code": "0000717",
+    "display": "Murilla"
+}{
+    "Parent": "0000007",
+    "code": "0000718",
+    "display": "Murweh"
+}{
+    "Parent": "0000007",
+    "code": "0000719",
+    "display": "Nanango"
+}{
+    "Parent": "0000007",
+    "code": "0000720",
+    "display": "Napranum"
+}{
+    "Parent": "0000007",
+    "code": "0000721",
+    "display": "Nathan"
+}{
+    "Parent": "0000007",
+    "code": "0000722",
+    "display": "Nebo"
+}{
+    "Parent": "0000007",
+    "code": "0000723",
+    "display": "Nerang"
+}{
+    "Parent": "0000007",
+    "code": "0000724",
+    "display": "New Farm"
+}{
+    "Parent": "0000007",
+    "code": "0000725",
+    "display": "New Mapoon"
+}{
+    "Parent": "0000007",
+    "code": "0000726",
+    "display": "Newmarket"
+}{
+    "Parent": "0000007",
+    "code": "0000727",
+    "display": "Newstead"
+}{
+    "Parent": "0000007",
+    "code": "0000728",
+    "display": "Noosa - Noosa-Noosaville"
+}{
+    "Parent": "0000007",
+    "code": "0000729",
+    "display": "Noosa - Sunshine-Peregian"
+}{
+    "Parent": "0000007",
+    "code": "0000730",
+    "display": "Noosa - Tewantin"
+}{
+    "Parent": "0000007",
+    "code": "0000731",
+    "display": "Noosa Bal"
+}{
+    "Parent": "0000007",
+    "code": "0000732",
+    "display": "Norman Park"
+}{
+    "Parent": "0000007",
+    "code": "0000733",
+    "display": "North Ward-Castle Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000734",
+    "display": "Northgate"
+}{
+    "Parent": "0000007",
+    "code": "0000735",
+    "display": "Nudgee"
+}{
+    "Parent": "0000007",
+    "code": "0000736",
+    "display": "Nundah"
+}{
+    "Parent": "0000007",
+    "code": "0000737",
+    "display": "Oonoonba-Idalia-Cluden"
+}{
+    "Parent": "0000007",
+    "code": "0000738",
+    "display": "Ormeau-Yatala"
+}{
+    "Parent": "0000007",
+    "code": "0000739",
+    "display": "Ormiston"
+}{
+    "Parent": "0000007",
+    "code": "0000740",
+    "display": "Oxenford-Maudsland"
+}{
+    "Parent": "0000007",
+    "code": "0000741",
+    "display": "Pacific Pines-Gaven"
+}{
+    "Parent": "0000007",
+    "code": "0000742",
+    "display": "Paddington"
+}{
+    "Parent": "0000007",
+    "code": "0000743",
+    "display": "Pallara-Heathwood-Larapinta"
+}{
+    "Parent": "0000007",
+    "code": "0000744",
+    "display": "Pallarenda-Shelley Beach"
+}{
+    "Parent": "0000007",
+    "code": "0000745",
+    "display": "Palm Beach"
+}{
+    "Parent": "0000007",
+    "code": "0000746",
+    "display": "Palm Island"
+}{
+    "Parent": "0000007",
+    "code": "0000747",
+    "display": "Paradise Point-Runaway Bay"
+}{
+    "Parent": "0000007",
+    "code": "0000748",
+    "display": "Parkinson-Drewvale"
+}{
+    "Parent": "0000007",
+    "code": "0000749",
+    "display": "Parkwood-Arundel"
+}{
+    "Parent": "0000007",
+    "code": "0000750",
+    "display": "Paroo"
+}{
+    "Parent": "0000007",
+    "code": "0000751",
+    "display": "Peak Downs"
+}{
+    "Parent": "0000007",
+    "code": "0000752",
+    "display": "Perry"
+}{
+    "Parent": "0000007",
+    "code": "0000753",
+    "display": "Petrie"
+}{
+    "Parent": "0000007",
+    "code": "0000754",
+    "display": "Pimlico"
+}{
+    "Parent": "0000007",
+    "code": "0000755",
+    "display": "Pimpama-Coomera"
+}{
+    "Parent": "0000007",
+    "code": "0000756",
+    "display": "Pine Rivers Bal"
+}{
+    "Parent": "0000007",
+    "code": "0000757",
+    "display": "Pinjarra Hills"
+}{
+    "Parent": "0000007",
+    "code": "0000758",
+    "display": "Pinkenba-Eagle Farm"
+}{
+    "Parent": "0000007",
+    "code": "0000759",
+    "display": "Pittsworth"
+}{
+    "Parent": "0000007",
+    "code": "0000760",
+    "display": "Pormpuraaw"
+}{
+    "Parent": "0000007",
+    "code": "0000761",
+    "display": "Poruma"
+}{
+    "Parent": "0000007",
+    "code": "0000762",
+    "display": "Pullenvale"
+}{
+    "Parent": "0000007",
+    "code": "0000763",
+    "display": "Quilpie"
+}{
+    "Parent": "0000007",
+    "code": "0000764",
+    "display": "Railway Estate"
+}{
+    "Parent": "0000007",
+    "code": "0000765",
+    "display": "Redcliffe-Scarborough"
+}{
+    "Parent": "0000007",
+    "code": "0000766",
+    "display": "Redland Bal"
+}{
+    "Parent": "0000007",
+    "code": "0000767",
+    "display": "Redland Bay"
+}{
+    "Parent": "0000007",
+    "code": "0000768",
+    "display": "Richlands"
+}{
+    "Parent": "0000007",
+    "code": "0000769",
+    "display": "Richmond"
+}{
+    "Parent": "0000007",
+    "code": "0000770",
+    "display": "Riverhills"
+}{
+    "Parent": "0000007",
+    "code": "0000771",
+    "display": "Robertson"
+}{
+    "Parent": "0000007",
+    "code": "0000772",
+    "display": "Robina"
+}{
+    "Parent": "0000007",
+    "code": "0000773",
+    "display": "Rochedale South"
+}{
+    "Parent": "0000007",
+    "code": "0000774",
+    "display": "Rochedale"
+}{
+    "Parent": "0000007",
+    "code": "0000775",
+    "display": "Rockhampton"
+}{
+    "Parent": "0000007",
+    "code": "0000776",
+    "display": "Rocklea"
+}{
+    "Parent": "0000007",
+    "code": "0000777",
+    "display": "Roma"
+}{
+    "Parent": "0000007",
+    "code": "0000778",
+    "display": "Rosalie - Pt A"
+}{
+    "Parent": "0000007",
+    "code": "0000779",
+    "display": "Rosalie - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000780",
+    "display": "Rosslea"
+}{
+    "Parent": "0000007",
+    "code": "0000781",
+    "display": "Rothwell-Kippa-Ring"
+}{
+    "Parent": "0000007",
+    "code": "0000782",
+    "display": "Rowes Bay-Belgian Gardens"
+}{
+    "Parent": "0000007",
+    "code": "0000783",
+    "display": "Runcorn"
+}{
+    "Parent": "0000007",
+    "code": "0000784",
+    "display": "Saibai"
+}{
+    "Parent": "0000007",
+    "code": "0000785",
+    "display": "Salisbury"
+}{
+    "Parent": "0000007",
+    "code": "0000786",
+    "display": "Sandgate"
+}{
+    "Parent": "0000007",
+    "code": "0000787",
+    "display": "Sarina"
+}{
+    "Parent": "0000007",
+    "code": "0000788",
+    "display": "Seisia"
+}{
+    "Parent": "0000007",
+    "code": "0000789",
+    "display": "Seventeen Mile Rocks"
+}{
+    "Parent": "0000007",
+    "code": "0000790",
+    "display": "Shailer Park"
+}{
+    "Parent": "0000007",
+    "code": "0000791",
+    "display": "Sheldon-Mt Cotton"
+}{
+    "Parent": "0000007",
+    "code": "0000792",
+    "display": "Sherwood"
+}{
+    "Parent": "0000007",
+    "code": "0000793",
+    "display": "Slacks Creek"
+}{
+    "Parent": "0000007",
+    "code": "0000794",
+    "display": "South Brisbane"
+}{
+    "Parent": "0000007",
+    "code": "0000795",
+    "display": "South Townsville"
+}{
+    "Parent": "0000007",
+    "code": "0000796",
+    "display": "Southport"
+}{
+    "Parent": "0000007",
+    "code": "0000797",
+    "display": "Spring Hill"
+}{
+    "Parent": "0000007",
+    "code": "0000798",
+    "display": "Springwood"
+}{
+    "Parent": "0000007",
+    "code": "0000799",
+    "display": "St Lucia"
+}{
+    "Parent": "0000007",
+    "code": "0000800",
+    "display": "St Pauls"
+}{
+    "Parent": "0000007",
+    "code": "0000801",
+    "display": "Stafford Heights"
+}{
+    "Parent": "0000007",
+    "code": "0000802",
+    "display": "Stafford"
+}{
+    "Parent": "0000007",
+    "code": "0000803",
+    "display": "Stanthorpe"
+}{
+    "Parent": "0000007",
+    "code": "0000804",
+    "display": "Strathpine-Brendale"
+}{
+    "Parent": "0000007",
+    "code": "0000805",
+    "display": "Stretton-Karawatha"
+}{
+    "Parent": "0000007",
+    "code": "0000806",
+    "display": "Stuart-Roseneath"
+}{
+    "Parent": "0000007",
+    "code": "0000807",
+    "display": "Sunnybank Hills"
+}{
+    "Parent": "0000007",
+    "code": "0000808",
+    "display": "Sunnybank"
+}{
+    "Parent": "0000007",
+    "code": "0000809",
+    "display": "Surfers Paradise"
+}{
+    "Parent": "0000007",
+    "code": "0000810",
+    "display": "Taigum-Fitzgibbon"
+}{
+    "Parent": "0000007",
+    "code": "0000811",
+    "display": "Tambo"
+}{
+    "Parent": "0000007",
+    "code": "0000812",
+    "display": "Tanah Merah"
+}{
+    "Parent": "0000007",
+    "code": "0000813",
+    "display": "Tara"
+}{
+    "Parent": "0000007",
+    "code": "0000814",
+    "display": "Taringa"
+}{
+    "Parent": "0000007",
+    "code": "0000815",
+    "display": "Taroom"
+}{
+    "Parent": "0000007",
+    "code": "0000816",
+    "display": "Tarragindi"
+}{
+    "Parent": "0000007",
+    "code": "0000817",
+    "display": "The Gap"
+}{
+    "Parent": "0000007",
+    "code": "0000818",
+    "display": "Thorneside"
+}{
+    "Parent": "0000007",
+    "code": "0000819",
+    "display": "Thornlands"
+}{
+    "Parent": "0000007",
+    "code": "0000820",
+    "display": "Thuringowa - Pt A Bal"
+}{
+    "Parent": "0000007",
+    "code": "0000821",
+    "display": "Thuringowa - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000822",
+    "display": "Tiaro"
+}{
+    "Parent": "0000007",
+    "code": "0000823",
+    "display": "Tingalpa"
+}{
+    "Parent": "0000007",
+    "code": "0000824",
+    "display": "Toowong"
+}{
+    "Parent": "0000007",
+    "code": "0000825",
+    "display": "Toowoomba - Central"
+}{
+    "Parent": "0000007",
+    "code": "0000826",
+    "display": "Toowoomba - North-East"
+}{
+    "Parent": "0000007",
+    "code": "0000827",
+    "display": "Toowoomba - North-West"
+}{
+    "Parent": "0000007",
+    "code": "0000828",
+    "display": "Toowoomba - South-East"
+}{
+    "Parent": "0000007",
+    "code": "0000829",
+    "display": "Toowoomba - West"
+}{
+    "Parent": "0000007",
+    "code": "0000830",
+    "display": "Torres"
+}{
+    "Parent": "0000007",
+    "code": "0000831",
+    "display": "Townsville - Pt B"
+}{
+    "Parent": "0000007",
+    "code": "0000832",
+    "display": "Ugar"
+}{
+    "Parent": "0000007",
+    "code": "0000833",
+    "display": "Umagico"
+}{
+    "Parent": "0000007",
+    "code": "0000834",
+    "display": "Underwood"
+}{
+    "Parent": "0000007",
+    "code": "0000835",
+    "display": "Upper Kedron"
+}{
+    "Parent": "0000007",
+    "code": "0000836",
+    "display": "Upper Mount Gravatt"
+}{
+    "Parent": "0000007",
+    "code": "0000837",
+    "display": "Varsity Lakes"
+}{
+    "Parent": "0000007",
+    "code": "0000838",
+    "display": "Victoria Point"
+}{
+    "Parent": "0000007",
+    "code": "0000839",
+    "display": "Vincent"
+}{
+    "Parent": "0000007",
+    "code": "0000840",
+    "display": "Virginia"
+}{
+    "Parent": "0000007",
+    "code": "0000841",
+    "display": "Wacol"
+}{
+    "Parent": "0000007",
+    "code": "0000842",
+    "display": "Waggamba"
+}{
+    "Parent": "0000007",
+    "code": "0000843",
+    "display": "Wakerley"
+}{
+    "Parent": "0000007",
+    "code": "0000844",
+    "display": "Wambo"
+}{
+    "Parent": "0000007",
+    "code": "0000845",
+    "display": "Warraber"
+}{
+    "Parent": "0000007",
+    "code": "0000846",
+    "display": "Warroo"
+}{
+    "Parent": "0000007",
+    "code": "0000847",
+    "display": "Warwick - Central"
+}{
+    "Parent": "0000007",
+    "code": "0000848",
+    "display": "Warwick - East"
+}{
+    "Parent": "0000007",
+    "code": "0000849",
+    "display": "Warwick - North"
+}{
+    "Parent": "0000007",
+    "code": "0000850",
+    "display": "Warwick - West"
+}{
+    "Parent": "0000007",
+    "code": "0000851",
+    "display": "Waterford West"
+}{
+    "Parent": "0000007",
+    "code": "0000852",
+    "display": "Wavell Heights"
+}{
+    "Parent": "0000007",
+    "code": "0000853",
+    "display": "Weipa"
+}{
+    "Parent": "0000007",
+    "code": "0000854",
+    "display": "Wellington Point"
+}{
+    "Parent": "0000007",
+    "code": "0000855",
+    "display": "West End"
+}{
+    "Parent": "0000007",
+    "code": "0000856",
+    "display": "Westlake"
+}{
+    "Parent": "0000007",
+    "code": "0000857",
+    "display": "Whitsunday"
+}{
+    "Parent": "0000007",
+    "code": "0000858",
+    "display": "Willawong"
+}{
+    "Parent": "0000007",
+    "code": "0000859",
+    "display": "Wilston"
+}{
+    "Parent": "0000007",
+    "code": "0000860",
+    "display": "Windsor"
+}{
+    "Parent": "0000007",
+    "code": "0000861",
+    "display": "Winton"
+}{
+    "Parent": "0000007",
+    "code": "0000862",
+    "display": "Wishart"
+}{
+    "Parent": "0000007",
+    "code": "0000863",
+    "display": "Wolffdene-Bahrs Scrub"
+}{
+    "Parent": "0000007",
+    "code": "0000864",
+    "display": "Wondai"
+}{
+    "Parent": "0000007",
+    "code": "0000865",
+    "display": "Woocoo"
+}{
+    "Parent": "0000007",
+    "code": "0000866",
+    "display": "Woodridge"
+}{
+    "Parent": "0000007",
+    "code": "0000867",
+    "display": "Woolloongabba"
+}{
+    "Parent": "0000007",
+    "code": "0000868",
+    "display": "Wooloowin"
+}{
+    "Parent": "0000007",
+    "code": "0000869",
+    "display": "Woorabinda"
+}{
+    "Parent": "0000007",
+    "code": "0000870",
+    "display": "Worongary-Tallai"
+}{
+    "Parent": "0000007",
+    "code": "0000871",
+    "display": "Wujal Wujal"
+}{
+    "Parent": "0000007",
+    "code": "0000872",
+    "display": "Wulguru"
+}{
+    "Parent": "0000007",
+    "code": "0000873",
+    "display": "Wynnum West"
+}{
+    "Parent": "0000007",
+    "code": "0000874",
+    "display": "Wynnum"
+}{
+    "Parent": "0000007",
+    "code": "0000875",
+    "display": "Yarrabah"
+}{
+    "Parent": "0000007",
+    "code": "0000876",
+    "display": "Yeerongpilly"
+}{
+    "Parent": "0000007",
+    "code": "0000877",
+    "display": "Yeronga"
+}{
+    "Parent": "0000007",
+    "code": "0000878",
+    "display": "Yorke"
+}{
+    "Parent": "0000007",
+    "code": "0000879",
+    "display": "Zillmere"
+}{
+    "Parent": "0000008",
+    "code": "0000880",
+    "display": "Adelaide Hills-Bal"
+}{
+    "Parent": "0000008",
+    "code": "0000881",
+    "display": "Adelaide Hills --Central"
+}{
+    "Parent": "0000008",
+    "code": "0000882",
+    "display": "Adelaide Hills - North"
+}{
+    "Parent": "0000008",
+    "code": "0000883",
+    "display": "Adelaide Hills -Ranges"
+}{
+    "Parent": "0000008",
+    "code": "0000884",
+    "display": "Adelaide"
+}{
+    "Parent": "0000008",
+    "code": "0000885",
+    "display": "Alexandrina- Strathalbyn"
+}{
+    "Parent": "0000008",
+    "code": "0000886",
+    "display": "Alexandrina - Coastal"
+}{
+    "Parent": "0000008",
+    "code": "0000887",
+    "display": "Anangu Pitjantjatjara"
+}{
+    "Parent": "0000008",
+    "code": "0000888",
+    "display": "Barossa  - Angaston"
+}{
+    "Parent": "0000008",
+    "code": "0000889",
+    "display": "Barossa  - Barossa"
+}{
+    "Parent": "0000008",
+    "code": "0000890",
+    "display": "Barossa  - Tanunda"
+}{
+    "Parent": "0000008",
+    "code": "0000891",
+    "display": "Barunga West"
+}{
+    "Parent": "0000008",
+    "code": "0000892",
+    "display": "Berri & Barmera  - Barmera"
+}{
+    "Parent": "0000008",
+    "code": "0000893",
+    "display": "Berri & Barmera  - Berri"
+}{
+    "Parent": "0000008",
+    "code": "0000894",
+    "display": "Burnside - North-East"
+}{
+    "Parent": "0000008",
+    "code": "0000895",
+    "display": "Burnside  - South-West"
+}{
+    "Parent": "0000008",
+    "code": "0000896",
+    "display": "Campbelltown - East"
+}{
+    "Parent": "0000008",
+    "code": "0000897",
+    "display": "Campbelltown - West"
+}{
+    "Parent": "0000008",
+    "code": "0000898",
+    "display": "Ceduna"
+}{
+    "Parent": "0000008",
+    "code": "0000899",
+    "display": "Charles Sturt - Coastal"
+}{
+    "Parent": "0000008",
+    "code": "0000900",
+    "display": "Charles Sturt - Inner East"
+}{
+    "Parent": "0000008",
+    "code": "0000901",
+    "display": "Charles Sturt - Inner West"
+}{
+    "Parent": "0000008",
+    "code": "0000902",
+    "display": "Charles Sturt - North-East"
+}{
+    "Parent": "0000008",
+    "code": "0000903",
+    "display": "Clare and Gilbert Valleys"
+}{
+    "Parent": "0000008",
+    "code": "0000904",
+    "display": "Cleve"
+}{
+    "Parent": "0000008",
+    "code": "0000905",
+    "display": "Coober Pedy"
+}{
+    "Parent": "0000008",
+    "code": "0000906",
+    "display": "Copper Coast"
+}{
+    "Parent": "0000008",
+    "code": "0000907",
+    "display": "Elliston"
+}{
+    "Parent": "0000008",
+    "code": "0000908",
+    "display": "Flinders Ranges"
+}{
+    "Parent": "0000008",
+    "code": "0000909",
+    "display": "Franklin Harbour"
+}{
+    "Parent": "0000008",
+    "code": "0000910",
+    "display": "Gawler"
+}{
+    "Parent": "0000008",
+    "code": "0000911",
+    "display": "Goyder"
+}{
+    "Parent": "0000008",
+    "code": "0000912",
+    "display": "Grant"
+}{
+    "Parent": "0000008",
+    "code": "0000913",
+    "display": "Holdfast Bay - North"
+}{
+    "Parent": "0000008",
+    "code": "0000914",
+    "display": "Holdfast Bay - South"
+}{
+    "Parent": "0000008",
+    "code": "0000915",
+    "display": "Kangaroo Island"
+}{
+    "Parent": "0000008",
+    "code": "0000916",
+    "display": "Karoonda East Murray"
+}{
+    "Parent": "0000008",
+    "code": "0000917",
+    "display": "Kimba"
+}{
+    "Parent": "0000008",
+    "code": "0000918",
+    "display": "Le Hunte"
+}{
+    "Parent": "0000008",
+    "code": "0000919",
+    "display": "Light"
+}{
+    "Parent": "0000008",
+    "code": "0000920",
+    "display": "Lower Eyre Peninsula"
+}{
+    "Parent": "0000008",
+    "code": "0000921",
+    "display": "Loxton Waikerie - West"
+}{
+    "Parent": "0000008",
+    "code": "0000922",
+    "display": "Loxton Waikerie  - East"
+}{
+    "Parent": "0000008",
+    "code": "0000923",
+    "display": "Mallala"
+}{
+    "Parent": "0000008",
+    "code": "0000924",
+    "display": "Maralinga Tjarutja"
+}{
+    "Parent": "0000008",
+    "code": "0000925",
+    "display": "Marion - Central"
+}{
+    "Parent": "0000008",
+    "code": "0000926",
+    "display": "Marion - North"
+}{
+    "Parent": "0000008",
+    "code": "0000927",
+    "display": "Marion - South"
+}{
+    "Parent": "0000008",
+    "code": "0000928",
+    "display": "Mid Murray"
+}{
+    "Parent": "0000008",
+    "code": "0000929",
+    "display": "Mitcham - Hills"
+}{
+    "Parent": "0000008",
+    "code": "0000930",
+    "display": "Mitcham - North-East"
+}{
+    "Parent": "0000008",
+    "code": "0000931",
+    "display": "Mitcham  - West"
+}{
+    "Parent": "0000008",
+    "code": "0000932",
+    "display": "Mount Barker  - Central"
+}{
+    "Parent": "0000008",
+    "code": "0000933",
+    "display": "Mount Barker Bal"
+}{
+    "Parent": "0000008",
+    "code": "0000934",
+    "display": "Mount Gambier"
+}{
+    "Parent": "0000008",
+    "code": "0000935",
+    "display": "Mount Remarkable (DC)"
+}{
+    "Parent": "0000008",
+    "code": "0000936",
+    "display": "Murray Bridge"
+}{
+    "Parent": "0000008",
+    "code": "0000937",
+    "display": "Naracoorte Lucindale"
+}{
+    "Parent": "0000008",
+    "code": "0000938",
+    "display": "Northern Areas"
+}{
+    "Parent": "0000008",
+    "code": "0000939",
+    "display": "Norw. P'ham St Ptrs  - East"
+}{
+    "Parent": "0000008",
+    "code": "0000940",
+    "display": "Norw. P'ham St Ptrs  - West"
+}{
+    "Parent": "0000008",
+    "code": "0000941",
+    "display": "Onkaparinga - Hackham"
+}{
+    "Parent": "0000008",
+    "code": "0000942",
+    "display": "Onkaparinga - Hills"
+}{
+    "Parent": "0000008",
+    "code": "0000943",
+    "display": "Onkaparinga - Morphett"
+}{
+    "Parent": "0000008",
+    "code": "0000944",
+    "display": "Onkaparinga - North Coast"
+}{
+    "Parent": "0000008",
+    "code": "0000945",
+    "display": "Onkaparinga - Reservoir"
+}{
+    "Parent": "0000008",
+    "code": "0000946",
+    "display": "Onkaparinga - South Coast"
+}{
+    "Parent": "0000008",
+    "code": "0000947",
+    "display": "Onkaparinga - Woodcroft"
+}{
+    "Parent": "0000008",
+    "code": "0000948",
+    "display": "Orroroo/Carrieton"
+}{
+    "Parent": "0000008",
+    "code": "0000949",
+    "display": "Peterborough"
+}{
+    "Parent": "0000008",
+    "code": "0000950",
+    "display": "Playford - East Central"
+}{
+    "Parent": "0000008",
+    "code": "0000951",
+    "display": "Playford - Elizabeth"
+}{
+    "Parent": "0000008",
+    "code": "0000952",
+    "display": "Playford - Hills"
+}{
+    "Parent": "0000008",
+    "code": "0000953",
+    "display": "Playford - West Central"
+}{
+    "Parent": "0000008",
+    "code": "0000954",
+    "display": "Playford - West"
+}{
+    "Parent": "0000008",
+    "code": "0000955",
+    "display": "Port Adel. Enfield - Coast"
+}{
+    "Parent": "0000008",
+    "code": "0000956",
+    "display": "Port Adel. Enfield - East"
+}{
+    "Parent": "0000008",
+    "code": "0000957",
+    "display": "Port Adel. Enfield - Inner"
+}{
+    "Parent": "0000008",
+    "code": "0000958",
+    "display": "Port Adel. Enfield - Park"
+}{
+    "Parent": "0000008",
+    "code": "0000959",
+    "display": "Port Adel. Enfield - Port"
+}{
+    "Parent": "0000008",
+    "code": "0000960",
+    "display": "Port Augusta"
+}{
+    "Parent": "0000008",
+    "code": "0000961",
+    "display": "Port Lincoln"
+}{
+    "Parent": "0000008",
+    "code": "0000962",
+    "display": "Port Pirie C Dists - City"
+}{
+    "Parent": "0000008",
+    "code": "0000963",
+    "display": "Port Pirie C Dists Bal"
+}{
+    "Parent": "0000008",
+    "code": "0000964",
+    "display": "Prospect"
+}{
+    "Parent": "0000008",
+    "code": "0000965",
+    "display": "Renmark Paringa - Paringa"
+}{
+    "Parent": "0000008",
+    "code": "0000966",
+    "display": "Renmark Paringa - Renmark"
+}{
+    "Parent": "0000008",
+    "code": "0000967",
+    "display": "Robe"
+}{
+    "Parent": "0000008",
+    "code": "0000968",
+    "display": "Roxby Downs"
+}{
+    "Parent": "0000008",
+    "code": "0000969",
+    "display": "Salisbury - Central"
+}{
+    "Parent": "0000008",
+    "code": "0000970",
+    "display": "Salisbury - Inner North"
+}{
+    "Parent": "0000008",
+    "code": "0000971",
+    "display": "Salisbury - North-East"
+}{
+    "Parent": "0000008",
+    "code": "0000972",
+    "display": "Salisbury - South-East"
+}{
+    "Parent": "0000008",
+    "code": "0000973",
+    "display": "Salisbury Bal"
+}{
+    "Parent": "0000008",
+    "code": "0000974",
+    "display": "Southern Mallee"
+}{
+    "Parent": "0000008",
+    "code": "0000975",
+    "display": "Streaky Bay"
+}{
+    "Parent": "0000008",
+    "code": "0000976",
+    "display": "Tatiara"
+}{
+    "Parent": "0000008",
+    "code": "0000977",
+    "display": "Tea Tree Gully - Central"
+}{
+    "Parent": "0000008",
+    "code": "0000978",
+    "display": "Tea Tree Gully - North"
+}{
+    "Parent": "0000008",
+    "code": "0000979",
+    "display": "Tea Tree Gully - South"
+}{
+    "Parent": "0000008",
+    "code": "0000980",
+    "display": "Tea Tree Gully  - Hills"
+}{
+    "Parent": "0000008",
+    "code": "0000981",
+    "display": "The Coorong"
+}{
+    "Parent": "0000008",
+    "code": "0000982",
+    "display": "Tumby Bay"
+}{
+    "Parent": "0000008",
+    "code": "0000983",
+    "display": "Unincorp. Far North"
+}{
+    "Parent": "0000008",
+    "code": "0000984",
+    "display": "Unincorp. Flinders Ranges"
+}{
+    "Parent": "0000008",
+    "code": "0000985",
+    "display": "Unincorp. Lincoln"
+}{
+    "Parent": "0000008",
+    "code": "0000986",
+    "display": "Unincorp. Murray Mallee"
+}{
+    "Parent": "0000008",
+    "code": "0000987",
+    "display": "Unincorp. Pirie"
+}{
+    "Parent": "0000008",
+    "code": "0000988",
+    "display": "Unincorp. Riverland"
+}{
+    "Parent": "0000008",
+    "code": "0000989",
+    "display": "Unincorp. West Coast"
+}{
+    "Parent": "0000008",
+    "code": "0000990",
+    "display": "Unincorp. Western"
+}{
+    "Parent": "0000008",
+    "code": "0000991",
+    "display": "Unincorp. Whyalla"
+}{
+    "Parent": "0000008",
+    "code": "0000992",
+    "display": "Unincorp. Yorke"
+}{
+    "Parent": "0000008",
+    "code": "0000993",
+    "display": "Unley - East"
+}{
+    "Parent": "0000008",
+    "code": "0000994",
+    "display": "Unley - West"
+}{
+    "Parent": "0000008",
+    "code": "0000995",
+    "display": "Victor Harbor"
+}{
+    "Parent": "0000008",
+    "code": "0000996",
+    "display": "Wakefield"
+}{
+    "Parent": "0000008",
+    "code": "0000997",
+    "display": "Walkerville"
+}{
+    "Parent": "0000008",
+    "code": "0000998",
+    "display": "Wattle Range - East"
+}{
+    "Parent": "0000008",
+    "code": "0000999",
+    "display": "Wattle Range  - West"
+}{
+    "Parent": "0000008",
+    "code": "0001000",
+    "display": "West Torrens - East"
+}{
+    "Parent": "0000008",
+    "code": "0001001",
+    "display": "West Torrens - West"
+}{
+    "Parent": "0000008",
+    "code": "0001002",
+    "display": "Whyalla"
+}{
+    "Parent": "0000008",
+    "code": "0001003",
+    "display": "Yankalilla"
+}{
+    "Parent": "0000008",
+    "code": "0001004",
+    "display": "Yorke Peninsula - North"
+}{
+    "Parent": "0000008",
+    "code": "0001005",
+    "display": "Yorke Peninsula - South"
+}{
+    "Parent": "0000009",
+    "code": "0001006",
+    "display": "Break O'Day"
+}{
+    "Parent": "0000009",
+    "code": "0001007",
+    "display": "Burnie  - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001008",
+    "display": "Burnie  - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001009",
+    "display": "Central Coast - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001010",
+    "display": "Central Coast - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001011",
+    "display": "Central Highlands"
+}{
+    "Parent": "0000009",
+    "code": "0001012",
+    "display": "Circular Head"
+}{
+    "Parent": "0000009",
+    "code": "0001013",
+    "display": "Clarence"
+}{
+    "Parent": "0000009",
+    "code": "0001014",
+    "display": "Derwent Valley"
+}{
+    "Parent": "0000009",
+    "code": "0001015",
+    "display": "Devonport"
+}{
+    "Parent": "0000009",
+    "code": "0001016",
+    "display": "Dorset"
+}{
+    "Parent": "0000009",
+    "code": "0001017",
+    "display": "George Town - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001018",
+    "display": "George Town - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001019",
+    "display": "Glamorgan-Spring Bay"
+}{
+    "Parent": "0000009",
+    "code": "0001020",
+    "display": "Glenorchy"
+}{
+    "Parent": "0000009",
+    "code": "0001021",
+    "display": "Hobart"
+}{
+    "Parent": "0000009",
+    "code": "0001022",
+    "display": "Huon Valley"
+}{
+    "Parent": "0000009",
+    "code": "0001023",
+    "display": "Kentish"
+}{
+    "Parent": "0000009",
+    "code": "0001024",
+    "display": "King Island"
+}{
+    "Parent": "0000009",
+    "code": "0001025",
+    "display": "Kingborough"
+}{
+    "Parent": "0000009",
+    "code": "0001026",
+    "display": "Latrobe - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001027",
+    "display": "Latrobe - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001028",
+    "display": "Launceston - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001029",
+    "display": "Launceston - Pt C"
+}{
+    "Parent": "0000009",
+    "code": "0001030",
+    "display": "Macquarie Island"
+}{
+    "Parent": "0000009",
+    "code": "0001031",
+    "display": "Meander Valley"
+}{
+    "Parent": "0000009",
+    "code": "0001032",
+    "display": "Northern Midlands - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001033",
+    "display": "Northern Midlands - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001034",
+    "display": "Sorell"
+}{
+    "Parent": "0000009",
+    "code": "0001035",
+    "display": "Southern Midlands"
+}{
+    "Parent": "0000009",
+    "code": "0001036",
+    "display": "Tasman"
+}{
+    "Parent": "0000009",
+    "code": "0001037",
+    "display": "Waratah/Wynyard - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001038",
+    "display": "Waratah/Wynyard - Pt B"
+}{
+    "Parent": "0000009",
+    "code": "0001039",
+    "display": "West Coast"
+}{
+    "Parent": "0000009",
+    "code": "0001040",
+    "display": "West Tamar - Pt A"
+}{
+    "Parent": "0000009",
+    "code": "0001041",
+    "display": "West Tamar - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001042",
+    "display": "Alpine- West"
+}{
+    "Parent": "0000010",
+    "code": "0001043",
+    "display": "Alpine - East"
+}{
+    "Parent": "0000010",
+    "code": "0001044",
+    "display": "Ararat"
+}{
+    "Parent": "0000010",
+    "code": "0001045",
+    "display": "Ballarat - North"
+}{
+    "Parent": "0000010",
+    "code": "0001046",
+    "display": "Ballarat  - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001047",
+    "display": "Ballarat  - Inner North"
+}{
+    "Parent": "0000010",
+    "code": "0001048",
+    "display": "Ballarat  - South"
+}{
+    "Parent": "0000010",
+    "code": "0001049",
+    "display": "Banyule - Heidelberg"
+}{
+    "Parent": "0000010",
+    "code": "0001050",
+    "display": "Banyule - North"
+}{
+    "Parent": "0000010",
+    "code": "0001051",
+    "display": "Bass Coast  - Phillip Is."
+}{
+    "Parent": "0000010",
+    "code": "0001052",
+    "display": "Bass Coast  Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001053",
+    "display": "Baw Baw - Pt B East"
+}{
+    "Parent": "0000010",
+    "code": "0001054",
+    "display": "Baw Baw  - Pt A"
+}{
+    "Parent": "0000010",
+    "code": "0001055",
+    "display": "Baw Baw  - Pt B West"
+}{
+    "Parent": "0000010",
+    "code": "0001056",
+    "display": "Bayside  - Brighton"
+}{
+    "Parent": "0000010",
+    "code": "0001057",
+    "display": "Bayside  - South"
+}{
+    "Parent": "0000010",
+    "code": "0001058",
+    "display": "Bellarine - Inner"
+}{
+    "Parent": "0000010",
+    "code": "0001059",
+    "display": "Benalla - Benalla"
+}{
+    "Parent": "0000010",
+    "code": "0001060",
+    "display": "Benalla  Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001061",
+    "display": "Boroondara  - Camberwell N."
+}{
+    "Parent": "0000010",
+    "code": "0001062",
+    "display": "Boroondara  - Camberwell S."
+}{
+    "Parent": "0000010",
+    "code": "0001063",
+    "display": "Boroondara  - Hawthorn"
+}{
+    "Parent": "0000010",
+    "code": "0001064",
+    "display": "Boroondara  - Kew"
+}{
+    "Parent": "0000010",
+    "code": "0001065",
+    "display": "Brimbank - Sunshine"
+}{
+    "Parent": "0000010",
+    "code": "0001066",
+    "display": "Brimbank  - Keilor"
+}{
+    "Parent": "0000010",
+    "code": "0001067",
+    "display": "Buloke  - North"
+}{
+    "Parent": "0000010",
+    "code": "0001068",
+    "display": "Buloke  - South"
+}{
+    "Parent": "0000010",
+    "code": "0001069",
+    "display": "C. Goldfields  - M'borough"
+}{
+    "Parent": "0000010",
+    "code": "0001070",
+    "display": "C. Goldfields Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001071",
+    "display": "Campaspe - Echuca"
+}{
+    "Parent": "0000010",
+    "code": "0001072",
+    "display": "Campaspe - Kyabram"
+}{
+    "Parent": "0000010",
+    "code": "0001073",
+    "display": "Campaspe - Rochester"
+}{
+    "Parent": "0000010",
+    "code": "0001074",
+    "display": "Campaspe - South"
+}{
+    "Parent": "0000010",
+    "code": "0001075",
+    "display": "Cardinia - North"
+}{
+    "Parent": "0000010",
+    "code": "0001076",
+    "display": "Cardinia - Pakenham"
+}{
+    "Parent": "0000010",
+    "code": "0001077",
+    "display": "Cardinia  - South"
+}{
+    "Parent": "0000010",
+    "code": "0001078",
+    "display": "Casey - Berwick"
+}{
+    "Parent": "0000010",
+    "code": "0001079",
+    "display": "Casey - Cranbourne"
+}{
+    "Parent": "0000010",
+    "code": "0001080",
+    "display": "Casey - Hallam"
+}{
+    "Parent": "0000010",
+    "code": "0001081",
+    "display": "Casey - South"
+}{
+    "Parent": "0000010",
+    "code": "0001082",
+    "display": "Colac-Otway - Colac"
+}{
+    "Parent": "0000010",
+    "code": "0001083",
+    "display": "Colac-Otway - North"
+}{
+    "Parent": "0000010",
+    "code": "0001084",
+    "display": "Colac-Otway - South"
+}{
+    "Parent": "0000010",
+    "code": "0001085",
+    "display": "Corangamite - North"
+}{
+    "Parent": "0000010",
+    "code": "0001086",
+    "display": "Corangamite - South"
+}{
+    "Parent": "0000010",
+    "code": "0001087",
+    "display": "Corio - Inner"
+}{
+    "Parent": "0000010",
+    "code": "0001088",
+    "display": "Darebin- Northcote"
+}{
+    "Parent": "0000010",
+    "code": "0001089",
+    "display": "Darebin - Preston"
+}{
+    "Parent": "0000010",
+    "code": "0001090",
+    "display": "E. Gippsland - Bairnsdale"
+}{
+    "Parent": "0000010",
+    "code": "0001091",
+    "display": "E. Gippsland - Orbost"
+}{
+    "Parent": "0000010",
+    "code": "0001092",
+    "display": "E. Gippsland - South-West"
+}{
+    "Parent": "0000010",
+    "code": "0001093",
+    "display": "E. Gippsland Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001094",
+    "display": "Falls Creek Alpine Resort"
+}{
+    "Parent": "0000010",
+    "code": "0001095",
+    "display": "Frankston - East"
+}{
+    "Parent": "0000010",
+    "code": "0001096",
+    "display": "Frankston - West"
+}{
+    "Parent": "0000010",
+    "code": "0001097",
+    "display": "French Island"
+}{
+    "Parent": "0000010",
+    "code": "0001098",
+    "display": "Gannawarra"
+}{
+    "Parent": "0000010",
+    "code": "0001099",
+    "display": "Geelong West"
+}{
+    "Parent": "0000010",
+    "code": "0001100",
+    "display": "Geelong"
+}{
+    "Parent": "0000010",
+    "code": "0001101",
+    "display": "Glen Eira - Caulfield"
+}{
+    "Parent": "0000010",
+    "code": "0001102",
+    "display": "Glen Eira - South"
+}{
+    "Parent": "0000010",
+    "code": "0001103",
+    "display": "Glenelg - Heywood"
+}{
+    "Parent": "0000010",
+    "code": "0001104",
+    "display": "Glenelg - North"
+}{
+    "Parent": "0000010",
+    "code": "0001105",
+    "display": "Glenelg - Portland"
+}{
+    "Parent": "0000010",
+    "code": "0001106",
+    "display": "Golden Plains - North-West"
+}{
+    "Parent": "0000010",
+    "code": "0001107",
+    "display": "Golden Plains - South-East"
+}{
+    "Parent": "0000010",
+    "code": "0001108",
+    "display": "Gr. Bendigo - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001109",
+    "display": "Gr. Bendigo - Eaglehawk"
+}{
+    "Parent": "0000010",
+    "code": "0001110",
+    "display": "Gr. Bendigo - Inner East"
+}{
+    "Parent": "0000010",
+    "code": "0001111",
+    "display": "Gr. Bendigo - Inner North"
+}{
+    "Parent": "0000010",
+    "code": "0001112",
+    "display": "Gr. Bendigo - Inner West"
+}{
+    "Parent": "0000010",
+    "code": "0001113",
+    "display": "Gr. Bendigo - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001114",
+    "display": "Gr. Bendigo - S'saye"
+}{
+    "Parent": "0000010",
+    "code": "0001115",
+    "display": "Gr. Dandenong - Dandenong"
+}{
+    "Parent": "0000010",
+    "code": "0001116",
+    "display": "Gr. Dandenong Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001117",
+    "display": "Gr. Shepparton - Pt A"
+}{
+    "Parent": "0000010",
+    "code": "0001118",
+    "display": "Gr. Shepparton - Pt B East"
+}{
+    "Parent": "0000010",
+    "code": "0001119",
+    "display": "Gr. Shepparton - Pt B West"
+}{
+    "Parent": "0000010",
+    "code": "0001120",
+    "display": "Greater Geelong - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001121",
+    "display": "Greater Geelong - Pt C"
+}{
+    "Parent": "0000010",
+    "code": "0001122",
+    "display": "Hepburn - East"
+}{
+    "Parent": "0000010",
+    "code": "0001123",
+    "display": "Hepburn - West"
+}{
+    "Parent": "0000010",
+    "code": "0001124",
+    "display": "Hindmarsh"
+}{
+    "Parent": "0000010",
+    "code": "0001125",
+    "display": "Hobsons Bay - Altona"
+}{
+    "Parent": "0000010",
+    "code": "0001126",
+    "display": "Hobsons Bay - Williamstown"
+}{
+    "Parent": "0000010",
+    "code": "0001127",
+    "display": "Horsham - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001128",
+    "display": "Horsham Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001129",
+    "display": "Hume - Broadmeadows"
+}{
+    "Parent": "0000010",
+    "code": "0001130",
+    "display": "Hume - Craigieburn"
+}{
+    "Parent": "0000010",
+    "code": "0001131",
+    "display": "Hume - Sunbury"
+}{
+    "Parent": "0000010",
+    "code": "0001132",
+    "display": "Indigo - Pt A"
+}{
+    "Parent": "0000010",
+    "code": "0001133",
+    "display": "Indigo - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001134",
+    "display": "Kingston - North"
+}{
+    "Parent": "0000010",
+    "code": "0001135",
+    "display": "Kingston - South"
+}{
+    "Parent": "0000010",
+    "code": "0001136",
+    "display": "Knox - North-East"
+}{
+    "Parent": "0000010",
+    "code": "0001137",
+    "display": "Knox - North-West"
+}{
+    "Parent": "0000010",
+    "code": "0001138",
+    "display": "Knox - South"
+}{
+    "Parent": "0000010",
+    "code": "0001139",
+    "display": "Lady Julia Percy Island"
+}{
+    "Parent": "0000010",
+    "code": "0001140",
+    "display": "Lake Mountain Alpine Resort"
+}{
+    "Parent": "0000010",
+    "code": "0001141",
+    "display": "Latrobe - Moe"
+}{
+    "Parent": "0000010",
+    "code": "0001142",
+    "display": "Latrobe - Morwell"
+}{
+    "Parent": "0000010",
+    "code": "0001143",
+    "display": "Latrobe - Traralgon"
+}{
+    "Parent": "0000010",
+    "code": "0001144",
+    "display": "Latrobe Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001145",
+    "display": "Loddon - North"
+}{
+    "Parent": "0000010",
+    "code": "0001146",
+    "display": "Loddon - South"
+}{
+    "Parent": "0000010",
+    "code": "0001147",
+    "display": "Macedon Ranges - Kyneton"
+}{
+    "Parent": "0000010",
+    "code": "0001148",
+    "display": "Macedon Ranges - Romsey"
+}{
+    "Parent": "0000010",
+    "code": "0001149",
+    "display": "Macedon Ranges Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001150",
+    "display": "Manningham - East"
+}{
+    "Parent": "0000010",
+    "code": "0001151",
+    "display": "Manningham - West"
+}{
+    "Parent": "0000010",
+    "code": "0001152",
+    "display": "Maribyrnong"
+}{
+    "Parent": "0000010",
+    "code": "0001153",
+    "display": "Maroondah - Croydon"
+}{
+    "Parent": "0000010",
+    "code": "0001154",
+    "display": "Maroondah - Ringwood"
+}{
+    "Parent": "0000010",
+    "code": "0001155",
+    "display": "Melbourne - Inner"
+}{
+    "Parent": "0000010",
+    "code": "0001156",
+    "display": "Melbourne - Remainder"
+}{
+    "Parent": "0000010",
+    "code": "0001157",
+    "display": "Melbourne - S'bank-D'lands"
+}{
+    "Parent": "0000010",
+    "code": "0001158",
+    "display": "Melton - East"
+}{
+    "Parent": "0000010",
+    "code": "0001159",
+    "display": "Melton Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001160",
+    "display": "Mildura - Pt A"
+}{
+    "Parent": "0000010",
+    "code": "0001161",
+    "display": "Mildura - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001162",
+    "display": "Mitchell - North"
+}{
+    "Parent": "0000010",
+    "code": "0001163",
+    "display": "Mitchell - South"
+}{
+    "Parent": "0000010",
+    "code": "0001164",
+    "display": "Moira - East"
+}{
+    "Parent": "0000010",
+    "code": "0001165",
+    "display": "Moira - West"
+}{
+    "Parent": "0000010",
+    "code": "0001166",
+    "display": "Monash - South-West"
+}{
+    "Parent": "0000010",
+    "code": "0001167",
+    "display": "Monash - Waverley East"
+}{
+    "Parent": "0000010",
+    "code": "0001168",
+    "display": "Monash - Waverley West"
+}{
+    "Parent": "0000010",
+    "code": "0001169",
+    "display": "Moonee Valley - Essendon"
+}{
+    "Parent": "0000010",
+    "code": "0001170",
+    "display": "Moonee Valley - West"
+}{
+    "Parent": "0000010",
+    "code": "0001171",
+    "display": "Moorabool - Bacchus Marsh"
+}{
+    "Parent": "0000010",
+    "code": "0001172",
+    "display": "Moorabool - Ballan"
+}{
+    "Parent": "0000010",
+    "code": "0001173",
+    "display": "Moorabool - West"
+}{
+    "Parent": "0000010",
+    "code": "0001174",
+    "display": "Moreland - Brunswick"
+}{
+    "Parent": "0000010",
+    "code": "0001175",
+    "display": "Moreland - Coburg"
+}{
+    "Parent": "0000010",
+    "code": "0001176",
+    "display": "Moreland - North"
+}{
+    "Parent": "0000010",
+    "code": "0001177",
+    "display": "Mornington P'sula - East"
+}{
+    "Parent": "0000010",
+    "code": "0001178",
+    "display": "Mornington P'sula - South"
+}{
+    "Parent": "0000010",
+    "code": "0001179",
+    "display": "Mornington P'sula - West"
+}{
+    "Parent": "0000010",
+    "code": "0001180",
+    "display": "Mount Alexander  - C'maine"
+}{
+    "Parent": "0000010",
+    "code": "0001181",
+    "display": "Mount Alexander Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001182",
+    "display": "Mount Baw Baw Alpine Resort"
+}{
+    "Parent": "0000010",
+    "code": "0001183",
+    "display": "Mount Buller Alpine Resort"
+}{
+    "Parent": "0000010",
+    "code": "0001184",
+    "display": "Mount Hotham Alpine Resort"
+}{
+    "Parent": "0000010",
+    "code": "0001185",
+    "display": "Mount Stirling Alpine Resort"
+}{
+    "Parent": "0000010",
+    "code": "0001186",
+    "display": "Moyne - North-East"
+}{
+    "Parent": "0000010",
+    "code": "0001187",
+    "display": "Moyne - North-West"
+}{
+    "Parent": "0000010",
+    "code": "0001188",
+    "display": "Moyne - South"
+}{
+    "Parent": "0000010",
+    "code": "0001189",
+    "display": "Murrindindi - East"
+}{
+    "Parent": "0000010",
+    "code": "0001190",
+    "display": "Murrindindi - West"
+}{
+    "Parent": "0000010",
+    "code": "0001191",
+    "display": "N. Grampians - St Arnaud"
+}{
+    "Parent": "0000010",
+    "code": "0001192",
+    "display": "N. Grampians  - Stawell"
+}{
+    "Parent": "0000010",
+    "code": "0001193",
+    "display": "Newtown"
+}{
+    "Parent": "0000010",
+    "code": "0001194",
+    "display": "Nillumbik - South"
+}{
+    "Parent": "0000010",
+    "code": "0001195",
+    "display": "Nillumbik  - South-West"
+}{
+    "Parent": "0000010",
+    "code": "0001196",
+    "display": "Nillumbik Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001197",
+    "display": "Port Phillip - St Kilda"
+}{
+    "Parent": "0000010",
+    "code": "0001198",
+    "display": "Port Phillip - West"
+}{
+    "Parent": "0000010",
+    "code": "0001199",
+    "display": "Pyrenees - North"
+}{
+    "Parent": "0000010",
+    "code": "0001200",
+    "display": "Pyrenees - South"
+}{
+    "Parent": "0000010",
+    "code": "0001201",
+    "display": "Queenscliffe"
+}{
+    "Parent": "0000010",
+    "code": "0001202",
+    "display": "S. Grampians - Hamilton"
+}{
+    "Parent": "0000010",
+    "code": "0001203",
+    "display": "S. Grampians - Wannon"
+}{
+    "Parent": "0000010",
+    "code": "0001204",
+    "display": "S. Grampians Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001205",
+    "display": "South Barwon - Inner"
+}{
+    "Parent": "0000010",
+    "code": "0001206",
+    "display": "South Gippsland - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001207",
+    "display": "South Gippsland - East"
+}{
+    "Parent": "0000010",
+    "code": "0001208",
+    "display": "South Gippsland - West"
+}{
+    "Parent": "0000010",
+    "code": "0001209",
+    "display": "Stonnington - Malvern"
+}{
+    "Parent": "0000010",
+    "code": "0001210",
+    "display": "Stonnington - Prahran"
+}{
+    "Parent": "0000010",
+    "code": "0001211",
+    "display": "Strathbogie"
+}{
+    "Parent": "0000010",
+    "code": "0001212",
+    "display": "Surf Coast - East"
+}{
+    "Parent": "0000010",
+    "code": "0001213",
+    "display": "Surf Coast - West"
+}{
+    "Parent": "0000010",
+    "code": "0001214",
+    "display": "Swan Hill - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001215",
+    "display": "Swan Hill - Robinvale"
+}{
+    "Parent": "0000010",
+    "code": "0001216",
+    "display": "Swan Hill Bal"
+}{
+    "Parent": "0000010",
+    "code": "0001217",
+    "display": "Towong - Pt A"
+}{
+    "Parent": "0000010",
+    "code": "0001218",
+    "display": "Towong - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001219",
+    "display": "Wangaratta - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001220",
+    "display": "Wangaratta - North"
+}{
+    "Parent": "0000010",
+    "code": "0001221",
+    "display": "Wangaratta - South"
+}{
+    "Parent": "0000010",
+    "code": "0001222",
+    "display": "Warrnambool"
+}{
+    "Parent": "0000010",
+    "code": "0001223",
+    "display": "Wellington - Alberton"
+}{
+    "Parent": "0000010",
+    "code": "0001224",
+    "display": "Wellington - Avon"
+}{
+    "Parent": "0000010",
+    "code": "0001225",
+    "display": "Wellington - Maffra"
+}{
+    "Parent": "0000010",
+    "code": "0001226",
+    "display": "Wellington - Rosedale"
+}{
+    "Parent": "0000010",
+    "code": "0001227",
+    "display": "Wellington - Sale"
+}{
+    "Parent": "0000010",
+    "code": "0001228",
+    "display": "West Wimmera"
+}{
+    "Parent": "0000010",
+    "code": "0001229",
+    "display": "Whitehorse - Box Hill"
+}{
+    "Parent": "0000010",
+    "code": "0001230",
+    "display": "Whitehorse - Nunawading E."
+}{
+    "Parent": "0000010",
+    "code": "0001231",
+    "display": "Whitehorse  - Nunawading W."
+}{
+    "Parent": "0000010",
+    "code": "0001232",
+    "display": "Whittlesea - North"
+}{
+    "Parent": "0000010",
+    "code": "0001233",
+    "display": "Whittlesea  - South-East"
+}{
+    "Parent": "0000010",
+    "code": "0001234",
+    "display": "Whittlesea  - South-West"
+}{
+    "Parent": "0000010",
+    "code": "0001235",
+    "display": "Wodonga"
+}{
+    "Parent": "0000010",
+    "code": "0001236",
+    "display": "Wyndham - North"
+}{
+    "Parent": "0000010",
+    "code": "0001237",
+    "display": "Wyndham - South"
+}{
+    "Parent": "0000010",
+    "code": "0001238",
+    "display": "Wyndham - West"
+}{
+    "Parent": "0000010",
+    "code": "0001239",
+    "display": "Yarra - North"
+}{
+    "Parent": "0000010",
+    "code": "0001240",
+    "display": "Yarra - Richmond"
+}{
+    "Parent": "0000010",
+    "code": "0001241",
+    "display": "Yarra Ranges - Central"
+}{
+    "Parent": "0000010",
+    "code": "0001242",
+    "display": "Yarra Ranges - Dandenongs"
+}{
+    "Parent": "0000010",
+    "code": "0001243",
+    "display": "Yarra Ranges - Lilydale"
+}{
+    "Parent": "0000010",
+    "code": "0001244",
+    "display": "Yarra Ranges - North"
+}{
+    "Parent": "0000010",
+    "code": "0001245",
+    "display": "Yarra Ranges - Pt B"
+}{
+    "Parent": "0000010",
+    "code": "0001246",
+    "display": "Yarra Ranges - Seville"
+}{
+    "Parent": "0000010",
+    "code": "0001247",
+    "display": "Yarriambiack - North"
+}{
+    "Parent": "0000010",
+    "code": "0001248",
+    "display": "Yarriambiack - South"
+}{
+    "Parent": "0000011",
+    "code": "0001249",
+    "display": "Albany"
+}{
+    "Parent": "0000011",
+    "code": "0001250",
+    "display": "Armadale"
+}{
+    "Parent": "0000011",
+    "code": "0001251",
+    "display": "Ashburton"
+}{
+    "Parent": "0000011",
+    "code": "0001252",
+    "display": "Augusta-Margaret River"
+}{
+    "Parent": "0000011",
+    "code": "0001253",
+    "display": "Bassendean"
+}{
+    "Parent": "0000011",
+    "code": "0001254",
+    "display": "Bayswater"
+}{
+    "Parent": "0000011",
+    "code": "0001255",
+    "display": "Belmont"
+}{
+    "Parent": "0000011",
+    "code": "0001256",
+    "display": "Beverley"
+}{
+    "Parent": "0000011",
+    "code": "0001257",
+    "display": "Boddington"
+}{
+    "Parent": "0000011",
+    "code": "0001258",
+    "display": "Boyup Brook"
+}{
+    "Parent": "0000011",
+    "code": "0001259",
+    "display": "Bridgetown-Greenbushes"
+}{
+    "Parent": "0000011",
+    "code": "0001260",
+    "display": "Brookton"
+}{
+    "Parent": "0000011",
+    "code": "0001261",
+    "display": "Broomehill"
+}{
+    "Parent": "0000011",
+    "code": "0001262",
+    "display": "Broome"
+}{
+    "Parent": "0000011",
+    "code": "0001263",
+    "display": "Bruce Rock"
+}{
+    "Parent": "0000011",
+    "code": "0001264",
+    "display": "Bunbury"
+}{
+    "Parent": "0000011",
+    "code": "0001265",
+    "display": "Busselton"
+}{
+    "Parent": "0000011",
+    "code": "0001266",
+    "display": "Cambridge"
+}{
+    "Parent": "0000011",
+    "code": "0001267",
+    "display": "Canning"
+}{
+    "Parent": "0000011",
+    "code": "0001268",
+    "display": "Capel"
+}{
+    "Parent": "0000011",
+    "code": "0001269",
+    "display": "Carnamah"
+}{
+    "Parent": "0000011",
+    "code": "0001270",
+    "display": "Carnarvon"
+}{
+    "Parent": "0000011",
+    "code": "0001271",
+    "display": "Chapman Valley"
+}{
+    "Parent": "0000011",
+    "code": "0001272",
+    "display": "Chittering"
+}{
+    "Parent": "0000011",
+    "code": "0001273",
+    "display": "Claremont"
+}{
+    "Parent": "0000011",
+    "code": "0001274",
+    "display": "Cockburn"
+}{
+    "Parent": "0000011",
+    "code": "0001275",
+    "display": "Collie"
+}{
+    "Parent": "0000011",
+    "code": "0001276",
+    "display": "Coolgardie"
+}{
+    "Parent": "0000011",
+    "code": "0001277",
+    "display": "Coorow"
+}{
+    "Parent": "0000011",
+    "code": "0001278",
+    "display": "Corrigin"
+}{
+    "Parent": "0000011",
+    "code": "0001279",
+    "display": "Cottesloe"
+}{
+    "Parent": "0000011",
+    "code": "0001280",
+    "display": "Cuballing"
+}{
+    "Parent": "0000011",
+    "code": "0001281",
+    "display": "Cue"
+}{
+    "Parent": "0000011",
+    "code": "0001282",
+    "display": "Cunderdin"
+}{
+    "Parent": "0000011",
+    "code": "0001283",
+    "display": "Dalwallinu"
+}{
+    "Parent": "0000011",
+    "code": "0001284",
+    "display": "Dandaragan"
+}{
+    "Parent": "0000011",
+    "code": "0001285",
+    "display": "Dardanup"
+}{
+    "Parent": "0000011",
+    "code": "0001286",
+    "display": "Denmark"
+}{
+    "Parent": "0000011",
+    "code": "0001287",
+    "display": "Derby-West Kimberley"
+}{
+    "Parent": "0000011",
+    "code": "0001288",
+    "display": "Donnybrook-Balingup"
+}{
+    "Parent": "0000011",
+    "code": "0001289",
+    "display": "Dowerin"
+}{
+    "Parent": "0000011",
+    "code": "0001290",
+    "display": "Dumbleyung"
+}{
+    "Parent": "0000011",
+    "code": "0001291",
+    "display": "Dundas"
+}{
+    "Parent": "0000011",
+    "code": "0001292",
+    "display": "East Fremantle"
+}{
+    "Parent": "0000011",
+    "code": "0001293",
+    "display": "East Pilbara"
+}{
+    "Parent": "0000011",
+    "code": "0001294",
+    "display": "Esperance"
+}{
+    "Parent": "0000011",
+    "code": "0001295",
+    "display": "Exmouth"
+}{
+    "Parent": "0000011",
+    "code": "0001296",
+    "display": "Fremantle"
+}{
+    "Parent": "0000011",
+    "code": "0001297",
+    "display": "Geraldton"
+}{
+    "Parent": "0000011",
+    "code": "0001298",
+    "display": "Gingin"
+}{
+    "Parent": "0000011",
+    "code": "0001299",
+    "display": "Gnowangerup"
+}{
+    "Parent": "0000011",
+    "code": "0001300",
+    "display": "Goomalling"
+}{
+    "Parent": "0000011",
+    "code": "0001301",
+    "display": "Gosnells"
+}{
+    "Parent": "0000011",
+    "code": "0001302",
+    "display": "Greenough"
+}{
+    "Parent": "0000011",
+    "code": "0001303",
+    "display": "Halls Creek"
+}{
+    "Parent": "0000011",
+    "code": "0001304",
+    "display": "Harvey"
+}{
+    "Parent": "0000011",
+    "code": "0001305",
+    "display": "Irwin"
+}{
+    "Parent": "0000011",
+    "code": "0001306",
+    "display": "Jerramungup"
+}{
+    "Parent": "0000011",
+    "code": "0001307",
+    "display": "Joondalup"
+}{
+    "Parent": "0000011",
+    "code": "0001308",
+    "display": "Kalamunda"
+}{
+    "Parent": "0000011",
+    "code": "0001309",
+    "display": "Kalgoorlie/Boulder"
+}{
+    "Parent": "0000011",
+    "code": "0001310",
+    "display": "Katanning"
+}{
+    "Parent": "0000011",
+    "code": "0001311",
+    "display": "Kellerberrin"
+}{
+    "Parent": "0000011",
+    "code": "0001312",
+    "display": "Kent"
+}{
+    "Parent": "0000011",
+    "code": "0001313",
+    "display": "Kojonup"
+}{
+    "Parent": "0000011",
+    "code": "0001314",
+    "display": "Kondinin"
+}{
+    "Parent": "0000011",
+    "code": "0001315",
+    "display": "Koorda"
+}{
+    "Parent": "0000011",
+    "code": "0001316",
+    "display": "Kulin"
+}{
+    "Parent": "0000011",
+    "code": "0001317",
+    "display": "Kwinana"
+}{
+    "Parent": "0000011",
+    "code": "0001318",
+    "display": "Lake Grace"
+}{
+    "Parent": "0000011",
+    "code": "0001319",
+    "display": "Laverton"
+}{
+    "Parent": "0000011",
+    "code": "0001320",
+    "display": "Leonora"
+}{
+    "Parent": "0000011",
+    "code": "0001321",
+    "display": "Mandurah"
+}{
+    "Parent": "0000011",
+    "code": "0001322",
+    "display": "Manjimup"
+}{
+    "Parent": "0000011",
+    "code": "0001323",
+    "display": "Meekatharra"
+}{
+    "Parent": "0000011",
+    "code": "0001324",
+    "display": "Melville"
+}{
+    "Parent": "0000011",
+    "code": "0001325",
+    "display": "Menzies"
+}{
+    "Parent": "0000011",
+    "code": "0001326",
+    "display": "Merredin"
+}{
+    "Parent": "0000011",
+    "code": "0001327",
+    "display": "Mingenew"
+}{
+    "Parent": "0000011",
+    "code": "0001328",
+    "display": "Moora"
+}{
+    "Parent": "0000011",
+    "code": "0001329",
+    "display": "Morawa"
+}{
+    "Parent": "0000011",
+    "code": "0001330",
+    "display": "Mosman Park"
+}{
+    "Parent": "0000011",
+    "code": "0001331",
+    "display": "Mount Magnet"
+}{
+    "Parent": "0000011",
+    "code": "0001332",
+    "display": "Mount Marshall"
+}{
+    "Parent": "0000011",
+    "code": "0001333",
+    "display": "Mukinbudin"
+}{
+    "Parent": "0000011",
+    "code": "0001334",
+    "display": "Mullewa"
+}{
+    "Parent": "0000011",
+    "code": "0001335",
+    "display": "Mundaring"
+}{
+    "Parent": "0000011",
+    "code": "0001336",
+    "display": "Murchison"
+}{
+    "Parent": "0000011",
+    "code": "0001337",
+    "display": "n.a.3"
+}{
+    "Parent": "0000011",
+    "code": "0001338",
+    "display": "Nannup"
+}{
+    "Parent": "0000011",
+    "code": "0001339",
+    "display": "Narembeen"
+}{
+    "Parent": "0000011",
+    "code": "0001340",
+    "display": "Narrogin"
+}{
+    "Parent": "0000011",
+    "code": "0001341",
+    "display": "Nedlands"
+}{
+    "Parent": "0000011",
+    "code": "0001342",
+    "display": "Ngaanyatjarraku"
+}{
+    "Parent": "0000011",
+    "code": "0001343",
+    "display": "Northampton"
+}{
+    "Parent": "0000011",
+    "code": "0001344",
+    "display": "Northam"
+}{
+    "Parent": "0000011",
+    "code": "0001345",
+    "display": "Nungarin"
+}{
+    "Parent": "0000011",
+    "code": "0001346",
+    "display": "Peppermint Grove"
+}{
+    "Parent": "0000011",
+    "code": "0001347",
+    "display": "Perenjori"
+}{
+    "Parent": "0000011",
+    "code": "0001348",
+    "display": "Perth"
+}{
+    "Parent": "0000011",
+    "code": "0001349",
+    "display": "Pingelly"
+}{
+    "Parent": "0000011",
+    "code": "0001350",
+    "display": "Plantagenet"
+}{
+    "Parent": "0000011",
+    "code": "0001351",
+    "display": "Port Hedland"
+}{
+    "Parent": "0000011",
+    "code": "0001352",
+    "display": "Quairading"
+}{
+    "Parent": "0000011",
+    "code": "0001353",
+    "display": "Ravensthorpe"
+}{
+    "Parent": "0000011",
+    "code": "0001354",
+    "display": "Rockingham"
+}{
+    "Parent": "0000011",
+    "code": "0001355",
+    "display": "Roebourne"
+}{
+    "Parent": "0000011",
+    "code": "0001356",
+    "display": "Sandstone"
+}{
+    "Parent": "0000011",
+    "code": "0001357",
+    "display": "Serpentine-Jarrahdale"
+}{
+    "Parent": "0000011",
+    "code": "0001358",
+    "display": "Shark Bay"
+}{
+    "Parent": "0000011",
+    "code": "0001359",
+    "display": "South Perth"
+}{
+    "Parent": "0000011",
+    "code": "0001360",
+    "display": "Subiaco"
+}{
+    "Parent": "0000011",
+    "code": "0001361",
+    "display": "Swan"
+}{
+    "Parent": "0000011",
+    "code": "0001362",
+    "display": "Tambellup"
+}{
+    "Parent": "0000011",
+    "code": "0001363",
+    "display": "Tammin"
+}{
+    "Parent": "0000011",
+    "code": "0001364",
+    "display": "Three Springs"
+}{
+    "Parent": "0000011",
+    "code": "0001365",
+    "display": "Toodyay"
+}{
+    "Parent": "0000011",
+    "code": "0001366",
+    "display": "Trayning"
+}{
+    "Parent": "0000011",
+    "code": "0001367",
+    "display": "Upper Gascoyne"
+}{
+    "Parent": "0000011",
+    "code": "0001368",
+    "display": "Victoria Park"
+}{
+    "Parent": "0000011",
+    "code": "0001369",
+    "display": "Victoria Plains"
+}{
+    "Parent": "0000011",
+    "code": "0001370",
+    "display": "Wagin"
+}{
+    "Parent": "0000011",
+    "code": "0001371",
+    "display": "Wandering"
+}{
+    "Parent": "0000011",
+    "code": "0001372",
+    "display": "Wanneroo"
+}{
+    "Parent": "0000011",
+    "code": "0001373",
+    "display": "Waroona"
+}{
+    "Parent": "0000011",
+    "code": "0001374",
+    "display": "West Arthur"
+}{
+    "Parent": "0000011",
+    "code": "0001375",
+    "display": "Westonia"
+}{
+    "Parent": "0000011",
+    "code": "0001376",
+    "display": "Wickepin"
+}{
+    "Parent": "0000011",
+    "code": "0001377",
+    "display": "Williams"
+}{
+    "Parent": "0000011",
+    "code": "0001378",
+    "display": "Wiluna"
+}{
+    "Parent": "0000011",
+    "code": "0001379",
+    "display": "Wongan-Ballidu"
+}{
+    "Parent": "0000011",
+    "code": "0001380",
+    "display": "Woodanilling"
+}{
+    "Parent": "0000011",
+    "code": "0001381",
+    "display": "Wyalkatchem"
+}{
+    "Parent": "0000011",
+    "code": "0001382",
+    "display": "Wyndham-East Kimberley"
+}{
+    "Parent": "0000011",
+    "code": "0001383",
+    "display": "Yalgoo"
+}{
+    "Parent": "0000011",
+    "code": "0001384",
+    "display": "Yilgarn"
+}{
+    "Parent": "0000011",
+    "code": "0001385",
+    "display": "York"
+}
