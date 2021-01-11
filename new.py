@@ -61,21 +61,21 @@ if __name__ == '__main__':
             current_location = c.next()
             print("there are:", len(c), "in total")
             while True:
-                try:
-                    name = current_location['properties']['NAME_ENGLI']
-                    if name != "Australia":
-                        current_location = c.next()
-                        continue
-                except StopIteration:
-                    break
-                except:
-                    name = current_location['properties']['NAME_0']
-                    if name != "Australia":
-                        try:
-                            current_location = c.next()
-                            continue
-                        except StopIteration:
-                            break
+                # try:
+                #     name = current_location['properties']['NAME_ENGLI']
+                #     if name != "Australia":
+                #         current_location = c.next()
+                #         continue
+                # except StopIteration:
+                #     break
+                # except:
+                #     name = current_location['properties']['NAME_0']
+                #     if name != "Australia":
+                #         try:
+                #             current_location = c.next()
+                #             continue
+                #         except StopIteration:
+                #             break
                 # else:
                 #     input(current_location)
                 # if Region2.fhir_code_counter == "0053283":
@@ -107,7 +107,7 @@ if __name__ == '__main__':
                     #     print('in district level')
                     #     print(districts.get(current_location['properties']['NAME_2']))
                     #     input(current_location['properties']['NAME_2'])
-                elif layername == "gadm28_adm3":
+                elif layername == "gadm28_adm3": # suburbs level
                     if districts.get(current_location['properties']['NAME_2']) is not None and current_location['properties']['NAME_3'] is not None and suburbs.get(current_location['properties']['NAME_3']) is None:
                         new_suburb = Region2(current_location['properties']['NAME_3'], districts.get(current_location['properties']['NAME_2']).FHIRCode)
                         suburbs[new_suburb.name] = new_suburb
@@ -190,10 +190,13 @@ if __name__ == '__main__':
         for element in countries.values():
             out.write(element[1].toJSON())
         for element in states.values():
+            # input("States starts at" + element.FHIRCode)
             out.write(element.toJSON())
         for element in districts.values():
+            # input("district starts at" + element.FHIRCode)
             out.write(element.toJSON())
         for element in suburbs.values():
+            input("suburb starts at" + element.FHIRCode)
             out.write(element.toJSON())
 
     with open("suburbsOnly2.txt", "w") as out:
