@@ -61,27 +61,28 @@ if __name__ == '__main__':
             current_location = c.next()
             print("there are:", len(c), "in total")
             while True:
-                # try:
-                #     name = current_location['properties']['NAME_ENGLI']
-                #     if name != "Australia":
-                #         current_location = c.next()
-                #         continue
-                # except StopIteration:
-                #     break
-                # except:
-                #     name = current_location['properties']['NAME_0']
-                #     if name != "Australia":
-                #         try:
-                #             current_location = c.next()
-                #             continue
-                #         except StopIteration:
-                #             break
+                try:
+                    name = current_location['properties']['NAME_ENGLI']
+                    if name != "Australia":
+                        current_location = c.next()
+                        continue
+                except StopIteration:
+                    break
+                except:
+                    name = current_location['properties']['NAME_0']
+                    if name != "Australia":
+                        try:
+                            current_location = c.next()
+                            continue
+                        except StopIteration:
+                            break
                 # else:
                 #     input(current_location)
+                # UNUSED
                 # if Region2.fhir_code_counter == "0053283":
-                    # udata = current_location['properties']['NAME_3'].decode("utf-8")
-                    # asciidata = current_location['properties']['NAME_3'].encode("ascii", "ignore")
-                    # print(asciidata)
+                #     udata = current_location['properties']['NAME_3'].decode("utf-8")
+                #     asciidata = current_location['properties']['NAME_3'].encode("ascii", "ignore")
+                #     print(asciidata)
                 # input(current_location)
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
@@ -196,7 +197,7 @@ if __name__ == '__main__':
             # input("district starts at" + element.FHIRCode)
             out.write(element.toJSON())
         for element in suburbs.values():
-            input("suburb starts at" + element.FHIRCode)
+            # input("suburb starts at" + element.FHIRCode)
             out.write(element.toJSON())
 
     with open("suburbsOnly2.txt", "w") as out:

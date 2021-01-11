@@ -1,4 +1,4 @@
-import wptools
+
 import json
 
 countries = {}
@@ -109,16 +109,4 @@ print(suburbs)
 
 with open("allNames.txt", "w") as out:
     out.write(json.dumps(suburbs))
-
-#
-# page = wptools.page('Herston')
-# so = page.get_parse()
-#
-#
-# txt = str(so.data['wikitext'])
-# print(type(txt))
-# print(txt.split("\n"))
-# # print(so)
-# # infobox = so.data['infobox']
-# # print(infobox)
-# # printt(type(infobox))
+    
