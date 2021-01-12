@@ -5,7 +5,7 @@ import json
 # https://github.com/siznax/wptools/
 locations = []
 
-with open('newResultOutput2.json') as json_file:
+with open('AustralianLocations.json') as json_file:
     data = json.load(json_file)
     for location in data['concept']:
         if location['display'] != "Earth" and (location['code'] != '0001387' and
@@ -22,7 +22,7 @@ with open('newResultOutput2.json') as json_file:
 neighbours = {}
 for country in locations:
     countryName = country[0].strip()
-    remove_space = countryName.replace(" ", "_")
+    remove_space = countryName.replace(" ", "_")  # REMOVE THIS?? AND JUST LEAVE THE SPACE
     ink = None
     if country[1] == "0000002":  # NSW DOESN'T NEED THE EXTENSION??
         link = remove_space + ', Australian Capital Territory'
@@ -41,25 +41,28 @@ for country in locations:
     elif country[1] == "0000011":
         link = remove_space + ', Western Australia'
     else:
-        print(country)  # The islands and states skip!
+        # print(country)  # The islands and states skip!
         continue
     try:
-        print(link)
+        # print(link)
         page = wptools.page(link) # get the last one
         # p = page.get_query()
         # print(page)
         # p = page.get_more()
         # print(page.data)
         so = page.get_parse()
-
+        # print(so.data['infobox'])
         near = {}
         near['n'] = so.data['infobox']['near-n']
         near['ne'] = so.data['infobox']['near-ne']
         near['w'] = so.data['infobox']['near-w']
+        near['nw'] = so.data['infobox']['near-nw']
         near['e'] = so.data['infobox']['near-e']
         near['sw'] = so.data['infobox']['near-sw']
+        near['se'] = so.data['infobox']['near-se']
         near['s'] = so.data['infobox']['near-s']
         neighbours[link] = near
+        # print(near)
         # print(neighbours)
         # print(type(txt))
         # print(txt.split("\n"))
@@ -71,7 +74,7 @@ for country in locations:
         print("exception")
         pass
 
-with open("neighboursAustralia.json", "w") as out:
+with open("neighboursAustraliaNew.json", "w") as out:
     out.write(json.dumps(neighbours))
 
 
