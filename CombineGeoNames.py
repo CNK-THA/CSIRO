@@ -1,12 +1,19 @@
+"""
+@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+
+Attempt to combine all json files produced by different GeoNames script into 1 FHIR format json.
+
+"""
+
 import json
-from main import *
-from new import *
+from GeoNames1 import *
+from GeoNames2 import *
 
 countries1 = {}
 countries2 = {}
 
 # GET COUNTRIES, TODO REMOVE THE CONTINENTS FROM THESE ONES!!!
-with open('resultSample.json') as json_file1:
+with open('GlobalData(GeoNames1).json') as json_file1:
     data = json.load(json_file1)
     for location in data['concept']:
         if location['display'] != "Earth" and (location['property'][0]['valueCode'] == '0000001' or
@@ -47,7 +54,7 @@ continents_to_FHIR = create_continents_region2(code_system, root.FHIRCode)
 states1 = {}
 states2 = {}
 # GET STATES
-with open('resultSample.json') as json_file1:
+with open('GlobalData(GeoNames1).json') as json_file1:
     data = json.load(json_file1)
     for location in data['concept']:
         for codes in countries1.keys():
@@ -98,7 +105,7 @@ for country in combined:
 district1 = {}
 district2 = {}
 
-with open('resultSample.json') as json_file1:
+with open('GlobalData(GeoNames1).json') as json_file1:
     data = json.load(json_file1)
     for location in data['concept']:
         for country in states1.keys():

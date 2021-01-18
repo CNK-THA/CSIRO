@@ -1,4 +1,8 @@
+"""
+@author Chanon Kachornvuthij, kac016@csiro.au, chanon.kachorn@gmail.com
 
+Similarly to SparqlGlobal, only focus on Australian locations to produce neighbours using Sparql and DBpedia.
+"""
 # http://dev.grakn.ai/docs/examples/phone-calls-migration-python
 # https://medium.com/virtuoso-blog/dbpedia-basic-queries-bc1ac172cc09
 # http://dev.grakn.ai/docs/examples/phone-calls-migration-python
@@ -112,28 +116,3 @@ for country in countries:
     # print("GOT HERE")
 with open("test2.txt", "w") as testingFile:
     testingFile.write(json.dumps(collection, cls=SetEncoder))
-
-
-
-   # print(results["results"]["bindings"][2]['location']['value'])
-
-
-
-
-# for result in results["results"]["bindings"]:
-#     print('%s: %s' % (result["label"]["xml:lang"], result["label"]["value"]))
-
-
-# from SPARQLWrapper import SPARQLWrapper
-#
-# queryString = "SELECT ?craft{?craft a space:Spacecraft}LIMIT 50"
-# sparql = SPARQLWrapper("http://dbpedia.org/sparql")
-#
-# sparql.setQuery(queryString)
-#
-# try :
-#    ret = sparql.query()
-#    print(ret)
-#    # ret is a stream with the results in XML, see <http://www.w3.org/TR/rdf-sparql-XMLres/>
-# except :
-#    print("ERROR")

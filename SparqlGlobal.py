@@ -1,10 +1,15 @@
+"""
+@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
 
+Using SparQL with DBPedia to construct suburbs and it's neighbours. Input == FHIR Json as produced by GeoNames script combined. Output == Json for each country with it's suburbs
+"""
 import json
 
 countries = {}
 locations = []
 country = None
 
+# Get names of all countries
 with open('newResultOutput.json') as json_file2:
     data = json.load(json_file2)
     for location in data['concept']:
@@ -27,6 +32,7 @@ with open('newResultOutput.json') as json_file2:
 
 # print(countries)
 
+# Get names of all states
 states = {}
 mark = False
 with open('newResultOutput.json') as json_file1:
@@ -49,6 +55,7 @@ with open('newResultOutput.json') as json_file1:
 
 # print(states)
 
+# Get names of all districts
 districts = {}
 mark = False
 with open('newResultOutput.json') as json_file1:
@@ -77,6 +84,7 @@ with open('newResultOutput.json') as json_file1:
 print(districts.keys())
 
 
+# Get names of all suburbs
 suburbs = {}
 mark = False
 with open('newResultOutput.json') as json_file1:
@@ -107,6 +115,6 @@ with open('newResultOutput.json') as json_file1:
 
 print(suburbs)
 
-with open("allNames.txt", "w") as out:
+with open("GlobalDataNeighbours(Sparql).txt", "w") as out:
     out.write(json.dumps(suburbs))
     

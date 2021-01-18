@@ -1,3 +1,9 @@
+"""
+@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+
+Test whether the produced JSON is correctly produced (FHIR format and is OnToServer ready)
+"""
+
 import unittest
 import os
 import json

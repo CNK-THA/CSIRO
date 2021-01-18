@@ -1,21 +1,11 @@
+"""
+@author Chanon Kachornvuthij, kac016@csiro.au, chanon.kachorn@gmail.com
+
+Transform sburbs JSON into a knowledge graph on Grakn.
+"""
 from grakn.client import GraknClient
 # https://docs.grakn.ai/docs/examples/phone-calls-schema
 # https://docs.grakn.ai/docs/client-api/python
-
-# query = [
-#                 'match',
-#                 '  $customer isa person, has phone-number $phone-number;',
-#                 '  $company isa company, has name "Telecom";',
-#                 '  (customer: $customer, provider: $company) isa contract;',
-#                 '  $target isa person, has phone-number "+86 921 547 9004";',
-#                 '  (caller: $customer, callee: $target) isa call, has started-at $started-at;',
-#                 '  $min-date == 2018-09-14T17:18:49; $started-at > $min-date;',
-#                 'get $phone-number;'
-#             ]
-#
-# print("\nQuery:\n", "\n".join(query))
-# query = "".join(query)
-# input('')
 
 import json
 
@@ -24,7 +14,7 @@ import json
 #         client.keyspaces().delete('locations')
 # input('done')
 
-with open('neighboursAustraliaNew.json') as json_file1:
+with open('AustralianNeighbours(Wptools).json') as json_file1:
     with GraknClient(uri="localhost:48555") as client:
         with client.session(keyspace="locations") as session:
             # client.keyspaces().delete('locations')
@@ -136,6 +126,8 @@ with open('neighboursAustraliaNew.json') as json_file1:
 #     #     # client.close()
 #
 #
+
+# Queries to run on Grakn graph
 # # show entity with attributes link
 # # match $x isa suburb; $x has attribute $a; get;
 # # show relationship with attribute direction

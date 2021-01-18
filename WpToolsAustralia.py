@@ -1,3 +1,8 @@
+"""
+@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+
+Generate json containing neighbours of each Australian suburbs.
+"""
 import wptools
 import json
 
@@ -74,17 +79,9 @@ for country in locations:
         print("exception")
         pass
 
-with open("neighboursAustraliaNew.json", "w") as out:
+with open("AustralianNeighbours(Wptools).json", "w") as out:
     out.write(json.dumps(neighbours))
 
-
-
-
-
-# print(so)
-# infobox = so.data['infobox']
-# print(infobox)
-# printt(type(infobox))
 
 
 

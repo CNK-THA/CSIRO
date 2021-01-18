@@ -1,4 +1,11 @@
+"""
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+Similarly to GeoNames1, Parse and extract data from GeoNames: https://gadm.org/
+Generate a FHIR format json file containing all countries/states/suburbs.
+"""
 
+import fiona
+from GeoNames1 import *
 
 def create_continents_region2(code, earth):
     continents = [("North America", "NA"), ("South America", "SA"), ("Africa","AF"), ("Antarctica","AN"), ("Europe","EU"), ("Oceania","OC"), ("Asia","AS")]
@@ -12,26 +19,37 @@ def create_continents_region2(code, earth):
         continents_to_FHIR[location[1]] = current_location.FHIRCode
     return continents_to_FHIR
 
-class Region2:
+class Region2: # Called Region2 as it implements similar
+    """
+    All geographical information across all administrative levels will be stored as Region class before transforming
+    into a FHIR CodeSystem object for JSON serialisation.
+    """
+
     fhir_code_counter = "0000000"
-
     def __init__(self, name, parent):
-        # self.name = name
-        # self.parent_code = parent
-        # self.my_fhir_code = Region.fhir_code_counter
+        """
+        Initialise a Region object.
 
+        :param name: (str) Unicode name of the region
+        :param parent: (str) FHIR code of the parent's Region2 objection
+        """
         self.name = name
-        # self.FIPSCode = regionCode
         self.parent = parent
-        self.FHIRCode = Region2.fhir_code_counter
-        # self.parentFHIRCode = None
+        self.FHIRCode = Region2.fhir_code_counter # Assign a FHIRCode and increment by 1
         Region2.fhir_code_counter = '%07d' % (int(Region2.fhir_code_counter) + 1)
 
 
     def output(self):
+        """
+        Helper method used to produce a json string of Region object. Note: The json produced is NOT a FHIR format and
+        is not used to produce the final output file.
+
+        :return: A Json dict string format of the Region class data.
+        """
         return {"code": self.FHIRCode, "display": self.name, "Parent": self.parent}
 
     def __str__(self):
+        """Overrides the equality method implementation."""
         return "Region: " + self.name + " with parent " + self.parent + " and self code " + self.FHIRCode
 
     def toJSON(self):
@@ -44,22 +62,20 @@ class Region2:
         return json.dumps(self, default=lambda o: o.output(),
                           sort_keys=True, indent=4)
 
-import fiona
-from main import *
-
-
-if __name__ == '__main__':
+def main():
 
     countries = {}
     states = {}
     districts = {}
     suburbs = {}
 
-
     for layername in fiona.listlayers("gadm28_levels.shp"):
         with fiona.open("gadm28_levels.shp", layer=layername) as c:
             current_location = c.next()
             print("there are:", len(c), "in total")
+
+            # These are only used to get Australian locations
+            # Uncomment below and deindent the codes to get all locations
             while True:
                 try:
                     name = current_location['properties']['NAME_ENGLI']
@@ -76,14 +92,7 @@ if __name__ == '__main__':
                             continue
                         except StopIteration:
                             break
-                # else:
-                #     input(current_location)
-                # UNUSED
-                # if Region2.fhir_code_counter == "0053283":
-                #     udata = current_location['properties']['NAME_3'].decode("utf-8")
-                #     asciidata = current_location['properties']['NAME_3'].encode("ascii", "ignore")
-                #     print(asciidata)
-                # input(current_location)
+
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                     if current_location['properties']['UNREGION1'] is None:
@@ -94,36 +103,24 @@ if __name__ == '__main__':
                     if countries.get(current_location['properties']['ISO']) is not None and current_location['properties']['NAME_1'] is not None and states.get(current_location['properties']['NAME_1']) is None: # Bonaire, Saint Eustatius and Saba MISSPELLED #instead of name_0
                         new_state = Region2(current_location['properties']['NAME_1'], countries.get(current_location['properties']['ISO'])[1].FHIRCode)
                         states[new_state.name] = new_state
-                    # else:
-                    #     print('these are in else')
-                    #     # print(current_location)
-                    #     print(countries.get(current_location['properties']['ISO']))
-                    #     print(current_location['properties'])
-                    #     input(states.get(current_location['properties']['NAME_1']))
                 elif layername == "gadm28_adm2": # district level
                     if states.get(current_location['properties']['NAME_1']) is not None and current_location['properties']['NAME_2'] is not None and districts.get(current_location['properties']['NAME_2']) is None:
                         new_district = Region2(current_location['properties']['NAME_2'], states.get(current_location['properties']['NAME_1']).FHIRCode)
                         districts[new_district.name] = new_district
-                    # else:
-                    #     print('in district level')
-                    #     print(districts.get(current_location['properties']['NAME_2']))
-                    #     input(current_location['properties']['NAME_2'])
                 elif layername == "gadm28_adm3": # suburbs level
                     if districts.get(current_location['properties']['NAME_2']) is not None and current_location['properties']['NAME_3'] is not None and suburbs.get(current_location['properties']['NAME_3']) is None:
                         new_suburb = Region2(current_location['properties']['NAME_3'], districts.get(current_location['properties']['NAME_2']).FHIRCode)
                         suburbs[new_suburb.name] = new_suburb
-                    # else:
-                    #     print('in suburbs level')
-                    #     print(suburbs.get(current_location['properties']['NAME_3']))
-                    #     input(current_location['properties']['NAME_3'])
-                try:
+
+                try: # we have reached the end of this level
                     current_location = c.next()
                 except StopIteration:
                     break
-        if layername == "gadm28_adm3": # can go further to 4 and 5, LATER
+        if layername == "gadm28_adm3": # can go further to level 4 and 5, For future development
             break
 
 
+    # Forming FHIR attributes
     code_system = create_code_system_instance("complete", "draft", "CodeSystem for different administrative divisions around the world", True, FHIRDate(str(date.today())), "Ontology-CSIRO",
                                     "http://csiro.au/geographic-locations", "0.4", "Location Ontology", "Chanon K.", True, "is-a", "http://csiro.au/geographic-locations?vs") # FHIRDate(str(date.today()))
 
@@ -134,10 +131,13 @@ if __name__ == '__main__':
 
     continents_to_FHIR = create_continents_region2(code_system, root.FHIRCode)
 
+    # display how many of each levels did we extract
     print("got", len(countries))
     print("got", len(states))
     print("got", len(districts))
     print("got", len(suburbs))
+
+    # Some of these locations are missing the data for parent/continents/regions that they're in, manually labelled them
     for element in countries.values():
         unknown_state_code_concept = create_code_system_concept_instance(code_system, element[1])
         if "Asia" in element[0] or "British Indian Ocean Territory" in element[0] or "Caspian Sea" in element[0] or "Paracel Islands" in element[0] or \
@@ -187,19 +187,19 @@ if __name__ == '__main__':
     with open('newResultOutput2.json', 'w') as fp:
         json.dump(code_system.as_json(), fp, indent=4)
 
-    with open("newOutputTest2.txt", "w") as out:
+    with open("AustralianLocations.txt", "w") as out:
         for element in countries.values():
             out.write(element[1].toJSON())
         for element in states.values():
-            # input("States starts at" + element.FHIRCode)
             out.write(element.toJSON())
         for element in districts.values():
-            # input("district starts at" + element.FHIRCode)
             out.write(element.toJSON())
         for element in suburbs.values():
-            # input("suburb starts at" + element.FHIRCode)
             out.write(element.toJSON())
 
     with open("suburbsOnly2.txt", "w") as out:
         for element in suburbs.values():
             out.write(element.toJSON())
+
+if __name__ == '__main__':
+    main()
