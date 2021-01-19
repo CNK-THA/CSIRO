@@ -3,7 +3,7 @@
 
 Transform sburbs JSON into a knowledge graph on Grakn.
 """
-from grakn.client import GraknClient
+# from grakn.client import GraknClient
 # https://docs.grakn.ai/docs/examples/phone-calls-schema
 # https://docs.grakn.ai/docs/client-api/python
 
@@ -14,14 +14,32 @@ import json
 #         client.keyspaces().delete('locations')
 # input('done')
 
+list_of_additional_suburbs = set()
+with open('AustralianNeighbours(Wptools).json') as json_file1:
+    data = json.load(json_file1)
+    for location in data:
+        print(location.split(',')[0])
+        # if "Queensland" in location :
+        #     for direction in data[location]:
+        #         # input(data[location][direction])
+        #
+        #         processed = data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",
+        #                                                                                                          '_').split(
+        #             ',')[0].split('|')
+        #         location_processed = location.split(',')
+        #         print('Linking', location_processed, 'with', processed)
+        #         input('')
+        #     continue
+# input('stop')
+
+
 with open('AustralianNeighbours(Wptools).json') as json_file1:
     with GraknClient(uri="localhost:48555") as client:
         with client.session(keyspace="locations") as session:
             # client.keyspaces().delete('locations')
             data = json.load(json_file1)
             for location in data:
-                if "Queensland" not in location:
-                    continue
+
 
                 # print(location)
                 # input(data[location])
@@ -41,26 +59,22 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                 for direction in data[location]:
                     # print(direction)
                     # print(data[location][direction].replace('[','').replace(']',''))
-                    processed = data[location][direction].replace('[','').replace(']','').replace("'",'').replace(" ",'_').split(',')
-                    if len(processed) > 2:
+                    processed = data[location][direction].replace('[','').replace(']','').replace("'",'').replace(" ",'_').split(',')[0].split('|')
+
+                    location_processed = location.split(',') # if have multiple then just get the first one
+                    try:
+                        with session.transaction().write() as write_transaction:
+                            query = 'match $x isa suburb, has name "{suburbA}"; $y isa suburb, has name "{suburbB}"; ' \
+                                    'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}";'.format(suburbA=location_processed[0], suburbB=processed[0], direct=direction)
+                            # input(query)
+                            insert_iterator = write_transaction.query(query).get()
+                            concepts = [ans.get("x") for ans in insert_iterator]
+                            print("Inserted a suburb with ID: {0}".format(concepts[0].id))
+                            ## to persist changes, write transaction must always be committed (closed)
+                            write_transaction.commit()
+                    except:
+                        print("ERROR")
                         pass
-                        # print(processed) # atm just ignore multiple subburbs in one directions
-                    else:
-                        # print(processed[0])
-                        location_processed = location.split(',')
-                        try:
-                            with session.transaction().write() as write_transaction:
-                                query = 'match $x isa suburb, has name "{suburbA}"; $y isa suburb, has name "{suburbB}"; ' \
-                                        'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}";'.format(suburbA=location_processed[0], suburbB=processed[0], direct=direction)
-                                # input(query)
-                                insert_iterator = write_transaction.query(query).get()
-                                concepts = [ans.get("x") for ans in insert_iterator]
-                                print("Inserted a suburb with ID: {0}".format(concepts[0].id))
-                                ## to persist changes, write transaction must always be committed (closed)
-                                write_transaction.commit()
-                        except:
-                            print("ERROR")
-                            pass
 
 
                         # with session.transaction().read() as read_transaction:
