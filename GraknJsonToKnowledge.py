@@ -14,22 +14,16 @@ import json
 #         client.keyspaces().delete('locations')
 # input('done')
 
-list_of_additional_suburbs = set()
+list_of_all_suburbs = set()
 with open('AustralianNeighbours(Wptools).json') as json_file1:
     data = json.load(json_file1)
     for location in data:
         print(location.split(',')[0])
-        # if "Queensland" in location :
-        #     for direction in data[location]:
-        #         # input(data[location][direction])
-        #
-        #         processed = data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",
-        #                                                                                                          '_').split(
-        #             ',')[0].split('|')
-        #         location_processed = location.split(',')
-        #         print('Linking', location_processed, 'with', processed)
-        #         input('')
-        #     continue
+        for direction in data[location]:
+            processed = data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",'_').split(',')[0].split('|')
+            location_processed = location.split(',')
+            list_of_all_suburbs.add(processed[0])
+            list_of_all_suburbs.add(location_processed[0])
 # input('stop')
 
 
@@ -37,9 +31,18 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
     with GraknClient(uri="localhost:48555") as client:
         with client.session(keyspace="locations") as session:
             # client.keyspaces().delete('locations')
+            for suburb in list_of_all_suburbs:
+            # Adding the suburbs to the database, ran once!
+                with session.transaction().write() as write_transaction:
+                    query = 'insert $x isa suburb, has name "{suburbName}";'.format(suburbName=suburb)
+                    insert_iterator = write_transaction.query(query).get()
+                    concepts = [ans.get("x") for ans in insert_iterator]
+                    print("Inserted a suburb with ID: {0}".format(concepts[0].id))
+                    ## to persist changes, write transaction must always be committed (closed)
+                    write_transaction.commit()
+
             data = json.load(json_file1)
             for location in data:
-
 
                 # print(location)
                 # input(data[location])
