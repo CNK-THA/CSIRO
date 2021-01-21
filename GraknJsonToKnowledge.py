@@ -10,8 +10,8 @@ from grakn.client import GraknClient
 import json
 
 # with GraknClient(uri="localhost:48555") as client:
-#     with client.session(keyspace="locations") as session:
-#         client.keyspaces().delete('locations')
+#     with client.session(keyspace="locations_with_versioning") as session:
+#         client.keyspaces().delete('locations_with_versioning')
 # input('done')
 
 list_of_all_suburbs = set()
@@ -28,18 +28,27 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
 
 with open('AustralianNeighbours(Wptools).json') as json_file1:
     with GraknClient(uri="localhost:48555") as client:
-        with client.session(keyspace="locations") as session:
+        with client.session(keyspace="locations_with_versioning") as session:
             # client.keyspaces().delete('locations')
 
             for suburb in list_of_all_suburbs:
             # Adding the suburbs to the database, ran once!
                 with session.transaction().write() as write_transaction:
-                    query = 'insert $x isa suburb, has name "{suburbName}";'.format(suburbName=suburb)
+                    query = 'insert $x isa suburb, has name "{suburbName}", has versionNumber 1;'.format(suburbName=suburb)
                     insert_iterator = write_transaction.query(query).get()
                     concepts = [ans.get("x") for ans in insert_iterator]
                     print("Inserted a suburb with ID: {0}".format(concepts[0].id))
                     ## to persist changes, write transaction must always be committed (closed)
                     write_transaction.commit()
+
+            with session.transaction().write() as write_transaction:
+                query = 'insert $x isa version_tracker, has versionNumber 1;'.format(suburbName=suburb)
+                insert_iterator = write_transaction.query(query).get()
+                concepts = [ans.get("x") for ans in insert_iterator]
+                print("Inserted a version_tracker with ID: {0}".format(concepts[0].id))
+                ## to persist changes, write transaction must always be committed (closed)
+                write_transaction.commit()
+
 
             data = json.load(json_file1)
             for location in data:
@@ -67,12 +76,12 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                     location_processed = location.split(',') # if have multiple then just get the first one
                     try:
                         with session.transaction().write() as write_transaction:
-                            query = 'match $x isa suburb, has name "{suburbA}"; $y isa suburb, has name "{suburbB}"; ' \
-                                    'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}";'.format(suburbA=location_processed[0], suburbB=processed[0], direct=direction)
+                            query = 'match $x isa suburb, has name "{suburbA}", has versionNumber 1; $y isa suburb, has name "{suburbB}", has versionNumber 1; ' \
+                                    'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}", has versionNumber 1;'.format(suburbA=location_processed[0], suburbB=processed[0], direct=direction)
                             # input(query)
                             insert_iterator = write_transaction.query(query).get()
                             concepts = [ans.get("x") for ans in insert_iterator]
-                            print("Inserted a suburb with ID: {0}".format(concepts[0].id))
+                            print("Inserted a neighbour with ID: {0}".format(concepts[0].id))
                             ## to persist changes, write transaction must always be committed (closed)
                             write_transaction.commit()
                     except:

@@ -1,0 +1,38 @@
+define
+
+    suburb sub entity,
+        plays me,
+        plays neighbourOfMe,
+        has name,
+        has versionNumber;
+
+    neighbour sub relation,
+        relates me,
+        relates neighbourOfMe,
+        has direction,
+        has versionNumber;
+
+    version_tracker sub entity,
+        plays current,
+        plays next,
+        has versionNumber,
+        has date;
+
+    version_update sub relation,
+        relates current,
+        relates next;
+
+    name sub attribute,
+        value string;
+
+    direction sub attribute,
+        value string;
+
+    versionNumber sub attribute,
+        value long;
+
+    date sub attribute,
+        value datetime;
+
+
+# https://dev.grakn.ai/docs/concept-api/type
