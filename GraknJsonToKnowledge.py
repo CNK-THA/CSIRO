@@ -151,5 +151,14 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $x has attribute $q; $y has attribute $f; $y has attribute $o; $emp has attribute $k; $emp has attribute $b; get; offset 0; limit 30;
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $y has attribute $f; $emp has attribute $k; get; offset 0; limit 30;
 
+# Show version control
 # # match $emp (current: $x, next: $y) isa version_update; $x has attribute $t; $y has attribute $f; get; offset 0; limit 30;
+
+# Show suburb updates
 # # match $emp (old: $x, new: $y) isa suburb_update; $x has attribute $t; $y has attribute $f; get; offset 0; limit 30;
+
+# Show all updates
+#  match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $y has attribute $f; get; offset 0; limit 30;
+
+# Get direction South most up to date
+# match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $y has attribute $f; $emp has direction "s"; get; offset 0; limit 30;
