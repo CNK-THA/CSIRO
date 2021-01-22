@@ -3,6 +3,8 @@ define
     suburb sub entity,
         plays me,
         plays neighbourOfMe,
+        plays old,
+        plays new,
         has name,
         has versionNumber;
 
@@ -21,6 +23,10 @@ define
     version_update sub relation,
         relates current,
         relates next;
+
+    suburb_update sub relation,
+        relates old,
+        relates new;
 
     name sub attribute,
         value string;
