@@ -36,7 +36,7 @@ def main():
 
             line = line.split('\t') # "Queensland" in line.split('\t')[22]
             # print(line)
-            # input('')
+            # input(line)
             if "Gold Coast" in line:
                 input(line)
             else:

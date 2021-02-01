@@ -93,6 +93,8 @@ def main():
                         except StopIteration:
                             break
 
+
+
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                     if current_location['properties']['UNREGION1'] is None:
