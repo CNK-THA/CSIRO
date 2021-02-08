@@ -148,6 +148,8 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
 # # Like abbove bbut show all attributes!
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has attribute $m; $y has attribute $p; $emp has attribute $b; get; offset 0; limit 2;
 
+# match $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $x has attribute $name1; $y has attribute $name2; $relationship has attribute $direction; get; offset 0; limit 10;
+
 # # Show specific suburb with all it's neighbours
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $x has attribute $q; $y has attribute $f; $y has attribute $o; $emp has attribute $k; $emp has attribute $b; get; offset 0; limit 30;
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $y has attribute $f; $emp has attribute $k; get; offset 0; limit 30;
