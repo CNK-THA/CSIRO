@@ -1,8 +1,11 @@
 """
-@author Chanon Kachornvuthij, kac016@csiro.au, chanon.kachorn@gmail.com
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
-Similarly to SparqlGlobal, only focus on Australian locations to produce neighbours using Sparql and DBpedia.
-"""
+Only focus on Australian locations to produce neighbours using Sparql to query DBpedia database for data.
+
+Some useful resources to check out:
 # http://dev.grakn.ai/docs/examples/phone-calls-migration-python
 # https://medium.com/virtuoso-blog/dbpedia-basic-queries-bc1ac172cc09
 # http://dev.grakn.ai/docs/examples/phone-calls-migration-python
@@ -12,15 +15,21 @@ Similarly to SparqlGlobal, only focus on Australian locations to produce neighbo
 
 # PREFIX http://prefix.cc/dbr,dbo,dct,owl,prov,qb,qudt,rdf,rdfs,schema,skos,unit,xsd,sdmx.sparql
 # http://prefix.cc/dbp
+
+"""
+
 import json
 
 
 
 class SetEncoder(json.JSONEncoder):
-   def default(self, obj):
-      if isinstance(obj, set):
-         return list(obj)
-      return json.JSONEncoder.default(self, obj)
+    """
+    Helper class to encode objects in JSON format.
+    """
+    def default(self, obj):
+        if isinstance(obj, set):
+            return list(obj)
+        return json.JSONEncoder.default(self, obj)
 
 countries = []
 
@@ -44,11 +53,12 @@ sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
 collection = {}
 
+# construct link to query based on location names
 for country in countries:
     countryName = country[0].strip()
     remove_space = countryName.replace(" ", "_")
     link = None
-    if country[1] == "0000002": # NSW DOESN'T NEED THE EXTENSION??
+    if country[1] == "0000002":
         link = 'http://dbpedia.org/resource/' + remove_space + ',_Australian_Capital_Territory'
     elif country[1] == "0000005":
         link = 'http://dbpedia.org/resource/' + remove_space + ',_New_South_Wales'
@@ -65,43 +75,31 @@ for country in countries:
     elif country[1] == "0000011":
         link = 'http://dbpedia.org/resource/' + remove_space + ',_Western_Australia'
     else:
-        print(country) # The islands and states skip!
+        print(country) # The islands and states skip for now!
         continue
 
     query = "PREFIX dbp: <http://dbpedia.org/property/> SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:nearN ?north; dbp:nearNe ?northeast; dbp:nearNw ?northwest;" \
            "dbp:nearS ?south; dbp:nearSe ?southeast; dbp:nearSw ?southwest; dbp:nearE ?east; dbp:nearW ?west }".replace("{link}", link)
 
-    # print(query)
-    try: # <http://dbpedia.org/resource/Al_Isma`iliyah> causing error!!!
+
+    # Perform the querying
+    try:
       sparql.setQuery(query)
       sparql.setReturnFormat(JSON)
       results = sparql.query().convert()
-    except: # what ever error we ignore it
-      print("error")
+    except: # what ever error we ignore it for now, most of the time the error is from invalid link
       continue
 
-    # print(results)
     linking = {}
 
 
     if len(results["results"]["bindings"]) == 0:
-      # link = 'http://dbpedia.org/page/' + remove_space + "_Province"
-      # query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?label WHERE { <{link}> rdfs:label ?label }".replace(
-      #    "{link}", link)
-      # # query = """SELECT *WHERE{?location rdfs:label "{name}"@en}""".replace("{name}", country)
-      #
-      # # print(query)
-      # sparql.setQuery(query)
-      # sparql.setReturnFormat(JSON)
-      # results = sparql.query().convert()
-      # # print(results)
-      # # print("SKIPPING")
-      # print("--------------------------------------------ERROR-----------------------------------------")
-      continue # Something went wrong. Either it's not a suburb or broken link
+      continue # Something went wrong. Either it's not a suburb or broken link, just keep going
 
+    # extract data from the query. Only info on neighbouring suburbs are extracted.
     for data in results["results"]["bindings"]:
       for direction in ['north', 'northeast', 'northwest', 'south', 'southeast', 'southwest', 'east', 'west']:
-         neighbour = data[direction]['value'].replace('Province','').split(',')[0].strip() # SPLIT ON COMMA, ANY NAME WITH THAT???
+         neighbour = data[direction]['value'].replace('Province','').split(',')[0].strip() # extract neighbour information
          existing = linking.get(direction)
          if existing is None:
             existing = set()
@@ -109,10 +107,8 @@ for country in countries:
          linking[direction] = existing
 
 
-    # print(linking)
     collection[country[0]] = linking
 
-    # print(query)
-    # print("GOT HERE")
-with open("test2.txt", "w") as testingFile:
+
+with open("AustralianNeighbours(Sparql).json", "w") as testingFile:
     testingFile.write(json.dumps(collection, cls=SetEncoder))

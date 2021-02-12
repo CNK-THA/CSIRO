@@ -1,5 +1,8 @@
 """
+2020-2021 Vacation Project
 @author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
+
 Similarly to GeoNames1, Parse and extract data from GeoNames: https://gadm.org/
 Generate a FHIR format json file containing all countries/states/suburbs.
 """
@@ -19,7 +22,7 @@ def create_continents_region2(code, earth):
         continents_to_FHIR[location[1]] = current_location.FHIRCode
     return continents_to_FHIR
 
-class Region2: # Called Region2 as it implements similar
+class Region2: # Called Region2 as it implements similar features as GeoNames1.
     """
     All geographical information across all administrative levels will be stored as Region class before transforming
     into a FHIR CodeSystem object for JSON serialisation.
@@ -74,8 +77,8 @@ def main():
             current_location = c.next()
             print("there are:", len(c), "in total")
 
-            # These are only used to get Australian locations
-            # Uncomment below and deindent the codes to get all locations
+            # These are only used to get Australian locations for the demonstration
+            # ################ comment below and deindent the codes to get all locations ##############################
             while True:
                 try:
                     name = current_location['properties']['NAME_ENGLI']
@@ -92,8 +95,6 @@ def main():
                             continue
                         except StopIteration:
                             break
-
-
 
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
@@ -134,10 +135,10 @@ def main():
     continents_to_FHIR = create_continents_region2(code_system, root.FHIRCode)
 
     # display how many of each levels did we extract
-    print("got", len(countries))
-    print("got", len(states))
-    print("got", len(districts))
-    print("got", len(suburbs))
+    print("contries level got", len(countries))
+    print("states level got", len(states))
+    print("districts level got", len(districts))
+    print("suburbs level got", len(suburbs))
 
     # Some of these locations are missing the data for parent/continents/regions that they're in, manually labelled them
     for element in countries.values():
@@ -161,11 +162,12 @@ def main():
         elif "South America" in element[0]:
             populate_code_system_concept_property_field(unknown_state_code_concept, "parent", continents_to_FHIR.get("SA"))
         else:
-            input(element[0])
+            print("location error", element[0])
 
         populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
         populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
 
+    # convert all locations into a FHIR CodeSystem level by level
     for element in states.values():
         unknown_state_code_concept = create_code_system_concept_instance(code_system, element)
         populate_code_system_concept_property_field(unknown_state_code_concept, "parent", element.parent)
@@ -186,7 +188,7 @@ def main():
 
     code_system.count = int(Region2.fhir_code_counter)
 
-    with open('newResultOutput2.json', 'w') as fp:
+    with open('GlobalData(GeoNames2).json.json', 'w') as fp: # temporary output, for debugging
         json.dump(code_system.as_json(), fp, indent=4)
 
     with open("AustralianLocations.txt", "w") as out:
@@ -199,9 +201,9 @@ def main():
         for element in suburbs.values():
             out.write(element.toJSON())
 
-    with open("suburbsOnly2.txt", "w") as out:
-        for element in suburbs.values():
-            out.write(element.toJSON())
+    # with open("suburbsOnly2.txt", "w") as out: # temporary output, for debugging, only includes suburbs level
+    #     for element in suburbs.values():
+    #         out.write(element.toJSON())
 
 if __name__ == '__main__':
     main()

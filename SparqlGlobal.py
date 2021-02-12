@@ -1,120 +1,85 @@
 """
-@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
-Using SparQL with DBPedia to construct suburbs and it's neighbours. Input == FHIR Json as produced by GeoNames script combined. Output == Json for each country with it's suburbs
+Generate txt containing neighbours of all Global suburbs.
 """
+
+
 import json
 
-countries = {}
-locations = []
-country = None
+class SetEncoder(json.JSONEncoder):
+   def default(self, obj):
+      if isinstance(obj, set):
+         return list(obj)
+      return json.JSONEncoder.default(self, obj)
 
-# Get names of all countries
-with open('newResultOutput.json') as json_file2:
-    data = json.load(json_file2)
-    for location in data['concept']:
-        if location['display'] != "Earth" and (location['property'][0]['valueCode'] == '0151619' or
-                                               location['property'][0]['valueCode'] == '0151620' or
-                                               location['property'][0]['valueCode'] == '0151621' or
-                                               location['property'][0]['valueCode'] == '0151622' or
-                                               location['property'][0]['valueCode'] == '0151623' or
-                                               location['property'][0]['valueCode'] == '0151624' or
-                                               location['property'][0]['valueCode'] == '0151625' or
-                                               location['property'][0]['valueCode'] == '0151626') and (
-                location['code'] != '0151626' and
-                location['code'] != '0151620' and
-                location['code'] != '0151621' and
-                location['code'] != '0151622' and
-                location['code'] != '0151623' and
-                location['code'] != '0151624' and
-                location['code'] != '0151625'):  # CHECK THESE NUMBERS, GOTTA BE BETWEEN 20 TO 26!!!
-            countries[location['code']] = location['display']
+countries = []
 
-# print(countries)
-
-# Get names of all states
-states = {}
-mark = False
-with open('newResultOutput.json') as json_file1:
-    data = json.load(json_file1)
-    for location in data['concept']:
-        if location['code'] == "0003728": # end of the states section
-            break
-        elif location['code'] != "0000256" and not mark:
-            continue
-        mark = True
-        for codes in countries.keys():
-            if location['display'] != "Earth" and location['property'][0]['valueCode'] == codes: # if parent is the country
-                if states.get(countries.get(codes)) is None:
-                    state = []
-                else:
-                    state = states.get(countries.get(codes))
-                state.append((location['code'], location['display']))
-                states[countries.get(codes)] = state # parent code (country) mapped to list containing tuples of current code and name (states)
-                break
-
-# print(states)
-
-# Get names of all districts
-districts = {}
-mark = False
-with open('newResultOutput.json') as json_file1:
-    data = json.load(json_file1)
-    for location in data['concept']:
-        if location['code'] == "0045430":
-            break
-        elif location['code'] != "0003728" and not mark:
-            continue
-        mark = True
-
-        for country in states.keys():
-            found = False
-            for state in states.get(country):
-                if location['display'] != "Earth" and location['property'][0]['valueCode'] == state[0]:  # if parent is the country
-                    if districts.get(country + "," + state[1]) is None:
-                        district = []
-                    else:
-                        district = districts.get(country + "," + state[1])
-                    district.append((location['code'], location['display']))
-                    districts[country + "," + state[1]] = district  # parent code (country) mapped to list containing tuples of current code and name (states)
-                    found = True
-                    break
-            if found:
-                break
-print(districts.keys())
+with open('newResultOutput.json') as json_file:
+   data = json.load(json_file)
+   for location in data['concept']:
+      if location['display'] != "Earth" and (location['property'][0]['valueCode'] != '0151626' and
+                                             location['property'][0]['valueCode'] != '0151620' and
+                                             location['property'][0]['valueCode'] != '0151621' and
+                                             location['property'][0]['valueCode'] != '0151622' and
+                                             location['property'][0]['valueCode'] != '0151623' and
+                                             location['property'][0]['valueCode'] != '0151624' and
+                                             location['property'][0]['valueCode'] != '0151625') and \
+                                             (location['code'] != '0151626' and
+                                             location['code'] != '0151620' and
+                                             location['code'] != '0151621' and
+                                             location['code'] != '0151622' and
+                                             location['code'] != '0151623' and
+                                             location['code'] != '0151624' and
+                                             location['code'] != '0151625'):
+         countries.append(location['display'])
 
 
-# Get names of all suburbs
-suburbs = {}
-mark = False
-with open('newResultOutput.json') as json_file1:
-    data = json.load(json_file1)
-    for location in data['concept']:
-        print(location['code'])
-        if location['code'] != '0045430' and not mark:
-            continue
-        mark = True
+from SPARQLWrapper import SPARQLWrapper, JSON
 
-        for key in districts.keys():
-            # print(key, '************************')
-            # print(districts.get(key))
-            found = False
-            if districts.get(key) is not None:  # for some reason it's none, probably blank?
-                for district in districts.get(key):
-                    if location['display'] != "Earth" and location['property'][0]['valueCode'] == district[0]:  # if parent is the district
-                        if suburbs.get(key + ',' + district[1]) is None:
-                            suburb = []
-                        else:
-                            suburb = suburbs.get(key + ',' + district[1])
-                        suburb.append(location['display']) # NOT AS TUPLE, could do tuple for futher levels
-                        suburbs[key + ',' + district[1]] = suburb  # parent code (country) mapped to list containing tuples of current code and name (states)
-                        found = True
-                        break # already found it move on?
-            if found:
-                break
+sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
-print(suburbs)
+collection = {}
 
-with open("GlobalDataNeighbours(Sparql).txt", "w") as out:
-    out.write(json.dumps(suburbs))
-    
+for country in countries:
+   country = country.strip()
+   remove_space = country.replace(" ", "_")
+   link = 'http://dbpedia.org/resource/' + remove_space
+
+   query = "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?north ?northeast ?northwest ?south ?southeast ?southwest ?east ?west WHERE { <{link}> dbp:north ?north; dbp:northeast ?northeast; dbp:northwest ?northwest;" \
+           "dbp:south ?south; dbp:southeast ?southeast; dbp:southwest ?southwest; dbp:east ?east; dbp:west ?west }".replace("{link}", link)   #  """SELECT *WHERE{?location rdfs:label "New Zealand"@en}"""
+
+
+   try: # <http://dbpedia.org/resource/Al_Isma`iliyah> causing error!!!
+      sparql.setQuery(query)
+      sparql.setReturnFormat(JSON)
+      results = sparql.query().convert()
+   except: # what ever error we ignore it
+      print("error")
+      continue
+
+
+   linking = {}
+
+
+   if len(results["results"]["bindings"]) == 0:
+
+      continue # Something went wrong. Either it's not a suburb or broken link
+
+   for data in results["results"]["bindings"]:
+      for direction in ['north', 'northeast', 'northwest', 'south', 'southeast', 'southwest', 'east', 'west']:
+         neighbour = data[direction]['value'].replace('Province','').split(',')[0].strip() # SPLIT ON COMMA, ANY NAME WITH THAT???
+         existing = linking.get(direction)
+         if existing is None:
+            existing = set()
+         existing.add(neighbour)
+         linking[direction] = existing
+
+
+
+   collection[country] = linking
+
+with open("GlobalDataNeighbours(Sparql).txt", "a") as testingFile:
+   testingFile.write(json.dumps(collection, cls=SetEncoder))

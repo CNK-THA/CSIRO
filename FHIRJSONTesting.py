@@ -1,5 +1,7 @@
 """
-@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
 Test whether the produced JSON is correctly produced (FHIR format and is OnToServer ready)
 """
@@ -16,7 +18,6 @@ tmp = []
 data = None
 
 class JsonTesting(unittest.TestCase):
-
     def test_output_file_format(self):
         self.assertTrue(os.path.exists('newResultOutput.json'), "File not found")
         self.assertTrue(os.stat("newResultOutput.json").st_size != 0, "File is Empty")

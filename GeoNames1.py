@@ -1,8 +1,36 @@
 """
+2020-2021 Vacation Project
 @author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
+
 
 Parse and extract data from GeoNames: http://download.geonames.org/export/dump/
 Generate a FHIR format json file containing all countries/states/suburbs.
+
+
+
+# The main 'geoname' table has the following fields :  Source: link GeoNames above
+# ---------------------------------------------------
+# geonameid         : integer id of record in geonames database
+# name              : name of geographical point (utf8) varchar(200)
+# asciiname         : name of geographical point in plain ascii characters, varchar(200)
+# alternatenames    : alternatenames, comma separated, ascii names automatically transliterated, convenience attribute from alternatename table, varchar(10000)
+# latitude          : latitude in decimal degrees (wgs84)
+# longitude         : longitude in decimal degrees (wgs84)
+# feature class     : see http://www.geonames.org/export/codes.html, char(1)
+# feature code      : see http://www.geonames.org/export/codes.html, varchar(10)
+# country code      : ISO-3166 2-letter country code, 2 characters
+# cc2               : alternate country codes, comma separated, ISO-3166 2-letter country code, 200 characters
+# admin1 code       : fipscode (subject to change to iso code), see exceptions below, see file admin1Codes.txt for display names of this code; varchar(20)
+# admin2 code       : code for the second administrative division, a county in the US, see file admin2Codes.txt; varchar(80)
+# admin3 code       : code for third level administrative division, varchar(20)
+# admin4 code       : code for fourth level administrative division, varchar(20)
+# population        : bigint (8 byte int)
+# elevation         : in meters, integer
+# dem               : digital elevation model, srtm3 or gtopo30, average elevation of 3''x3'' (ca 90mx90m) or 30''x30'' (ca 900mx900m) area in meters, integer. srtm processed by cgiar/ciat.
+# timezone          : the iana timezone id (see file timeZone.txt) varchar(40)
+# modification date : date of last modification in yyyy-MM-dd format
+
 """
 
 import json
@@ -236,19 +264,12 @@ def main():
     level3 = []
     level4 = []  # level 4 ADM4
 
-    # with open(str(Path.home()) + "/Downloads/" + "Countries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
-    #     for line in dataFile:
-    #         data = line.split("\t")
-    #         input(data)
-
 
     with open(str(Path.home()) + "/Downloads/" + "allCountries.txt", 'r', encoding="utf8", errors='ignore') as dataFile:
         lines = dataFile.readlines()
         last = lines[-1]
         for line in lines:
-            # print(Region.codeCounter)
             data_row = line.split("\t")
-            input(data_row)
             if len(data_row) != 19:  # Expecting 19 columns
                 raise DataFileInWrongFormat()
             if line != last and ((data_row[FEATURE_CLASS] != 'P' and data_row[FEATURE_CLASS] != 'A') or (data_row[FEATURE_CODE] != 'PPLX' and data_row[FEATURE_CODE] != 'ADM1' and data_row[
@@ -258,28 +279,14 @@ def main():
             if data_row[LOCATION_NAME] == "":
                 raise MissingFeatureCode("location name is missing")
 
-            # DEBUGGING ONLY
-            # try:
-            #     data_row.index("VN") # Sambizanga, 2010629820
-            #     # if d[8] == 'AN':
-            #     # data_row.index("MA")
-            #     data_row.index("ADM4")
-            #     # print(d[7])
-            #     # print(d[7] == "ADM")
-            #     # # d.index("US")
-            #     print(data_row)
-            # except:
-            #     pass
-            #     # print("ERROR")
-            # continue
-
             if current_country is None:  # first country or we are moving on to a new country now
                 current_country = Region(countries_list.get(data_row[COUNTRY_CODE])[0], data_row[COUNTRY_CODE], countries_list.get(data_row[COUNTRY_CODE])[1])
                 FIPSToFHIRLevel1[current_country.FIPSCode] = current_country.FHIRCode
             elif (current_country is not None and current_country.FIPSCode != data_row[COUNTRY_CODE]) or line == last:
+                # once we've read new country block, go through what have just been read and link them to parent
 
                 unknown_state = None
-                for city in level3:
+                for city in level3: # try to link locations in Level 3 with it's parent
                     if FIPSToFHIRLevel2.get(city.parent) is None:
                         if unknown_state is None:
                             unknown_state = Region("unknown_state", "unknown_state", current_country.FIPSCode)
@@ -300,7 +307,7 @@ def main():
                     populate_code_system_concept_property_field(city_code_concept, "root", False)
 
                 unknown_city = None
-                for suburb in level4:
+                for suburb in level4: # try to link suburbs with it's parent
                     if FIPSToFHIRLevel3.get(suburb.parent) is None:
                         if unknown_state is None:
                             unknown_state = Region("unknown_state", "unknown_state", current_country.FIPSCode)
@@ -312,7 +319,7 @@ def main():
                             populate_code_system_concept_property_field(unknown_state_code_concept, "deprecated", False)
                             populate_code_system_concept_property_field(unknown_state_code_concept, "root", False)
 
-                        if unknown_city is None:  # ATM GROUP EVERYTHING UNDER UNKNOWN, MOST OF THESE HAVE KNOWN STATES
+                        if unknown_city is None:  # Anything that the parent is not known we will just class it as unknown node
                             unknown_city = Region(data_row[2], "unknown_city", unknown_state.FHIRCode)
                             unknown_city.parentFHIRCode = unknown_state.FHIRCode
 
@@ -332,7 +339,7 @@ def main():
                     populate_code_system_concept_property_field(suburb_code_concept, "root", False)
 
 
-
+                # reset what has been read in the current data block
                 level3 = []
                 level4 = []
                 FIPSToFHIRLevel2 = {}
@@ -377,19 +384,19 @@ def main():
                 FIPSToFHIRLevel3[city.FIPSCode] = city.FHIRCode
 
             elif data_row[FEATURE_CODE] == "ADM3":  # Suburb (level 4)
-                if data_row[ADMIN_1_CODE] == '': # there're only 5 of these at are blank, will decide what TODO with it
+                if data_row[ADMIN_1_CODE] == '': # anything that is blank we will just ignore it for now
                     pass
                 suburb = None
-                if data_row[ADMIN_2_CODE] == '': # check data_row[12] if going down more than ADM3?
-                    suburb = Region(data_row[LOCATION_NAME], data_row[ADMIN_3_CODE], "unknown") #ATM ignore the 'state' level code, drop that, FIX
+                if data_row[ADMIN_2_CODE] == '': # anythin that is blank we will just ignore it for now
+                    suburb = Region(data_row[LOCATION_NAME], data_row[ADMIN_3_CODE], "unknown") # at the moment ignore the 'state' level code
                 else:
                     suburb = Region(data_row[LOCATION_NAME], data_row[ADMIN_3_CODE], data_row[ADMIN_1_CODE] + data_row[ADMIN_2_CODE])
                 level4.append(suburb)
-            elif data_row[FEATURE_CODE] == "PPLX":  # find the latest non-empty one and use it instead of fixed [12]?
-                if data_row[ADMIN_1_CODE] == "": # The adminitrative division codes are blank, cannot link to existing ones, ignore
+            elif data_row[FEATURE_CODE] == "PPLX":  # using PPLX since a lot of Australian suburbs is classed inside this (for some reason)
+                if data_row[ADMIN_1_CODE] == "": # Ignore anything that is blank for now
                     pass
-                elif data_row[ADMIN_2_CODE] == "":  # this one must belong under AMD2
-                    level3.append(Region(data_row[LOCATION_NAME], "XXXX", data_row[ADMIN_1_CODE]))
+                elif data_row[ADMIN_2_CODE] == "":  # this one must belong under AMD2 since it is blank
+                    level3.append(Region(data_row[LOCATION_NAME], "XXXX", data_row[ADMIN_1_CODE])) # code it as XXXX for now
                 elif data_row[ADMIN_3_CODE] == "":
                     level4.append(Region(data_row[LOCATION_NAME], "YYYY", data_row[ADMIN_1_CODE] + data_row[ADMIN_2_CODE]))
 
@@ -403,26 +410,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# The main 'geoname' table has the following fields :
-# ---------------------------------------------------
-# geonameid         : integer id of record in geonames database
-# name              : name of geographical point (utf8) varchar(200)
-# asciiname         : name of geographical point in plain ascii characters, varchar(200)
-# alternatenames    : alternatenames, comma separated, ascii names automatically transliterated, convenience attribute from alternatename table, varchar(10000)
-# latitude          : latitude in decimal degrees (wgs84)
-# longitude         : longitude in decimal degrees (wgs84)
-# feature class     : see http://www.geonames.org/export/codes.html, char(1)
-# feature code      : see http://www.geonames.org/export/codes.html, varchar(10)
-# country code      : ISO-3166 2-letter country code, 2 characters
-# cc2               : alternate country codes, comma separated, ISO-3166 2-letter country code, 200 characters
-# admin1 code       : fipscode (subject to change to iso code), see exceptions below, see file admin1Codes.txt for display names of this code; varchar(20)
-# admin2 code       : code for the second administrative division, a county in the US, see file admin2Codes.txt; varchar(80)
-# admin3 code       : code for third level administrative division, varchar(20)
-# admin4 code       : code for fourth level administrative division, varchar(20)
-# population        : bigint (8 byte int)
-# elevation         : in meters, integer
-# dem               : digital elevation model, srtm3 or gtopo30, average elevation of 3''x3'' (ca 90mx90m) or 30''x30'' (ca 900mx900m) area in meters, integer. srtm processed by cgiar/ciat.
-# timezone          : the iana timezone id (see file timeZone.txt) varchar(40)
-# modification date : date of last modification in yyyy-MM-dd format
 

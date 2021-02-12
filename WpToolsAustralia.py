@@ -1,13 +1,15 @@
 """
-@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
 Generate json containing neighbours of each Australian suburbs.
 """
+
 import wptools
 import json
 
-# https://github.com/siznax/wptools/wiki/Examples#get-all-the-page-info
-# https://github.com/siznax/wptools/
+
 locations = []
 
 with open('AustralianLocations.json') as json_file:
@@ -25,11 +27,13 @@ with open('AustralianLocations.json') as json_file:
             locations.append((location['display'], location['property'][0]['valueCode']))
 
 neighbours = {}
+
+# Similar to using SPARQL, construct the link (or pages name in this case) to query in Wikipedia
 for country in locations:
     countryName = country[0].strip()
-    remove_space = countryName.replace(" ", "_")  # REMOVE THIS?? AND JUST LEAVE THE SPACE
+    remove_space = countryName.replace(" ", "_")  # replace spaces with underscore
     ink = None
-    if country[1] == "0000002":  # NSW DOESN'T NEED THE EXTENSION??
+    if country[1] == "0000002":
         link = remove_space + ', Australian Capital Territory'
     elif country[1] == "0000005":
         link = remove_space + ', New South Wales'
@@ -46,17 +50,12 @@ for country in locations:
     elif country[1] == "0000011":
         link = remove_space + ', Western Australia'
     else:
-        # print(country)  # The islands and states skip!
+        # The islands and states skip!
         continue
+
     try:
-        # print(link)
-        page = wptools.page(link) # get the last one
-        # p = page.get_query()
-        # print(page)
-        # p = page.get_more()
-        # print(page.data)
+        page = wptools.page(link) # retrieve the page and parse it, extract neighbouring info.
         so = page.get_parse()
-        # print(so.data['infobox'])
         near = {}
         near['n'] = so.data['infobox']['near-n']
         near['ne'] = so.data['infobox']['near-ne']
@@ -67,11 +66,6 @@ for country in locations:
         near['se'] = so.data['infobox']['near-se']
         near['s'] = so.data['infobox']['near-s']
         neighbours[link] = near
-        # print(near)
-        # print(neighbours)
-        # print(type(txt))
-        # print(txt.split("\n"))
-        # input('')
     except LookupError:
         print("LookupError")
         pass

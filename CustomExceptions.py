@@ -1,3 +1,12 @@
+"""
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
+
+This file contains all Exceptions used in the data extraction phase to indicate an error.
+"""
+
+
 class FeatureCodeException(Exception):
     """Used when FIPS code of a location is missing. Malformed GeoNames data."""
     def __init__(self, message):

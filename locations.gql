@@ -10,38 +10,6 @@ define
         relates neighbourOfMe,
         has direction;
 
-#    north sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    south sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    west sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    east sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    northEast sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    northWest sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    southEast sub relation,
-#        relates current,
-#        relates neighboursOf;
-#
-#    southWest sub relation,
-#        relates current,
-#        relates neighboursOf;
-
     name sub attribute,
         value string;
 

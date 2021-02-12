@@ -70,7 +70,6 @@ dependencies:
   - python-dateutil=2.8.1=py_0
   - pytz=2020.5=pyhd3eb1b0_0
   - rtree=0.9.4=py38h21ff451_1
-  - setuptools=51.0.0=py38haa95532_2
   - shapely=1.7.1=py38h210f175_0
   - six=1.15.0=py38haa95532_0
   - sqlite=3.33.0=h2a8f88b_0
@@ -88,7 +87,9 @@ dependencies:
   - pip:
     - fhir-resources==5.1.1
     - isodate==0.6.0
+    - protobuf==3.6.1
     - pyparsing==2.4.7
     - rdflib==5.0.0
+    - setuptools==51.3.3
     - sparqlwrapper==1.8.5
 prefix: C:\Users\KAC016\Anaconda3\envs\csiro

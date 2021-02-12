@@ -1,32 +1,33 @@
 """
-@author Chanon Kachornvuthij, kac016@csiro.au, chanon.kachorn@gmail.com
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
-Transform sburbs JSON into a knowledge graph on Grakn.
+Import subrbs from JSON file into a knowledge graph on Grakn.
 """
 from grakn.client import GraknClient
-# https://docs.grakn.ai/docs/examples/phone-calls-schema
-# https://docs.grakn.ai/docs/client-api/python
-
 import json
 
+# Uncomment and run this if want to remove a keyspace
 # with GraknClient(uri="localhost:48555") as client:
 #     with client.session(keyspace="locations_with_versioning") as session:
 #         client.keyspaces().delete('locations_with_versioning')
-# input('done')
+
 
 list_of_all_suburbs = set()
+
+# Read only locations in Queensland
 with open('AustralianNeighbours(Wptools).json') as json_file1:
     data = json.load(json_file1)
     for location in data:
         for direction in data[location]:
             processed = data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",'_').split(',')[0].split('|')
             location_processed = location.split(',')
-            if "Queensland" in location_processed[1] and "Herston" in processed: # only get Queensland locations
+            if "Queensland" in location_processed[1]: # and "Herston" in processed: # only get Queensland locations
                 list_of_all_suburbs.add(processed[0])
                 list_of_all_suburbs.add(location_processed[0])
-# input('stop')
 
-
+# Once locations are read from the file, import it into the knowledge graph
 with open('AustralianNeighbours(Wptools).json') as json_file1:
     with GraknClient(uri="localhost:48555") as client:
         with client.session(keyspace="locations_with_versioning") as session:
@@ -40,29 +41,22 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                     concepts = [ans.get("x") for ans in insert_iterator]
                     # print("Inserted a suburb with ID: {0}".format(concepts[0].id))
                     print("Inserted a suburb with name", suburb)
-                    ## to persist changes, write transaction must always be committed (closed)
+                    # to persist changes, write transaction must always be committed
                     write_transaction.commit()
                     count += 1
 
             print("in total there are", count)
 
-
+            # Add the locations relationship (neighbouring informations)
             count = 0
             data = json.load(json_file1)
             for location in data:
-
                 count += 1
-                # print("currently adding", count)
                 for direction in data[location]:
-                    # print(direction)
-                    # print(data[location][direction].replace('[','').replace(']',''))
                     processed = data[location][direction].replace('[','').replace(']','').replace("'",'').replace(" ",'_').split(',')[0].split('|')
-
-
-                    location_processed = location.split(',') # if have multiple then just get the first one
-                    if "Queensland" not in location_processed[1] or ("Herston" not in processed and "Herston" not in location_processed[0]):  # only get Queensland locations
+                    location_processed = location.split(',')
+                    if "Queensland" not in location_processed[1]: # or ("Herston" not in processed and "Herston" not in location_processed[0]):  # only get Queensland locations
                         continue
-
                     try:
                         with session.transaction().write() as write_transaction:
                             query = 'match $x isa suburb, has name "{suburbA}", has versionNumber 1; $y isa suburb, has name "{suburbB}", has versionNumber 1; ' \
@@ -72,19 +66,18 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                             concepts = [ans.get("x") for ans in insert_iterator]
                             print("Inserted a neighbour with ID: {0}".format(concepts[0].id))
                             print("added", location_processed[0], "with", processed[0], "direction", direction)
-                            ## to persist changes, write transaction must always be committed (closed)
+                            ## to persist changes, write transaction must always be committed
                             write_transaction.commit()
                     except:
                         print("ERROR")
                         pass
 
+            # The following code is only for demonstration purposes to test out the knowledge graph versioning. Uncomment if only want to see normal Knowledge graph without versioning features
             with session.transaction().write() as write_transaction:
                 query = 'insert $x isa version_tracker, has versionNumber 1, has date 2021-01-22;'
                 insert_iterator = write_transaction.query(query).get()
                 concepts = [ans.get("x") for ans in insert_iterator]
                 print("Inserted a version_tracker with ID: {0}".format(concepts[0].id))
-
-                ## to persist changes, write transaction must always be committed (closed)
                 write_transaction.commit()
 
             with session.transaction().write() as write_transaction:
@@ -92,51 +85,37 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                 insert_iterator = write_transaction.query(query).get()
                 concepts = [ans.get("x") for ans in insert_iterator]
                 print("Inserted a version_tracker with ID: {0}".format(concepts[0].id))
-
-                ## to persist changes, write transaction must always be committed (closed)
                 write_transaction.commit()
 
             with session.transaction().write() as write_transaction:
                 query = 'match $x isa version_tracker, has versionNumber 1; $y isa version_tracker, has versionNumber 2; ' \
                         'insert $relationship (current: $x, next: $y) isa version_update;'
-                # input(query)
                 insert_iterator = write_transaction.query(query).get()
                 concepts = [ans.get("x") for ans in insert_iterator]
-                # print("Inserted a neighbour with ID: {0}".format(concepts[0].id))
                 print("added", "version 1", "with", "version 2")
-                ## to persist changes, write transaction must always be committed (closed)
                 write_transaction.commit()
 
-            # TESTING ONLY
             with session.transaction().write() as write_transaction:
                 query = 'insert $x isa suburb, has name "New_Spring_Hill", has versionNumber 2;'
                 insert_iterator = write_transaction.query(query).get()
                 concepts = [ans.get("x") for ans in insert_iterator]
-                # print("Inserted a suburb with ID: {0}".format(concepts[0].id))
                 print("Inserted a suburb with name", "New_Spring_Hill")
-                ## to persist changes, write transaction must always be committed (closed)
                 write_transaction.commit()
 
             with session.transaction().write() as write_transaction:
                 query = 'match $x isa suburb, has name "Herston", has versionNumber 1; $y isa suburb, has name "New_Spring_Hill", has versionNumber 2; ' \
                         'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "s", has versionNumber 2;'
-                # input(query)
                 insert_iterator = write_transaction.query(query).get()
                 concepts = [ans.get("x") for ans in insert_iterator]
-                # print("Inserted a neighbour with ID: {0}".format(concepts[0].id))
                 print("added", "New_Spring_Hill", "with", "Herston", "direction", "s")
-                ## to persist changes, write transaction must always be committed (closed)
                 write_transaction.commit()
 
             with session.transaction().write() as write_transaction:
                 query = 'match $x isa suburb, has name "Spring_Hill", has versionNumber 1; $y isa suburb, has name "New_Spring_Hill", has versionNumber 2; ' \
                         'insert $relationship (old: $x, new: $y) isa suburb_update;'
-                # input(query)
                 insert_iterator = write_transaction.query(query).get()
                 concepts = [ans.get("x") for ans in insert_iterator]
-                # print("Inserted a neighbour with ID: {0}".format(concepts[0].id))
                 print("added", "New_Spring_Hill", "with", "Spring_Hill")
-                ## to persist changes, write transaction must always be committed (closed)
                 write_transaction.commit()
 
 

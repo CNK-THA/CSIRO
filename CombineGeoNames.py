@@ -1,5 +1,7 @@
 """
-@author Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+2020-2021 Vacation Project
+@author: Chanon Kachornvuthidej, kac016@csiro.au, chanon.kachorn@gmail.com
+@Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
 Attempt to combine all json files produced by different GeoNames script into 1 FHIR format json.
 
@@ -12,7 +14,7 @@ from GeoNames2 import *
 countries1 = {}
 countries2 = {}
 
-# GET COUNTRIES, TODO REMOVE THE CONTINENTS FROM THESE ONES!!!
+# GET COUNTRIES LEVEL for the first file
 with open('GlobalData(GeoNames1).json') as json_file1:
     data = json.load(json_file1)
     for location in data['concept']:
@@ -22,7 +24,7 @@ with open('GlobalData(GeoNames1).json') as json_file1:
                 location['property'][0]['valueCode'] == '0000006' or location['property'][0]['valueCode'] == '0000007'): # If this is country level, parent is Earth
             countries1[location['code']] = location['display']
 
-
+# GET countries level for the second file
 with open('newResultOutput.json') as json_file2:
     data = json.load(json_file2)
     for location in data['concept']:
@@ -32,14 +34,13 @@ with open('newResultOutput.json') as json_file2:
                 location['property'][0]['valueCode'] == '0151624' or location['property'][0]['valueCode'] == '0151625'): # CHECK THESE NUMBERS, GOTTA BE BETWEEN 20 TO 26!!!
             countries2[location['code']] = location['display']
 
-countries1_set = set(countries1.values())
+countries1_set = set(countries1.values()) # Use the set datastructure to remove duplicates
 countries2_set = set(countries2.values())
 
-in_second_but_not_first = countries2_set - countries1_set
+in_second_but_not_first = countries2_set - countries1_set # find which locations appear in one file but not the other, then try to add it together
 combined = list(countries1.values()) + list(in_second_but_not_first) # use 1 cause that's the one that is less
 
-# print(combined)
-# print(len(combined))
+
 
 code_system = create_code_system_instance("complete", "draft", "CodeSystem for different administrative divisions around the world", True, FHIRDate(str(date.today())), "Ontology-CSIRO",
                                 "http://csiro.au/geographic-locations", "0.4", "Location Ontology", "Chanon K.", True, "is-a", "http://csiro.au/geographic-locations?vs") # FHIRDate(str(date.today()))
@@ -78,13 +79,12 @@ with open('newResultOutput.json') as json_file1:
                 state.append((location['code'], location['display']))
                 states2[countries2.get(codes)] = state # parent code (country) mapped to list containing tuples of current code and name (states)
 
-
-# print(states1)
-# print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-# print(states2)
+# For debugging
+# print("------------------------------------------------------------------------------------------------------------")
 
 combined_states = {}
 
+# Attempt to combine the countries together
 for country in combined:
     s12 = set()
     s1 = states1.get(country)
@@ -98,10 +98,7 @@ for country in combined:
     combined_states[country] = s12
 
 
-
-
-# GET DISTRICTS
-
+# GET DISTRICTS Level from the files
 district1 = {}
 district2 = {}
 
@@ -132,3 +129,123 @@ with open('newResultOutput.json') as json_file1:
                     district2[country + "," + states[1]] = district  # parent code (country) mapped to list containing tuples of current code and name (states)
 
 
+
+
+
+# SECOND VERSION
+
+
+import json
+
+countries = {}
+locations = []
+country = None
+
+# Get names of all countries
+with open('newResultOutput.json') as json_file2:
+    data = json.load(json_file2)
+    for location in data['concept']:
+        if location['display'] != "Earth" and (location['property'][0]['valueCode'] == '0151619' or
+                                               location['property'][0]['valueCode'] == '0151620' or
+                                               location['property'][0]['valueCode'] == '0151621' or
+                                               location['property'][0]['valueCode'] == '0151622' or
+                                               location['property'][0]['valueCode'] == '0151623' or
+                                               location['property'][0]['valueCode'] == '0151624' or
+                                               location['property'][0]['valueCode'] == '0151625' or
+                                               location['property'][0]['valueCode'] == '0151626') and (
+                location['code'] != '0151626' and
+                location['code'] != '0151620' and
+                location['code'] != '0151621' and
+                location['code'] != '0151622' and
+                location['code'] != '0151623' and
+                location['code'] != '0151624' and
+                location['code'] != '0151625'):  # CHECK THESE NUMBERS, GOTTA BE BETWEEN 20 TO 26!!!
+            countries[location['code']] = location['display']
+
+# print(countries)
+
+# Get names of all states
+states = {}
+mark = False
+with open('newResultOutput.json') as json_file1:
+    data = json.load(json_file1)
+    for location in data['concept']:
+        if location['code'] == "0003728": # end of the states section
+            break
+        elif location['code'] != "0000256" and not mark:
+            continue
+        mark = True
+        for codes in countries.keys():
+            if location['display'] != "Earth" and location['property'][0]['valueCode'] == codes: # if parent is the country
+                if states.get(countries.get(codes)) is None:
+                    state = []
+                else:
+                    state = states.get(countries.get(codes))
+                state.append((location['code'], location['display']))
+                states[countries.get(codes)] = state # parent code (country) mapped to list containing tuples of current code and name (states)
+                break
+
+# print(states)
+
+# Get names of all districts
+districts = {}
+mark = False
+with open('newResultOutput.json') as json_file1:
+    data = json.load(json_file1)
+    for location in data['concept']:
+        if location['code'] == "0045430":
+            break
+        elif location['code'] != "0003728" and not mark:
+            continue
+        mark = True
+
+        for country in states.keys():
+            found = False
+            for state in states.get(country):
+                if location['display'] != "Earth" and location['property'][0]['valueCode'] == state[0]:  # if parent is the country
+                    if districts.get(country + "," + state[1]) is None:
+                        district = []
+                    else:
+                        district = districts.get(country + "," + state[1])
+                    district.append((location['code'], location['display']))
+                    districts[country + "," + state[1]] = district  # parent code (country) mapped to list containing tuples of current code and name (states)
+                    found = True
+                    break
+            if found:
+                break
+print(districts.keys())
+
+
+# Get names of all suburbs
+suburbs = {}
+mark = False
+with open('newResultOutput.json') as json_file1:
+    data = json.load(json_file1)
+    for location in data['concept']:
+        print(location['code'])
+        if location['code'] != '0045430' and not mark:
+            continue
+        mark = True
+
+        for key in districts.keys():
+            # print(key, '************************')
+            # print(districts.get(key))
+            found = False
+            if districts.get(key) is not None:  # for some reason it's none, probably blank?
+                for district in districts.get(key):
+                    if location['display'] != "Earth" and location['property'][0]['valueCode'] == district[0]:  # if parent is the district
+                        if suburbs.get(key + ',' + district[1]) is None:
+                            suburb = []
+                        else:
+                            suburb = suburbs.get(key + ',' + district[1])
+                        suburb.append(location['display']) # NOT AS TUPLE, could do tuple for futher levels
+                        suburbs[key + ',' + district[1]] = suburb  # parent code (country) mapped to list containing tuples of current code and name (states)
+                        found = True
+                        break # already found it move on?
+            if found:
+                break
+
+print(suburbs)
+
+with open("GlobalDataNeighbours(Sparql).txt", "w") as out:
+    out.write(json.dumps(suburbs))
