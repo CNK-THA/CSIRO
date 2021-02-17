@@ -132,7 +132,7 @@ with open('newResultOutput.json') as json_file1:
 
 
 
-# SECOND VERSION
+# SECOND VERSION, STILL IN DEVELOPMENT
 
 
 import json

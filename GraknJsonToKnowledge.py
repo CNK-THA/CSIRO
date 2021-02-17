@@ -21,9 +21,12 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
     data = json.load(json_file1)
     for location in data:
         for direction in data[location]:
-            processed = data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",'_').split(',')[0].split('|')
+            processed = \
+                data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ", '_').split(
+                    ',')[
+                    0].split('|')
             location_processed = location.split(',')
-            if "Queensland" in location_processed[1]: # and "Herston" in processed: # only get Queensland locations
+            if "Queensland" in location_processed[1]:  # and "Herston" in processed: # only get Queensland locations
                 list_of_all_suburbs.add(processed[0])
                 list_of_all_suburbs.add(location_processed[0])
 
@@ -34,9 +37,10 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
 
             count = 0
             for suburb in list_of_all_suburbs:
-            # Adding the suburbs to the database, ran once!
+                # Adding the suburbs to the database, ran once!
                 with session.transaction().write() as write_transaction:
-                    query = 'insert $x isa suburb, has name "{suburbName}", has versionNumber 1;'.format(suburbName=suburb)
+                    query = 'insert $x isa suburb, has name "{suburbName}", has versionNumber 1;'.format(
+                        suburbName=suburb)
                     insert_iterator = write_transaction.query(query).get()
                     concepts = [ans.get("x") for ans in insert_iterator]
                     # print("Inserted a suburb with ID: {0}".format(concepts[0].id))
@@ -52,15 +56,20 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
             data = json.load(json_file1)
             for location in data:
                 count += 1
-                for direction in data[location]:
-                    processed = data[location][direction].replace('[','').replace(']','').replace("'",'').replace(" ",'_').split(',')[0].split('|')
+                for direction in data[location]:  # extract just the name of the location and igore other details
+                    processed = \
+                        data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",
+                                                                                                             '_').split(
+                            ',')[0].split('|')
                     location_processed = location.split(',')
-                    if "Queensland" not in location_processed[1]: # or ("Herston" not in processed and "Herston" not in location_processed[0]):  # only get Queensland locations
+                    if "Queensland" not in location_processed[
+                        1]:  # or ("Herston" not in processed and "Herston" not in location_processed[0]):  # only get Queensland locations
                         continue
                     try:
                         with session.transaction().write() as write_transaction:
                             query = 'match $x isa suburb, has name "{suburbA}", has versionNumber 1; $y isa suburb, has name "{suburbB}", has versionNumber 1; ' \
-                                    'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}", has versionNumber 1;'.format(suburbA=location_processed[0], suburbB=processed[0], direct=direction)
+                                    'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}", has versionNumber 1;'.format(
+                                suburbA=location_processed[0], suburbB=processed[0], direct=direction)
                             # input(query)
                             insert_iterator = write_transaction.query(query).get()
                             concepts = [ans.get("x") for ans in insert_iterator]
@@ -118,22 +127,22 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                 print("added", "New_Spring_Hill", "with", "Spring_Hill")
                 write_transaction.commit()
 
-
 # Queries to run on Grakn graph
+
 # # show entity with attributes link
 # # match $x isa suburb; $x has attribute $a; get;
-# # show relationship with attribute direction
-# # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $emp has attribute $b; get; offset 0; limit 30;
-# # Like abbove bbut show all attributes!
-# # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has attribute $m; $y has attribute $p; $emp has attribute $b; get; offset 0; limit 2;
 
+# # show relationship with attribute direction
+# # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has attribute $m; $y has attribute $p; $emp has attribute $b; get; offset 0; limit 2;
 # match $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $x has attribute $name1; $y has attribute $name2; $relationship has attribute $direction; get; offset 0; limit 10;
 
 # # Show specific suburb with all it's neighbours
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $x has attribute $q; $y has attribute $f; $y has attribute $o; $emp has attribute $k; $emp has attribute $b; get; offset 0; limit 30;
 # # match $emp (me: $x, neighbourOfMe: $y) isa neighbour; $x has name "Herston"; $x has attribute $t; $y has attribute $f; $emp has attribute $k; get; offset 0; limit 30;
 
-# Show version control
+
+# Queries including the version control features - still in development
+# Show version control entity - still in development
 # # match $emp (current: $x, next: $y) isa version_update; $x has attribute $t; $y has attribute $f; get; offset 0; limit 30;
 
 # Show suburb updates

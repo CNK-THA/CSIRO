@@ -4,12 +4,17 @@
 @Supervisors: Dr Alejandro Metke Jimenez, Alejandro.Metke@csiro.au and Dr Hoa Ngo Hoa.Ngo@csiro.au
 
 Generate txt containing neighbours of all Global suburbs.
+
+Note: This file is unused!
 """
 
 
 import json
 
 class SetEncoder(json.JSONEncoder):
+   """
+   Helper class to encode data into JSON object.
+   """
    def default(self, obj):
       if isinstance(obj, set):
          return list(obj)
@@ -19,7 +24,8 @@ countries = []
 
 with open('newResultOutput.json') as json_file:
    data = json.load(json_file)
-   for location in data['concept']:
+   for location in data['concept']: # Note that these valueCode is hardCoded, future implementation needs to change these
+      # Ignore the continents level and extract only the countries and below!
       if location['display'] != "Earth" and (location['property'][0]['valueCode'] != '0151626' and
                                              location['property'][0]['valueCode'] != '0151620' and
                                              location['property'][0]['valueCode'] != '0151621' and
@@ -66,11 +72,11 @@ for country in countries:
 
    if len(results["results"]["bindings"]) == 0:
 
-      continue # Something went wrong. Either it's not a suburb or broken link
+      continue # Something went wrong. Either it's not a suburb or broken link, ignore it for now
 
    for data in results["results"]["bindings"]:
       for direction in ['north', 'northeast', 'northwest', 'south', 'southeast', 'southwest', 'east', 'west']:
-         neighbour = data[direction]['value'].replace('Province','').split(',')[0].strip() # SPLIT ON COMMA, ANY NAME WITH THAT???
+         neighbour = data[direction]['value'].replace('Province','').split(',')[0].strip() # SPLIT ON COMMA
          existing = linking.get(direction)
          if existing is None:
             existing = set()
