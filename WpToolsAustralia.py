@@ -14,7 +14,7 @@ locations = []
 
 with open('AustralianLocations.json') as json_file:
     data = json.load(json_file)
-    for location in data['concept']:
+    for location in data['concept']: # extract only the suburb level, anything in continents/countries/states level we ignore
         if location['display'] != "Earth" and (location['code'] != '0001387' and
                                                location['code'] != '0001388' and
                                                location['code'] != '0001389' and
@@ -33,7 +33,7 @@ for country in locations:
     countryName = country[0].strip()
     remove_space = countryName.replace(" ", "_")  # replace spaces with underscore
     ink = None
-    if country[1] == "0000002":
+    if country[1] == "0000002": # attach the states to the location (part of wikipedia webpage structure)
         link = remove_space + ', Australian Capital Territory'
     elif country[1] == "0000005":
         link = remove_space + ', New South Wales'
@@ -56,7 +56,7 @@ for country in locations:
     try:
         page = wptools.page(link) # retrieve the page and parse it, extract neighbouring info.
         so = page.get_parse()
-        near = {}
+        near = {} # extract from the info box, any errors happens we will ignore
         near['n'] = so.data['infobox']['near-n']
         near['ne'] = so.data['infobox']['near-ne']
         near['w'] = so.data['infobox']['near-w']

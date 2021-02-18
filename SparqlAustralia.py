@@ -16,7 +16,7 @@ Some useful resources to check out:
 # PREFIX http://prefix.cc/dbr,dbo,dct,owl,prov,qb,qudt,rdf,rdfs,schema,skos,unit,xsd,sdmx.sparql
 # http://prefix.cc/dbp
 
-Note: This file is unused!
+Note: THIS FILE IS UNUSED!!!!!
 
 """
 

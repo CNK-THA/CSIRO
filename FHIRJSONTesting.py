@@ -35,7 +35,7 @@ class JsonTesting(unittest.TestCase):
 
             allLocations.sort()  # in ascending order
 
-    def test_all_location_code_exist(self):
+    def test_all_location_code_exist(self): # test that all location code exist from 000000 - XXXXXXX <-- as shown in the CodeSystemConcept count
         global currentCounter, allLocations, allParents, tmp, data
 
         if len(allLocations) != int(data['count']):

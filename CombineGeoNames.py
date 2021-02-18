@@ -5,6 +5,8 @@
 
 Attempt to combine all json files produced by different GeoNames script into 1 FHIR format json.
 
+NOTE: THE 7 DIGIT NUMBERS USED BELOW REPRESENT THE CONTINENTS LEVEL/COUNTRY LEVEL THAT WE WANT TO IGNORE, FUTURE
+DEVELOPMENT WILL NEED TO UPDATE THESE VALUES!!!
 """
 
 import json

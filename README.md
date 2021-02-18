@@ -34,7 +34,7 @@ geographical locations around the world. Once extracted a .txt file with data of
 
 4. [NGA GeoNames](https://geonames.nga.mil/gns/html/namefiles.html) (geonames_20210208.zip) entire country file dataset.
 
-Place all extracted files inside the data folder.
+Place all extracted files inside the same directory as the python scripts.
 
 ## Output
 Sets of .json and .txt file will be produced after running each of the scripts. Here is a guide to interpret the files:

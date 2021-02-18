@@ -56,7 +56,7 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
             data = json.load(json_file1)
             for location in data:
                 count += 1
-                for direction in data[location]:  # extract just the name of the location and igore other details
+                for direction in data[location]:  # extract just the name of the location and ignore other details
                     processed = \
                         data[location][direction].replace('[', '').replace(']', '').replace("'", '').replace(" ",
                                                                                                              '_').split(
@@ -66,7 +66,7 @@ with open('AustralianNeighbours(Wptools).json') as json_file1:
                         1]:  # or ("Herston" not in processed and "Herston" not in location_processed[0]):  # only get Queensland locations
                         continue
                     try:
-                        with session.transaction().write() as write_transaction:
+                        with session.transaction().write() as write_transaction: # insert the location relationships into the database
                             query = 'match $x isa suburb, has name "{suburbA}", has versionNumber 1; $y isa suburb, has name "{suburbB}", has versionNumber 1; ' \
                                     'insert $relationship (me: $x, neighbourOfMe: $y) isa neighbour; $relationship has direction "{direct}", has versionNumber 1;'.format(
                                 suburbA=location_processed[0], suburbB=processed[0], direct=direction)

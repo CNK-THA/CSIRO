@@ -5,7 +5,7 @@
 
 Generate txt containing neighbours of all Global suburbs.
 
-Note: This file is unused!
+Note: THIS FILE IS UNUSED!!!
 """
 
 
