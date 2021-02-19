@@ -66,12 +66,12 @@ In addition, the databases contains in this project archive already contains all
 7. Test the produced FHIR CodeSystem (from step 1 and 2) that it complies with the FHIR standards and is bug free with FHIRJSONTesting.py
 
 ## Additional Files
-FHIR_Example_Alejandro.json is an example of the FHIR CodeSystem in use in other project used as a development referenence.
-locations.gql is the knowledge graph schema imported into Grakn database prior to importing data (see step 5 in Running the code).
-locations_withVersioning.gql is the knowledge graph schema with proof of concept withe versioning feature (still in development).
-geonames - unused x directories contains geonames databases used for initial development of the current project before discarding it's use due to obsoleteness + irrelevant data. Is kept for archive purposes.
-Literatures - contains few sample papers relevant to the current project. See the *report* for full list of literature resources.
-grakn-core-all-windows-1.8.4 directory contains the knowledge graph database complete with data.  
+- FHIR_Example_Alejandro.json is an example of the FHIR CodeSystem in use in other project used as a development referenence.
+- locations.gql is the knowledge graph schema imported into Grakn database prior to importing data (see step 5 in Running the code).
+- locations_withVersioning.gql is the knowledge graph schema with proof of concept withe versioning feature (still in development).
+- geonames - unused x directories contains geonames databases used for initial development of the current project before discarding it's use due to obsoleteness + irrelevant data. Is kept for archive purposes.
+- Literatures - contains few sample papers relevant to the current project. See the *report* for full list of literature resources.
+- grakn-core-all-windows-1.8.4 directory contains the knowledge graph database complete with data.  
 
 ## Known Bugs / Limitations
 - Some suburbs are producing errors when querying Wikipedia (WpToolsAustralia.py). Currently ignoring all errors and skipping suburbs that produce them.
