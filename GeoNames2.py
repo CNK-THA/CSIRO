@@ -78,7 +78,7 @@ def main():
             print("there are:", len(c), "in total")
 
             # These are only used to get Australian locations for the demonstration
-            # ################ comment below and deindent the codes to get all locations ##############################
+            # ################ comment below and deindent the codes in the next section to get all locations ##########
             while True:
                 try:
                     name = current_location['properties']['NAME_ENGLI']
@@ -95,7 +95,7 @@ def main():
                             continue
                         except StopIteration:
                             break
-
+            ###########################################################################################################
                 if layername == "gadm28_adm0": # countries level
                     new_country = Region2(current_location['properties']['NAME_ENGLI'], "None")
                     if current_location['properties']['UNREGION1'] is None:
